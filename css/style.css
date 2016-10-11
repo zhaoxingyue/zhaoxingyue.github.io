@@ -746,6 +746,15 @@ a {
   text-align: left;
   line-height: 30px;
 }
+#header .switch-part5 {
+  left: 54px;
+  text-align: left;
+  line-height: 30px;
+  top: 200px;
+}
+#header .switch-part5 img {
+  width: 110px;
+}
 .duoshuo {
   padding: 0 40px;
 }
