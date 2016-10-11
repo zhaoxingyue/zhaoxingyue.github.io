@@ -3,20 +3,23 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Hexo</title>
+  <title>NODE NEWBEE</title>
 
   <!-- keywords -->
   
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/index.html">
-<meta property="og:site_name" content="Hexo">
+  <meta name="description" content="赵兴越的博客">
+<meta property="og:type" content="website">
+<meta property="og:title" content="NODE NEWBEE">
+<meta property="og:url" content="http://127.0.0.1:4000/index.html">
+<meta property="og:site_name" content="NODE NEWBEE">
+<meta property="og:description" content="赵兴越的博客">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="NODE NEWBEE">
+<meta name="twitter:description" content="赵兴越的博客">
   
-    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="NODE NEWBEE" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -38,12 +41,12 @@
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
 			
-			<img lazy-src="http://7xkj1z.com1.z0.glb.clouddn.com/head.jpg" class="js-avatar">
+			<img lazy-src="https://avatars0.githubusercontent.com/u/15117664?v=3&amp;u=a64a0ca7dfffa9da8eafc9673bb6d45038235a58&amp;s=140" class="js-avatar">
 			
 		</a>
 
 		<hgroup>
-		  <h1 class="header-author"><a href="/">John Doe</a></h1>
+		  <h1 class="header-author"><a href="/">zxy</a></h1>
 		</hgroup>
 
 		
@@ -130,15 +133,15 @@
       <nav id="mobile-nav">
   	<div class="overlay">
   		<div class="slider-trigger"></div>
-  		<h1 class="header-author js-mobile-header hide">John Doe</h1>
+  		<h1 class="header-author js-mobile-header hide">zxy</h1>
   	</div>
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img lazy-src="http://7xkj1z.com1.z0.glb.clouddn.com/head.jpg" class="js-avatar">
+				<img lazy-src="https://avatars0.githubusercontent.com/u/15117664?v=3&amp;u=a64a0ca7dfffa9da8eafc9673bb6d45038235a58&amp;s=140" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author">John Doe</h1>
+			  <h1 class="header-author">zxy</h1>
 			</hgroup>
 			
 			<nav class="header-menu">
@@ -161,11 +164,11 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-me" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-rabbitmq_cluster" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/10/11/me/" class="article-date">
-  	<time datetime="2016-10-11T03:18:43.000Z" itemprop="datePublished">2016-10-11</time>
+      <a href="/rabbitmq_cluster/" class="article-date">
+  	<time datetime="2016-10-11T05:06:20.000Z" itemprop="datePublished">2016-10-11</time>
 </a>
     </div>
   
@@ -178,7 +181,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/11/me/">me.md</a>
+      <a class="article-title" href="/rabbitmq_cluster/">mq集群</a>
     </h1>
   
 
@@ -187,111 +190,163 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-      
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-ali" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/10/11/ali/" class="article-date">
-  	<time datetime="2016-10-11T02:18:29.000Z" itemprop="datePublished">2016-10-11</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/11/ali/">阿里云服务器挂载数据硬盘</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>  购买普通阿里云服务器的时候，本机默认自带的系统盘大小为20G，但是这样的大小是不满足部署产品服务器的需求，<br>  所以可以购买阿里云数据盘，一半大小为200G</p>
+        <p>mq的使用状态分为</p>
 <ul>
-<li><p>首先使用root用户查看系统版本，本文是在centos中部署使用</p>
-<p>在终端中使用下面命令查看系统版本</p>
+<li><p>单一模式（非集群，单一服务）</p>
+<blockquote>
+<p>没啥好说的.</p>
+</blockquote>
+</li>
+<li><p>默认的集群方式</p>
+<blockquote>
+<p>连接一个节点(node1)，只能将消息任务从node1向其他节点(node2,node3)同步，如果连接这个节点<br>挂掉之后不能保证消息的传递，挂掉之后不能进行重新的连接。整体的服务就是挂掉了。</p>
+</blockquote>
+</li>
+<li><p>负载 + rabbitmq集群模式</p>
+<blockquote>
+<p>这种方式的好处是，使用负载（可以想象成SLB对服务器的负载），连接多个mq节点，当有mq节点挂掉之后，<br>其他节点还是可以继续工作，同时使用负载进行对多个mq节点的连接请求进行优化。将压力分摊到各个节点。</p>
+</blockquote>
 </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ lsb_release -a </div><div class="line"></div><div class="line">LSB Version:  :core-4.1-amd64:core-4.1-noarch</div><div class="line">Distributor ID: CentOS</div><div class="line">Description:  CentOS Linux release 7.2.1511 (Core) </div><div class="line">Release:  7.2.1511</div><div class="line">Codename: Core</div></pre></td></tr></table></figure>
-<p>确定系统版本之后在终端中确认系统盘情况(注：使用root用户): </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">$ fdisk -l </div><div class="line"></div><div class="line">Disk /dev/xvda: 21.5 GB, 21474836480 bytes, 41943040 sectors</div><div class="line">Units = sectors of 1 * 512 = 512 bytes</div><div class="line">Sector size (logical/physical): 512 bytes / 512 bytes</div><div class="line">I/O size (minimum/optimal): 512 bytes / 512 bytes</div><div class="line">Disk label type: dos</div><div class="line">Disk identifier: 0x0009e68a</div><div class="line"></div><div class="line">    Device Boot      Start         End      Blocks   Id  System</div><div class="line">/dev/xvda1   *        2048    41943039    20970496   83  Linux</div><div class="line"></div><div class="line">Disk /dev/xvdb: 214.7 GB, 214748364800 bytes, 419430400 sectors</div><div class="line">Units = sectors of 1 * 512 = 512 bytes</div><div class="line">Sector size (logical/physical): 512 bytes / 512 bytes</div><div class="line">I/O size (minimum/optimal): 512 bytes / 512 bytes</div><div class="line">Disk label type: dos</div><div class="line">Disk identifier: 0xd0c73cf7</div><div class="line"></div><div class="line">    Device Boot      Start         End      Blocks   Id  System</div><div class="line">/dev/xvdb1            2048   419430399   209714176   83  Linux</div></pre></td></tr></table></figure>
-<p>首先确认在阿里云中购买了数据盘，上面的Disk /dev/xvda是自带的系统盘，/dev/xvda1表示已经挂载并且在使用中，Disk /dev/xvdb是数据盘，<br>上面的情况是已经挂载好的，如果没有挂载情况，只显示Disk /dev/xvdb: 214.7 GB, 214748364800 bytes, 419430400 sectors，表示未被<br>使用</p>
+<p>今天做的是搭建负载 + rabbitmq集群模式，先来看张图：</p>
+<div align="center"><br><img src="../pic/mq集群拓扑.png" width="650px" height="600px" text-align:center=""><br></div>
+
+<blockquote>
+<p>这里一共分为三个mq节点和一个负载节点（即搭建负载的连接节点），其中有两个是ram（内存），和一个disc(硬盘)<br>节点，这样可以保证队列的效率，同时也可以保证数据的安全性（持久化数据到硬盘）。</p>
+</blockquote>
+<h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><p>以下所有操作均是root用户,且需要在三台节点机器上都进行操作</p>
 <ul>
-<li>将未被分区挂载的数据盘进行分区挂载</li>
+<li>修改主机的hostname<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ vi /etc/hostname</div></pre></td></tr></table></figure>
+</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ fdisk  /dev/xvdb</div></pre></td></tr></table></figure>
-<p>根据提示，输入”n”,”p”,”1”,两次回车,”wq”,分区开始，很快就会结束</p>
+<p>如果是node1，则修改为node1，余下两台以此类推。</p>
 <ul>
-<li>查看新的分区： </li>
+<li>修改hosts<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ vi /etc/hosts</div></pre></td></tr></table></figure>
+</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ fdisk -l</div></pre></td></tr></table></figure>
-<p>此时应该显示/dev/xvdb已被分区, like this:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Device                Boot      Start         End      Blocks   Id  System</div><div class="line">/dev/xvdb1            2048   419430399   209714176              83  Linux</div></pre></td></tr></table></figure>
+<p>分别将三个节点的信息添加进去,格式如下:   </p>
+<blockquote>
+<p>192.168.199.1 node1<br>192.168.199.2 node2<br>193.168.199.2 node3  </p>
+</blockquote>
 <ul>
-<li>格式化新的分区</li>
+<li>重启机器<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">reboot</div></pre></td></tr></table></figure>
+</li>
 </ul>
-<p>以ext3为例：使用“mkfs.ext3 /dev/xvdb1”命令对新分区进行格式化，格式化的时间根据硬盘大小有所不同。<br>(也可自主决定选用其它文件格式，如ext4等)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ mkfs.ext3 /dev/xvdb1</div></pre></td></tr></table></figure>
-<p>需要等一段时间等待格式化完毕</p>
+<p>修改hostname和hosts是为了能将hostname格式统一，方便管理和观察。</p>
+<h3 id="在三个机器安装rabbimq"><a href="#在三个机器安装rabbimq" class="headerlink" title="在三个机器安装rabbimq"></a>在三个机器安装rabbimq</h3><ul>
+<li><p>首先安装erlang</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo yum install erlang</div></pre></td></tr></table></figure>
+</li>
+<li><p>下载最新版本rabbitmq</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ wget &quot;http://www.rabbitmq.com/releases/rabbitmq-server/v3.6.2/rabbitmq-server-3.6.2-1.noarch.rpm&quot;</div><div class="line">$ rpm -ivh rabbitmq-server-3.6.2-1.noarch.rpm</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>.rpm是linux系统的可执行文件，像win下的.exe一样，rpm -ivh 是安装 .rpm的命令</p>
+</blockquote>
 <ul>
-<li>添加新的分区信息</li>
+<li><p>安装时可能会需要socat</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">socat是一个netcat的升级版，是在两个流之间建立双向通道</div></pre></td></tr></table></figure>
+</li>
+<li><p>安装socat</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo yum install socat</div></pre></td></tr></table></figure>
+</li>
+<li><p>以服务的方式启动mq</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ service rabbitmq-server start</div></pre></td></tr></table></figure>
+</li>
+<li><p>安装mq客户端插件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ rabbitmq-plugins enable rabbitmq_management</div></pre></td></tr></table></figure>
+</li>
+<li><p>重启mq</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ service rabbitmq-server restart</div></pre></td></tr></table></figure>
+</li>
+<li><p>解决无法登录问题</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo vi /etc/rabbitmq/rabbitmq.config</div></pre></td></tr></table></figure>
+</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ echo &apos;/dev/xvdb1  /mnt ext3    defaults    0  0&apos; &gt;&gt; /etc/fstab</div></pre></td></tr></table></figure>
+<p>添加如下内容</p>
+<blockquote>
+<p>[{rabbit, [{loopback_users, []}]}].</p>
+</blockquote>
+<p>注意后面的’.’</p>
+<h3 id="统一每个机器的erlang-cookie"><a href="#统一每个机器的erlang-cookie" class="headerlink" title="统一每个机器的erlang.cookie"></a>统一每个机器的erlang.cookie</h3><p>rabbitmq 是基于erlang进行工作的，erlang 天生就是用于集群的语言，其健壮性，高并发，分布式的优点为<br>rabbitmq提供了很好的环境。erlang集群是基于erlang.cookie的同步性进行通信，所以在配置集群之前应该<br>将erlang.cookie统一。</p>
 <ul>
-<li>查看分区</li>
+<li>复制erlang.cookie到各个节点<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ cat /var/lib/rabbitmq/.erlang.cookie </div><div class="line">TJXAHQIUTYPRHIFYSNNF</div><div class="line">$ cat ~/.erlang.cookie</div><div class="line">XKKEZRFMWHBKAQVQHSPV</div></pre></td></tr></table></figure>
+</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ cat /etc/fstab</div></pre></td></tr></table></figure>
-<p>出现/dev/xvdb1  /mnt ext3    defaults    0  0 说明成功</p>
+<p>分别将.erlang.cookie的内容复制到另外两个机器。</p>
 <ul>
-<li>挂载新的分区</li>
+<li>修改.erlang.cookie权限<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ chmod 400 /var/lib/rabbitmq/.erlang.cookie</div><div class="line">$ chown rabbitmq /var/lib/rabbitmq/.erlang.cookie</div><div class="line">$ chgrp rabbitmq /var/lib/rabbitmq/.erlang.cookie</div></pre></td></tr></table></figure>
+</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ mount -a</div></pre></td></tr></table></figure>
+<p>准备工作基本就到此结束，下面开始正式的部署集群</p>
+<h2 id="集群"><a href="#集群" class="headerlink" title="集群"></a>集群</h2><p>集群的方式还是需要使用rabbitmq自带的集群方式</p>
 <ul>
-<li>查看分区的情况</li>
+<li>三个节点同时启动rabbitmq<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ service rabbitmq-server start</div></pre></td></tr></table></figure>
+</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">$ df -h</div><div class="line"></div><div class="line">Filesystem     1K-blocks    Used Available Use% Mounted on</div><div class="line">/dev/xvda1      20510332 2031552  17413872  11% /</div><div class="line">devtmpfs          934320       0    934320   0% /dev</div><div class="line">tmpfs             942004       0    942004   0% /dev/shm</div><div class="line">tmpfs             942004   98724    843280  11% /run</div><div class="line">tmpfs             942004       0    942004   0% /sys/fs/cgroup</div><div class="line">/dev/xvdb1     206292664 1065720 194724852   1% /mnt</div></pre></td></tr></table></figure>
-<p>/dev/xvdb1已经成功启用，挂载成功</p>
+<p>默认加入集群node1</p>
+<ul>
+<li>组成集群<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">node2 $ rabbitmqctl stop_app </div><div class="line">node2 $ rabbitmqctl join_cluster rabbit@node1</div><div class="line">node2 $ rabbitmqctl start_app</div><div class="line"></div><div class="line">node3 $ rabbitmqctl stop_app </div><div class="line">node3 $ rabbitmqctl join_cluster rabbit@node1</div><div class="line">node3 $ rabbitmqctl start_app</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>此时 node2 与 node3 也会自动建立连接；如果要使用内存节点，则可以使用以下命令加入集群。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">node2 $ rabbitmqctl join_cluster --ram rabbit@node1</div></pre></td></tr></table></figure></p>
+<ul>
+<li>设置同步节点<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ rabbitmqctl set_policy ha-all &quot;^&quot; &apos;&#123;&quot;ha-mode&quot;:&quot;all&quot;&#125;&apos;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>将所有队列设置为镜像队列，即队列会被复制到各个节点，各个节点状态保持一致。</p>
+<h3 id="安装haproxy"><a href="#安装haproxy" class="headerlink" title="安装haproxy"></a>安装haproxy</h3><p>haproxy是一个负载均衡的软件，基于TCP和HTTP应用的代理，支持虚拟主机, HAProxy实现了一种事件驱动,<br>单一进程模型，此模型支持非常大的并发连接数。类似于nginx，但是haproxy不能进行静态界面的托管，<br>但是在其它方面，比如负载轮询的算法种类要比nginx的优化好很多。我们使用haproxy做mq的基于TCP的<br>代理，在其提供的管理端界面中能清楚的看到各个节点的状态。</p>
+<ul>
+<li><p>首先安装epel</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ rpm -ivh http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm</div></pre></td></tr></table></figure>
+</li>
+<li><p>安装haproxy</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ yum -y install haproxy</div></pre></td></tr></table></figure>
+</li>
+<li><p>修改haproxy配置文件</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ vi /etc/haproxy/haproxy.cfg</div></pre></td></tr></table></figure>
+<p>将如下内容添加到配置文件中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">listen admin_stat</div><div class="line">    bind  *:8888  ##Haproxy管理页面</div><div class="line">    mode  http</div><div class="line">    stats refresh 30s</div><div class="line">    stats uri /haproxy_stats</div><div class="line">    stats realm Haproxy\ Statistics</div><div class="line">    stats auth admin:admin  ##登录名和密码</div><div class="line">    stats hide-version</div><div class="line"></div><div class="line">listen rabbitmq_cluster 0.0.0.0:5670 ## 监听5670端口</div><div class="line">    mode     tcp</div><div class="line">    balance  roundrobin</div><div class="line">    server   node1 192.168.199.1:5672 check inter 2000 rise 2 fall 3 ## 节点1</div><div class="line">    server   node2 192.168.199.2:5672 check inter 2000 rise 2 fall 3 ## 节点2</div><div class="line">    server   node3 192.168.199.3:5672 check inter 2000 rise 2 fall 3 ## 节点3</div></pre></td></tr></table></figure></p>
+<ul>
+<li><p>启动haproxy</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ haproxy -f /etc/haproxy/haproxy.cfg</div></pre></td></tr></table></figure>
+</li>
+<li><p>查看是否启动成功</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ps -ef | grep haproxy</div></pre></td></tr></table></figure>
+</li>
+<li><p>登录管理界面</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://yourip:8888/haproxy_stats</div></pre></td></tr></table></figure>
+</li>
+<li><p>安装keepalived</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ yum –y install keepalived</div></pre></td></tr></table></figure>
+</li>
+<li><p>配置Keepalived </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ vi /etc/keepalived/keepalived.conf</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>将如下内容添加到配置文件中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">vrrp_script chk_haproxy &#123;</div><div class="line">    script &quot;/etc/keepalived/scripts/haproxy_check.sh&quot;  ## 脚本文件，检验haproxy进程是否启动</div><div class="line">    interval 2</div><div class="line">&#125;</div><div class="line">vrrp_instance VI_1 &#123;</div><div class="line">    state MASTER</div><div class="line">    interface eth0</div><div class="line">    virtual_router_id 51</div><div class="line">    priority 101   ##高优先级，主节点</div><div class="line">    authentication &#123;</div><div class="line">        auth_type PASS</div><div class="line">        auth_pass rabbitmq</div><div class="line">    &#125;</div><div class="line">    track_script &#123;</div><div class="line">        chk_haproxy</div><div class="line">    &#125;</div><div class="line">    virtual_ipaddress &#123;</div><div class="line">        192.168.100.195</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<ul>
+<li>创建脚本文件<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ mkdir -p /etc/keepalived/scripts/ </div><div class="line">$ vi /etc/keepalived/scripts/haproxy_check.sh</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>将如下内容添加到文件中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line">LOGFILE=&quot;/var/log/keepalived-ha-state.log&quot;</div><div class="line">pid1=` ps aux | grep /etc/haproxy/haproxy.cfg | grep -v grep | grep -v bash `</div><div class="line">if [ &quot;$pid1&quot; == &quot;&quot; ];then</div><div class="line">    echo -e &quot;===========================================&quot; &gt; $LOGFILE</div><div class="line">    date  +%Y%m%d-%H:%M:%S  &gt; $LOGFILE</div><div class="line">    echo -e &quot;Ready to start haproxy.....&quot;  &gt; $LOGFILE</div><div class="line">    haproxy -f /etc/haproxy/haproxy.cfg  ##启动Haproxy</div><div class="line">    echo &quot;Haproxy start success!!!&quot;</div><div class="line">    pid2=` ps aux | grep /etc/haproxy/haproxy.cfg | grep -v grep | grep -v bash `  </div><div class="line">    if [ &quot;$pid2&quot; == &quot;&quot; ];then</div><div class="line">        echo -e &quot;Haproxy failed to start !!! So,stop keepalived!!!&quot;  &gt; $LOGFILE   </div><div class="line">        /etc/init.d/keepalived stop</div><div class="line">    else</div><div class="line">        echo -e &quot;Haproxy start success!!!&quot; &gt; $LOGFILE</div><div class="line">    fi</div><div class="line">fi</div></pre></td></tr></table></figure></p>
+<ul>
+<li><p>创建日志文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ touch /var/log/keepalived-ha-state.log</div><div class="line">$ chmod 777 /var/log/keepalived-ha-state.log</div></pre></td></tr></table></figure>
+</li>
+<li><p>启动keepalived</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ service keepalived restart</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>此时启动keepalive的同时，haproxy也会启动，haproxy会对rabbitmq的三个节点进行负载。</p>
+<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><ul>
+<li>关停其中一个节点<br>当关停一个节点之后，其它的两个节点还是能继续工作。</li>
+<li>干掉haproxy负载进程<br>如图，当我干掉haproxy进程的时候，通过keepalived马上又新建了一个haproxy的进程.</li>
+</ul>
+<p><img src="../pic/keepalived-haproxy.png" width="650px" height="170px" text-align:center=""></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>到此 rabbitmq + haproxy + keepalived 热备集群就搭建完成了，搭建完成之后，妈妈再也不用担心我的<br>mq速度慢，安全性低，总挂的问题了。</p>
 
       
     </div>
@@ -317,13 +372,1082 @@
 
 
   
+    <article id="post-pm2" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/pm2/" class="article-date">
+  	<time datetime="2016-10-11T05:04:48.000Z" itemprop="datePublished">2016-10-11</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/pm2/">pm2自动部署</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>pm2 是一个带有负载均衡功能的Node应用的进程管理器.<br>当你要把你的独立代码利用全部的服务器上的所有CPU，并保证进程永远都活着，0秒的重载， PM2是完美的。<br>可以感受一下<a href="http://pm2.keymetrics.io/docs/usage/deployment/" target="_blank" rel="external">官方的部署文档示例</a>，<br><a href="https://github.com/Unitech/pm2" target="_blank" rel="external">github项目地址</a>。</p>
+<p>主要的特点:  </p>
+<ul>
+<li>内建负载均衡（使用Node cluster 集群模块）</li>
+<li>后台运行</li>
+<li>0秒停机重载，我理解大概意思是维护升级的时候不需要停机.</li>
+<li>具有Ubuntu和CentOS 的启动脚本</li>
+<li>停止不稳定的进程（避免无限循环）</li>
+<li>控制台检测</li>
+<li>提供 HTTP API</li>
+<li>远程控制和实时的接口API ( Nodejs 模块,允许和PM2进程管理器交互 )</li>
+</ul>
+<h2 id="pm2部署简单应用"><a href="#pm2部署简单应用" class="headerlink" title="pm2部署简单应用"></a>pm2部署简单应用</h2><h3 id="安装pm2"><a href="#安装pm2" class="headerlink" title="安装pm2"></a>安装pm2</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g pm2</div></pre></td></tr></table></figure>
+<h3 id="使用pm2部署简单的项目"><a href="#使用pm2部署简单的项目" class="headerlink" title="使用pm2部署简单的项目"></a>使用pm2部署简单的项目</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ pm2 start app.js --name &quot;heheda&quot; -i 0 --watch</div></pre></td></tr></table></figure>
+<ul>
+<li><p>pm2 start app.js : 使用pm2启动app.js  </p>
+</li>
+<li><p>-i 0 : 使用最大进程数启动  </p>
+</li>
+<li><p>–name : 指定一个你喜欢的名字 </p>
+</li>
+<li><p>–watch : 开启监视模式，如果代码有变动pm2自动重启</p>
+</li>
+</ul>
+<h3 id="查看pm2部署"><a href="#查看pm2部署" class="headerlink" title="查看pm2部署"></a>查看pm2部署</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pm2 ls</div></pre></td></tr></table></figure>
+<p>大概就这样子:</p>
+<p><img src="../pic/pm2-deploy.png" alt="Drawing" width="600px"></p>
+<h2 id="pm2自动部署远程服务器"><a href="#pm2自动部署远程服务器" class="headerlink" title="pm2自动部署远程服务器"></a>pm2自动部署远程服务器</h2><p>目前我们部署服务器的方式是使用oschina托管项目，然后在服务器中安装git将项目克隆到服务器中，然后<br>使用pm2部署项目，如果项目有任何的修改，就会需要跑到几个服务器中pull代码，然后pm2 reload项目，<br>蛋疼的要死。<br>现在就使用pm2的远程部署方式，解决这个蛋疼的问题！</p>
+<h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><h4 id="将本地机器和线上服务器建立ssh信任，免密码登陆"><a href="#将本地机器和线上服务器建立ssh信任，免密码登陆" class="headerlink" title="将本地机器和线上服务器建立ssh信任，免密码登陆"></a>将本地机器和线上服务器建立ssh信任，免密码登陆</h4><ul>
+<li>生成git ssh公钥(本地机器和服务器操作一样)</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ git config --global user.name &quot;heheda&quot;</div><div class="line">$ git config --global user.email &quot;heheda@mail.com&quot;</div><div class="line">$ ssh-keygen -t rsa -C &quot;heheda@mail.com&quot;</div></pre></td></tr></table></figure>
+<p>连续三次回车,这样生成的ssh公钥添加到github<br>像这样:</p>
+<p><img src="../pic/git-setting.png" width="400px" height="400px"></p>
+<ul>
+<li>查看生成的ssh公钥</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ ls ~/.ssh/</div><div class="line">authorized_keys id_rsa          id_rsa.pub      known_hosts</div></pre></td></tr></table></figure>
+<p>理论上已经生成ssh公钥,在用户主目录下的.ssh中生成的id_rsa.pub就是生成的公钥<br>authorized_keys文件是通过授权的ssh公钥，在使用ssh协议进行远程访问的时候，如果该机器的ssh公钥在<br>这个文件中，那么能直接进行访问</p>
+<ul>
+<li>将ssh公钥拷贝到服务器</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ scp ~/.ssh/id_rsa.pub username@ip:用户主目录/.ssh/authorized_keys</div></pre></td></tr></table></figure>
+<p>执行这个命令是将本地的id_rsa.pub拷贝到服务器的.ssh／目录下并命名为authorized_keys<br>这样就能不需要密码访问远程服务器了<br>上一步已经将服务器的ssh公钥添加到 github 中了，这样服务器中clone项目也不需要密码</p>
+<h3 id="pm2配置文件ecosystem-json"><a href="#pm2配置文件ecosystem-json" class="headerlink" title="pm2配置文件ecosystem.json"></a>pm2配置文件ecosystem.json</h3><ul>
+<li><a href="http://pm2.keymetrics.io/docs/usage/deployment/" target="_blank" rel="external">官方的部署文档示例</a>  </li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  /**</div><div class="line">   * Deployment section</div><div class="line">   * http://pm2.keymetrics.io/docs/usage/deployment/</div><div class="line">   */</div><div class="line">  &quot;deploy&quot; : &#123;</div><div class="line">    &quot;yourprojectname&quot; : &#123;</div><div class="line">      &quot;user&quot; : &quot;node&quot;,</div><div class="line">      &quot;host&quot; : [&quot;ip&quot;],</div><div class="line">      &quot;ref&quot;  : &quot;origin/master&quot;,</div><div class="line">      &quot;repo&quot; : &quot;git.oschina.net&quot;,</div><div class="line">      &quot;path&quot; : &quot;/your/deploy/folder/&quot;,</div><div class="line">      &quot;post-deploy&quot; : &quot;npm install ; pm2 start bin/www --name &apos;hz-frontend&apos; --watch&quot;,</div><div class="line">      &quot;env&quot;  : &#123;</div><div class="line">        &quot;NODE_ENV&quot;: &quot;dev&quot;</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>user : 你登陆到远程主机的用户名</li>
+<li>host : 服务器的ip地址</li>
+<li>ref : 部署的分支</li>
+<li>repo : github或oschina中托管的地址</li>
+<li>path : 部署到服务器的目录</li>
+<li>post-deploy : 部署时的命令</li>
+</ul>
+<h3 id="执行部署"><a href="#执行部署" class="headerlink" title="执行部署"></a>执行部署</h3><ul>
+<li>首次在服务器中部署（服务器中没有需要部署的项目，需要将代码克隆到服务器）</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pm2 deploy ecosystem.json yourprojectname setup</div></pre></td></tr></table></figure>
+<p>上面命令是将项目从github或oschina中克隆到指定path中，需要注意一下的是，pm2 将目录结构分为 : </p>
+<p>|current | shared  |source |</p>
+<ul>
+<li>克隆好之后执行安装和启动</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pm2 deploy ecosystem.json yourprojectname</div></pre></td></tr></table></figure>
+<p>官方推荐在部署的项目中也使用ecosystem.json进行启动项目 ：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  &quot;apps&quot; : [&#123;</div><div class="line">    // Application #1</div><div class="line">    &quot;name&quot;        : &quot;hz-mq&quot;,</div><div class="line">    &quot;script&quot;      : &quot;index.js&quot;,</div><div class="line">    &quot;args&quot;        : &quot;--toto=heya coco -d 1&quot;,</div><div class="line">    &quot;watch&quot;       : true,</div><div class="line">    &quot;node_args&quot;   : &quot;--harmony&quot;,</div><div class="line">    &quot;merge_logs&quot;  : true,</div><div class="line">    &quot;cwd&quot;         : &quot;/Users/zxy/work/hz-mq&quot;,</div><div class="line">    &quot;env&quot;: &#123;</div><div class="line">      &quot;NODE_ENV&quot;: &quot;development&quot;,</div><div class="line">      &quot;AWESOME_SERVICE_API_TOKEN&quot;: &quot;xxx&quot;</div><div class="line">    &#125;,</div><div class="line">    &quot;env_production&quot; : &#123;</div><div class="line">       &quot;NODE_ENV&quot;: &quot;production&quot;</div><div class="line">    &#125;,</div><div class="line">    &quot;env_staging&quot; : &#123;</div><div class="line">       &quot;NODE_ENV&quot; : &quot;staging&quot;,</div><div class="line">       &quot;TEST&quot;     : true</div><div class="line">    &#125;,</div><div class="line">    &quot;exec_mode&quot;  : &quot;cluster_mode&quot;</div><div class="line">  &#125;]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这个相对来说就简单了，就不一一说。<br>没有使用的原因是放在项目中在本地和服务器中使用需要来回修改启动目录。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-grpc" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/grpc/" class="article-date">
+  	<time datetime="2016-10-11T05:04:02.000Z" itemprop="datePublished">2016-10-11</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/grpc/">gRPC使用简述</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>技术点：  </p>
+<ul>
+<li>protocol buffers定义规范</li>
+<li>RPC协议</li>
+<li>gRPC</li>
+</ul>
+<h2 id="protocol-buffers"><a href="#protocol-buffers" class="headerlink" title="protocol buffers"></a>protocol buffers</h2><blockquote>
+<p>先说说这是个什么玩意，Google Protocol Buffer( 简称 Protobuf) 是 Google<br>公司内部的混合语言数据标准，目前已经正在使用的有超过 48,162 种报文格式定义和超过 12,183 个<br>.proto 文件。他们用于 RPC 系统和持续数据存储系统。Protocol Buffers 是一种轻便高效的结构化数据存储格式，<br>可以用于结构化数据串行化，或者说序列化。它很适合做数据存储或 RPC 数据交换格式。可用于通讯协议、<br>数据存储等领域的语言无关、平台无关、可扩展的序列化结构数据格式。目前提供了 C++、Java、Python、<br>C#、Go、Node、php、ruby等一万种语言的API。谷歌还是够给力的，据说还要继续开发支持其他的几万种语言。<br>可能这么说protocol buffers是啥还是让人有点懵逼，直白点说这玩意就是跟XML、JSON是一个东西，<br>是数据的载体，但是Protobuf的效率要比JSON、XML高很多，上个图爽一下：</p>
+</blockquote>
+<p><img src="../pic/proto-json.png"></p>
+<blockquote>
+<p><a href="https://developers.google.com/protocol-buffers/docs/overview#whynotxml" target="_blank" rel="external">再看一下对比XML</a>。<br>好处就说到这，我自己没有进行过测试，有点遗憾。大家可以再网上搜一下protocol buffers的效率测试。</p>
+</blockquote>
+<h3 id="why-protocol-buffers"><a href="#why-protocol-buffers" class="headerlink" title="why protocol buffers"></a>why protocol buffers</h3><blockquote>
+<p>作为数据传输的消息格式和描述，JSON和XML是老炮了，老炮毛病是有点多的，比如传输时消息报文过大，XML解析<br>太难受，效率很低，protocol buffers很好的解决了这两点问题，同时最重要的原因还有protocol buffers对<br>新老版本的兼容特别好，在跨语言跨服务的应用场景中解决了很多痛点。下面说一下protocol buffers的基本语法。</p>
+</blockquote>
+<h3 id="Protobuf-的不足"><a href="#Protobuf-的不足" class="headerlink" title="Protobuf 的不足"></a>Protobuf 的不足</h3><blockquote>
+<p>Protbuf 与 XML 相比也有不足之处。它功能简单，无法用来表示复杂的概念。XML 已经成为多种行业标准的编写工具，<br>Protobuf 只是 Google 公司内部使用的工具，在通用性上还差很多。由于文本并不适合用来描述数据结构，<br>所以 Protobuf 也不适合用来对基于文本的标记文档（如 HTML）建模。另外，由于 XML 具有某种程度上的自解释性，<br>它可以被人直接读取编辑，在这一点上 Protobuf 不行，它以二进制的方式存储，除非你有 .proto 定义，<br>否则你没法直接读出 Protobuf 的任何内容。</p>
+</blockquote>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><h4 id="下载protocol-buffers源码"><a href="#下载protocol-buffers源码" class="headerlink" title="下载protocol buffers源码"></a>下载protocol buffers源码</h4><p>在protocol buffers的 <a href="https://github.com/google/protobuf" target="_blank" rel="external">github主页</a>下载源码。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ tar -xzf protobuf-3.0.0-alpha-6</div><div class="line">$ cd protobuf-3.0.0-alpha-6</div><div class="line">$ ./configure --prefix=$INSTALL_DIR </div><div class="line">$ make </div><div class="line">$ make check </div><div class="line">$ make install</div></pre></td></tr></table></figure>
+<p>执行完成之后回产生一个protoc的命令工具，可以用来生成protocol buffers支持的各种语言的代码。<br>具体的格式是这样的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">protoc --proto_path=IMPORT_PATH --cpp_out=DST_DIR --js_out=DST_DIR --python_out=DST_DIR path/to/file.proto</div></pre></td></tr></table></figure>
+<ul>
+<li>protoc为Protocol Buffer提供的命令行编译工具。</li>
+<li>–proto_path等同于-I选项，主要用于指定待编译的.proto消息定义文件所在的目录，该选项可以被同时指定多个。</li>
+<li>–cpp_out选项表示生成C++代码，–js_out表示生成js代码，–python_out则表示生成Python代码，<br> 其后的目录为生成后的代码所存放的目录。</li>
+<li>path/to/file.proto表示待编译的消息定义文件。<br>目前protocol buffers支持nodejs语言，本文使用场景就是nodejs，不过编译好的nodejs文件，我个人觉得<br>并没有什么卵用，不如直接使用proto文件来的痛快。<br>关于nodejs使用grpc的方法可以去github看一波。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git clone</div></pre></td></tr></table></figure>
+<h3 id="RPC"><a href="#RPC" class="headerlink" title="RPC"></a>RPC</h3><blockquote>
+<p>RPC即远程过程调用协议（Remote Procedure Call），它是一种通过网络从远程计算机上请求服务，<br>而不需要关心具体是什么语言实现的，一般使用TCP进行数据的交换。RPC使开发包括网络分布式多程序多服务开发的应用更加便捷。<br>RPC采用客户端／服务器模式，请求程序就是一个客户端，提供服务的就是一个服务器。客户端发送一个带有<br>参数的进程请求，请求到休眠中的服务端，服务端接收到请求后，提取参数进行计算，将计算结果返回给客户端。</p>
+</blockquote>
+<h3 id="gRPC"><a href="#gRPC" class="headerlink" title="gRPC"></a>gRPC</h3><blockquote>
+<p>gRPC是由谷歌开发，跨语言，跨平台，开源的远程过程调用（RPC）系统。gRPC基于HTTP/2标准设计，<br>带来诸如双向流控、头部压缩、单TCP连接上的多复用请求等特性。 gRPC跟其他RPC协议一样，<br>指定其调用的远程方法及其参数和返回值，gRPC默认使用Google的protocol buffers作为描述调用接口定义语言，<br>来描述接口和传递的消息结构。<br>有了 gRPC， 我们可以一次性的在一个 .proto 文件中定义服务并使用任何支持它的语言去实现客户端<br>和服务器，反过来，它们可以在各种环境中，从Google的服务器到你自己的平板电脑 – gRPC 帮你解决了<br>不同语言及环境间通信的复杂性。使用 protocol buffers 还能获得其他好处，包括高效的序列号，<br>简单的 IDL 以及容易进行接口更新。</p>
+</blockquote>
+<p>目前gRPC支持的语言有：</p>
+<ul>
+<li>C++</li>
+<li>C# </li>
+<li>Go </li>
+<li>Java </li>
+<li>Node </li>
+<li>php </li>
+<li>python </li>
+<li>ruby </li>
+</ul>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-docker" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/docker/" class="article-date">
+  	<time datetime="2016-10-11T05:03:31.000Z" itemprop="datePublished">2016-10-11</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/docker/">centOS下docker安装</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li><p>安装epel</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ rpm -ivh http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm</div></pre></td></tr></table></figure>
+</li>
+<li><p>安装docker</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ yum install docker</div></pre></td></tr></table></figure>
+</li>
+<li><p>启动docker</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ service docker start</div></pre></td></tr></table></figure>
+</li>
+<li><p>设置开机启动</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">chkconfig docker on</div></pre></td></tr></table></figure>
+</li>
+<li><p>下载官方centOS系统到本地</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker pull centos</div></pre></td></tr></table></figure>
+</li>
+<li><p>确认是否安装成功</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ docker images centos</div><div class="line">REPOSITORY          TAG                 IMAGE ID            CREATED             VIRTUAL SIZE</div><div class="line">docker.io/centos    latest              3aa28fd030d9        2 weeks ago         196.8 MB</div></pre></td></tr></table></figure>
+</li>
+<li><p>运行docker容器</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ docker run -i -t centos /bin/bash</div><div class="line">[root@67946db01be9 /]#</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>我们可以看到，CentOS 容器已经被启动，并且我们得到了 bash 提示符。在 docker 命令中我们使用了<br>“-i 捕获标准输入输出”和 “-t 分配一个终端或控制台”选项。若要断开与容器的连接，输入 exit。</p>
+</blockquote>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-centos_deploy" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/centos_deploy/" class="article-date">
+  	<time datetime="2016-10-11T05:02:20.000Z" itemprop="datePublished">2016-10-11</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/centos_deploy/">centOS 服务器部署</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>如果是新的阿里云服务器，使用root用户登陆，终端输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh root@ip</div></pre></td></tr></table></figure>
+<p>终端显示 ： deploy@ip’s password:<br>输入密码</p>
+<p>进入服务器后，默认是root用户，该用户具有最高的权限</p>
+<ul>
+<li>在服务器新建用户:</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo useradd -m -d /home/aircos -s /bin/bash -c &quot;the aircos user&quot; -U aircos</div></pre></td></tr></table></figure>
+<p>-d : 指定用户登陆的主目录<br>-m : 为用户创建用户目录</p>
+<ul>
+<li>为用户设定密码：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">passwd username</div></pre></td></tr></table></figure>
+<p>Enter new UNIX password:<br>Retype new UNIX password:<br>passwd: password updated successfully</p>
+<p>－ 赋予sudo权限</p>
+<p>sudo : super user do </p>
+<p>如果有必要使用sudu权限，请修改</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo vi /etc/sudoers</div></pre></td></tr></table></figure>
+<p>复制root行改为username即可</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">User privilege specification</div><div class="line">root  ALL=(ALL:ALL) ALL</div><div class="line">aircos  ALL=(ALL:ALL) ALL</div></pre></td></tr></table></figure>
+<ul>
+<li>切换用户 </li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">su - username</div></pre></td></tr></table></figure>
+<h3 id="安装必备软件"><a href="#安装必备软件" class="headerlink" title="安装必备软件"></a>安装必备软件</h3><ul>
+<li>安装mongodb<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo vi /etc/yum.repos.d/mongodb-org-3.2.repo</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>将下面复制到/etc/yum.repos.d/mongodb-org-3.2.repo<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[mongodb-org-3.2]</div><div class="line">name=MongoDB Repository</div><div class="line">baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/3.2/x86_64/</div><div class="line">gpgcheck=0</div><div class="line">enabled=1</div></pre></td></tr></table></figure></p>
+<p>开始安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo yum install -y mongodb-org</div></pre></td></tr></table></figure></p>
+<p>启动<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo service mongod start</div></pre></td></tr></table></figure></p>
+<p>配置文件在/etc/mongodb.conf<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"># mongod.conf</div><div class="line"># for documentation of all options, see:</div><div class="line">#   http://docs.mongodb.org/manual/reference/configuration-options/</div><div class="line"># where to write logging data.</div><div class="line">systemLog:</div><div class="line">  destination: file</div><div class="line">  logAppend: true</div><div class="line">  path: /var/log/mongodb/mongod.log</div><div class="line"># Where and how to store data.</div><div class="line">storage:</div><div class="line">  dbPath: /data/mongo</div><div class="line">  journal:</div><div class="line">    enabled: true</div><div class="line">#  engine:</div><div class="line">#  mmapv1:</div><div class="line">#  wiredTiger:</div><div class="line"># how the process runs</div><div class="line">processManagement:</div><div class="line">  fork: true  # fork and run in background</div><div class="line">  pidFilePath: /var/run/mongodb/mongod.pid  # location of pidfile</div><div class="line"># network interfaces</div><div class="line">net:</div><div class="line">  port: 27017</div><div class="line">  bindIp: 127.0.0.1,&lt;内网IP&gt; # Listen to local interface only, comment to listen on all interfaces.注意不要逗号前后不要有空格</div><div class="line">#security:</div><div class="line">#operationProfiling:</div><div class="line">#replication:</div><div class="line">#sharding:</div><div class="line">## Enterprise-Only Options</div><div class="line">#auditLog:</div></pre></td></tr></table></figure></p>
+<p>如需远程访问，将配置文件中的bindIp注释掉。</p>
+<ul>
+<li><p>配置用户名密码<br>如需配置用户名密码，需要将配置文件中的security: 注释解开改写成以下形式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">security:</div><div class="line">  authorization: enabled</div></pre></td></tr></table></figure>
+</li>
+<li><p>启动数据库 ：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo service mongod start</div></pre></td></tr></table></figure>
+</li>
+<li><p>添加用户</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ mongo</div><div class="line">$ show dbs</div><div class="line">$ use admin</div><div class="line">$ db.addUser(&apos;admin&apos;,&apos;admin&apos;)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>注意这里添加的用户是超级管理员用户，可以针对所有的数据库起作用。</p>
+<ul>
+<li>使用用户名密码登录数据库<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ mongo</div><div class="line">$ db.auth(&apos;admin&apos;, &apos;admin&apos;)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>假设给shop数据库增加用户<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ mongo </div><div class="line">$ db.auth(&apos;admin&apos;, &apos;admin&apos;)</div><div class="line">$ use shop</div><div class="line">$ db.addUser(&apos;shop&apos;, &apos;shop&apos;)</div></pre></td></tr></table></figure></p>
+<p>以后链接shop数据库时就可以直接使用shop／shop进行授权登录</p>
+<ul>
+<li>安装git</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ sudo yum update</div><div class="line">$ sudo yum install git</div></pre></td></tr></table></figure>
+<ul>
+<li><p>安装nginx</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo yum install nginx</div></pre></td></tr></table></figure>
+</li>
+<li><p>安装redis</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">wget http://download.redis.io/redis-stable.tar.gz</div><div class="line">tar xvzf redis-stable.tar.gz</div><div class="line">cd redis-stable</div><div class="line">make</div></pre></td></tr></table></figure>
+<p>出现异常自行百度</p>
+<h3 id="设置工作目录"><a href="#设置工作目录" class="headerlink" title="设置工作目录"></a>设置工作目录</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mkdir -p workspace/osc</div><div class="line">cd workspace/osc</div></pre></td></tr></table></figure>
+<p>-p 同时指定多级目录</p>
+<ul>
+<li>安装nvm<br>默认指定shell工具为bash</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | bash</div><div class="line">source ~/.bashrc</div></pre></td></tr></table></figure>
+<ul>
+<li><p>安装node版本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">nvm install 4</div><div class="line">nvm ls</div></pre></td></tr></table></figure>
+</li>
+<li><p>设定默认版本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nvm alias default v4.4.0</div></pre></td></tr></table></figure>
+</li>
+<li><p>查看npm版本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm -v</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>如果npm版本小于2.9,<br>请安装大于2.9版本<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm i -g npm@2.9.1</div></pre></td></tr></table></figure></p>
+<ul>
+<li><p>安装nrm(源管理工具)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm i -g nrm</div></pre></td></tr></table></figure>
+</li>
+<li><p>测试nrm</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">nrm test</div><div class="line">* npm ---- 1472ms</div><div class="line">  cnpm --- 277ms</div><div class="line">  taobao - 135ms</div><div class="line">  edunpm - 1466ms</div><div class="line">  eu ----- Fetch Error</div><div class="line">  au ----- Fetch Error</div><div class="line">  sl ----- 3199ms</div><div class="line">  nj ----- 4143ms</div><div class="line">  pt ----- Fetch Error</div></pre></td></tr></table></figure>
+</li>
+<li><p>安装pm2</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm i pm2 -g</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="部署nodejs项目"><a href="#部署nodejs项目" class="headerlink" title="部署nodejs项目"></a>部署nodejs项目</h3><p>基础操作 ：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">git init </div><div class="line">git clone </div><div class="line">npm i </div><div class="line">pm2 start</div></pre></td></tr></table></figure></p>
+<h3 id="修改nginx配置文件"><a href="#修改nginx配置文件" class="headerlink" title="修改nginx配置文件"></a>修改nginx配置文件</h3><ul>
+<li>如果托管的是静态界面， 那么修改如下内容</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">ls /etc/nginx/</div><div class="line"></div><div class="line">conf.d                  koi-utf             scgi_params</div><div class="line">default.d               koi-win             scgi_params.default</div><div class="line">fastcgi.conf            mime.types          uwsgi_params</div><div class="line">fastcgi.conf.default    mime.types.default  uwsgi_params.default</div><div class="line">fastcgi_params          nginx.conf          win-utf</div><div class="line">fastcgi_params.default  nginx.conf.default</div><div class="line"></div><div class="line">vi nginx.conf</div><div class="line"></div><div class="line">server &#123;</div><div class="line">        listen       80;</div><div class="line">        server_name  yourServerName;</div><div class="line">        root         your/folder;</div><div class="line">        index  index.html;</div><div class="line">        # Load configuration files for the default server block.</div><div class="line">        include /etc/nginx/default.d/*.conf;</div><div class="line"></div><div class="line">        location / &#123;&#125;</div><div class="line"></div><div class="line">        error_page 404 /404.html;</div><div class="line">            location = /40x.html &#123;</div><div class="line"></div><div class="line">        &#125;</div><div class="line">        error_page 500 502 503 504 /50x.html;</div><div class="line">            location = /50x.html &#123;</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>修改server下的server_name, root, index</p>
+<p>server_name 是指定的服务名称，可以自行拟定<br>root 下是托管的静态界面(html)文件目录<br>index 是root路径下面的默认文件 可以指定多个值 index.html,index.htm,index.php</p>
+<ul>
+<li>设置nginx开机自启</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">systemctl enable nginx</div><div class="line"></div><div class="line">systemctl restart nginx</div></pre></td></tr></table></figure>
+<ul>
+<li>注意 ：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">nginx 文件首行默认用户为nginx</div><div class="line">user nginx</div></pre></td></tr></table></figure>
+<p>将用户修改为你创建的用户，或者root(不推荐)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">user yourusername</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-create_git_server" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/create_git_server/" class="article-date">
+  	<time datetime="2016-10-11T04:27:37.000Z" itemprop="datePublished">2016-10-11</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/create_git_server/">centos 搭建 git 服务器</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="材料"><a href="#材料" class="headerlink" title="材料"></a>材料</h3><ul>
+<li><p>centos 服务器一台</p>
+</li>
+<li><p>安装了ssh 相关</p>
+</li>
+</ul>
+<h3 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h3><ol>
+<li>确认是否安装 git<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>输入完成没有搭理你的话就安装一下 git</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo yum install -y git</div></pre></td></tr></table></figure>
+<ol>
+<li>确定是否有 ssh 服务</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ps -ef | grep ssh</div></pre></td></tr></table></figure>
+<p>没有的话安装 ssh 相关服务<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo yum install -y ssh</div></pre></td></tr></table></figure></p>
+<ol>
+<li>创建 git 用户<br>创建 git 用户是为了创建 git 仓库（因为你克隆项目的时候地址看起来是这样的 git clone <em>git</em>@hostname:/home/git/stock/learngit.git）<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo useradd git</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>为 git 设置密码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ passwd git </div><div class="line"></div><div class="line">连续输入两次密码</div></pre></td></tr></table></figure></p>
+<ol>
+<li>生成 .ssh 目录</li>
+</ol>
+<p>生成公钥<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ ssh-keygen</div><div class="line"></div><div class="line">一路回车</div></pre></td></tr></table></figure></p>
+<ol>
+<li>初始化 git 仓库目录</li>
+</ol>
+<p>git 仓库一般以 .git 结尾，所以在 git 用户主目录下初始化 git 仓库<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ git init -bare test.git</div><div class="line"></div><div class="line">此处创建了一个裸的 git 仓库</div></pre></td></tr></table></figure></p>
+<ol>
+<li>在本地克隆刚刚创建的项目</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git clone git@121.40.126.247:/home/git/test.git</div></pre></td></tr></table></figure>
+<p>这个时候会让你输入服务器的密码，在本地执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ ssh-copy-id git@121.40.126.247 </div><div class="line"></div><div class="line">输入服务器密码，以后提交克隆代码时就不需要输入服务器密码了</div></pre></td></tr></table></figure></p>
+<ol>
+<li>禁止使用终端登录 git 用户</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ sudo vi</div><div class="line">找到 git:x:1001:1001::/home/git:/bin/zsh </div><div class="line">修改为 git:x:1001:1001::/home/git:/usr/bin/git-shell</div></pre></td></tr></table></figure>
+<p>这样做是为了防止使用 ssh 通过终端登录 git 用户修改仓库，修改之后我们能使用 ssh 正常访问 git，<br>但是不能通过 shell 操作 git 用户</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-ava" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/ava/" class="article-date">
+  	<time datetime="2016-10-11T04:24:31.000Z" itemprop="datePublished">2016-10-11</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/ava/">ava</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>未来的测试运行器</p>
+</blockquote>
+<p>虽然 JavaScript 是单线程，但在 Node.js 里由于其异步的特性使得 IO 可以并行。AVA 利用这个优点让你的测试可以并发执行，这对于 IO 繁重的测试特别有用。另外，测试文件可以在不同的进程里并行运行，让每一个测试文件可以获得更好的性能和独立的环境。在 Pageres 项目中从 Mocha<a href="https://github.com/sindresorhus/pageres/commit/663be15acb3dd2eb0f71b1956ef28c2cd3fdeed0" target="_blank" rel="external">切换</a> 到 AVA 让测试时间从 31 秒下降到 11 秒。测试并发执行强制你写原子测试，意味着测试不需要依赖全局状态或者其他测试的状态，这是一件非常好的事情。</p>
+<p><em>如果你想贡献（问题、PRs 等），请先阅读我们的<a href="contributing.md">贡献向导</a>。</em></p>
+<p>关注 <a href="https://twitter.com/ava__js" target="_blank" rel="external">AVA 的 Twitter 账号</a> 以获取最新信息。</p>
+<p>翻译：<a href="https://github.com/avajs/ava-docs/blob/master/es_ES/readme.md" target="_blank" rel="external">Español</a>, <a href="https://github.com/avajs/ava-docs/blob/master/fr_FR/readme.md" target="_blank" rel="external">Français</a>, <a href="https://github.com/avajs/ava-docs/blob/master/it_IT/readme.md" target="_blank" rel="external">Italiano</a>, <a href="https://github.com/avajs/ava-docs/blob/master/ja_JP/readme.md" target="_blank" rel="external">日本語</a>, <a href="https://github.com/avajs/ava-docs/blob/master/pt_BR/readme.md" target="_blank" rel="external">Português</a>, <a href="https://github.com/avajs/ava-docs/blob/master/zh_CN/readme.md" target="_blank" rel="external">简体中文</a></p>
+<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ul>
+<li><a href="#用法">用法</a></li>
+<li><a href="#cli">CLI 用法</a></li>
+<li><a href="#配置">配置</a></li>
+<li><a href="#文档">文档</a></li>
+<li><a href="#api">API</a></li>
+<li><a href="#断言">断言</a></li>
+<li><a href="#小贴士">小贴士</a></li>
+<li><a href="#faq">FAQ</a></li>
+<li><a href="#秘方">秘方</a></li>
+<li><a href="#支持">支持</a></li>
+<li><a href="#相关">相关</a></li>
+<li><a href="#链接">链接</a></li>
+<li><a href="#团队">团队</a></li>
+</ul>
+<h2 id="为什么要用-AVA"><a href="#为什么要用-AVA" class="headerlink" title="为什么要用 AVA?"></a>为什么要用 AVA?</h2><ul>
+<li>轻量和高效</li>
+<li>简单的测试语法</li>
+<li>并发运行测试</li>
+<li>强制编写原子测试</li>
+<li>没有隐藏的全局变量</li>
+<li><a href="#隔离进程">为每个测试文件隔离环境</a></li>
+<li><a href="#支持es2015">用 ES2015 编写测试</a></li>
+<li><a href="#支持promise">支持 Promise</a></li>
+<li><a href="#支持generator">支持 Generator</a></li>
+<li><a href="#支持async">支持 Async</a></li>
+<li><a href="#支持observable">支持 Observable</a></li>
+<li><a href="#强化断言信息">强化断言信息</a></li>
+<li><a href="#可选的tap输出">可选的 TAP 输出显示</a></li>
+<li><a href="#简明的堆栈跟踪">简明的堆栈跟踪</a></li>
+</ul>
+<h2 id="测试语法"><a href="#测试语法" class="headerlink" title="测试语法"></a>测试语法</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> test <span class="keyword">from</span> <span class="string">'ava'</span>;</div><div class="line"></div><div class="line">test(<span class="function"><span class="params">t</span> =&gt;</span> &#123;</div><div class="line">    t.same([<span class="number">1</span>, <span class="number">2</span>], [<span class="number">1</span>, <span class="number">2</span>]);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h2 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h2><h3 id="在项目中添加-AVA"><a href="#在项目中添加-AVA" class="headerlink" title="在项目中添加 AVA"></a>在项目中添加 AVA</h3><p>通过带<code>--init</code>参数运行 AVA 全局安装命令，将会添加 AVA 到<code>package.json</code>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ npm install --global ava</div><div class="line">$ ava --init</div></pre></td></tr></table></figure>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="attr">"name"</span>: <span class="string">"awesome-package"</span>,</div><div class="line">    <span class="attr">"scripts"</span>: &#123;</div><div class="line">        <span class="attr">"test"</span>: <span class="string">"ava"</span></div><div class="line">    &#125;,</div><div class="line">    <span class="attr">"devDependencies"</span>: &#123;</div><div class="line">        <span class="attr">"ava"</span>: <span class="string">"^0.11.0"</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>写在<code>--init</code>后面的任何参数都会被添加到<code>package.json</code>。</p>
+<h4 id="手动安装"><a href="#手动安装" class="headerlink" title="手动安装"></a>手动安装</h4><p>你也可以直接安装 AVA：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install --save-dev ava</div></pre></td></tr></table></figure></p>
+<p>你还需要配置<code>test</code>脚本在你的<code>package.json</code>，值为<code>ava</code>（参照上面的配置）。</p>
+<h3 id="创建你的测试文件"><a href="#创建你的测试文件" class="headerlink" title="创建你的测试文件"></a>创建你的测试文件</h3><p>在你的工程根目录下创建一个名字为<code>test.js</code>的文件：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> test <span class="keyword">from</span> <span class="string">'ava'</span>;</div><div class="line"></div><div class="line">test(<span class="string">'foo'</span>, t =&gt; &#123;</div><div class="line">    t.pass();</div><div class="line">&#125;);</div><div class="line"></div><div class="line">test(<span class="string">'bar'</span>, <span class="keyword">async</span> t =&gt; &#123;</div><div class="line">    <span class="keyword">const</span> bar = <span class="built_in">Promise</span>.resolve(<span class="string">'bar'</span>);</div><div class="line"></div><div class="line">    t.is(<span class="keyword">await</span> bar, <span class="string">'bar'</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p><img src="https://github.com/avajs/ava/blob/master/media/screenshot.png" width="150" align="right"></p>
+<h3 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm test</div></pre></td></tr></table></figure>
+<h3 id="观察"><a href="#观察" class="headerlink" title="观察"></a>观察</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm test -- --watch</div></pre></td></tr></table></figure>
+<p>AVA 来自一个非常聪明的观察模式。<a href="docs/recipes/watch-mode.md">可以在它的秘方中查看详情</a>。</p>
+<h2 id="CLI"><a href="#CLI" class="headerlink" title="CLI"></a>CLI</h2><p><img src="https://github.com/avajs/ava/blob/master/media/screenshot-mini-reporter.gif" alt=""></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">$ ava --help</div><div class="line"></div><div class="line">  Usage</div><div class="line">    ava [&lt;file|directory|glob&gt; ...]</div><div class="line"></div><div class="line">  Options</div><div class="line">    --init           Add AVA to your project</div><div class="line">    --fail-fast      Stop after first test failure</div><div class="line">    --serial, -s     Run tests serially</div><div class="line">    --require, -r    Module to preload (Can be repeated)</div><div class="line">    --tap, -t        Generate TAP output</div><div class="line">    --verbose, -v    Enable verbose output</div><div class="line">    --no-cache       Disable the transpiler cache</div><div class="line">    --match, -m      Only run tests with matching title (Can be repeated)&apos;,</div><div class="line">    --watch, -w      Re-run tests when tests and source files change</div><div class="line">    --source, -S     Pattern to match source files so tests can be re-run (Can be repeated)</div><div class="line"></div><div class="line">  Examples</div><div class="line">    ava</div><div class="line">    ava test.js test2.js</div><div class="line">    ava test-*.js</div><div class="line">    ava test</div><div class="line">    ava --init</div><div class="line">    ava --init foo.js</div><div class="line"></div><div class="line">  Default patterns when no arguments:</div><div class="line">  test.js test-*.js test/**/*.js</div></pre></td></tr></table></figure>
+<p><em>注意，如果你本地安装的 AVA 可用的话 CLI 将会运行它，即使你的全局也安装了 AVA。</em></p>
+<p>文件夹会被递归遍历，带上<code>*.js</code>参数的话全部文件都会被作为测试文件。名字为<code>fixtures</code>，<code>helpers</code>和<code>node_modules</code>的文件夹<em>总会</em>被忽略。所以把 helper 名字以<code>_</code>开头命名就可以一起放置在测试文件的目录下。</p>
+<p>当使用<code>npm test</code>时你可以直接传参数<code>npm test test2.js</code>，但标志需要像这样传递<code>npm test -- --verbose</code>。</p>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>所有的 CLI 选项都可以配置在<code>package.json</code>的<code>ava</code>属性中。你可以修改<code>ava</code>命令的默认行为，所以你不需要重复在命令行中输入相同的选项。</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="attr">"ava"</span>: &#123;</div><div class="line">    <span class="attr">"files"</span>: [</div><div class="line">      <span class="string">"my-test-folder/*.js"</span>,</div><div class="line">      <span class="string">"!**/not-this-file.js"</span></div><div class="line">    ],</div><div class="line">    <span class="attr">"source"</span>: [</div><div class="line">      <span class="string">"**/*.&#123;js,jsx&#125;"</span>,</div><div class="line">      <span class="string">"!dist/**/*"</span></div><div class="line">    ],</div><div class="line">    <span class="attr">"match"</span>: [</div><div class="line">      <span class="string">"*oo"</span>,</div><div class="line">      <span class="string">"!foo"</span></div><div class="line">    ],</div><div class="line">    <span class="attr">"failFast"</span>: <span class="literal">true</span>,</div><div class="line">    <span class="attr">"tap"</span>: <span class="literal">true</span>,</div><div class="line">    <span class="attr">"require"</span>: [</div><div class="line">      <span class="string">"babel-register"</span></div><div class="line">    ],</div><div class="line">    <span class="attr">"babel"</span>: <span class="string">"inherit"</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>传递给 CLI 的参数总是比<code>package.json</code>中的配置优先级高。</p>
+<p>请看<a href="#支持es2015">支持ES2015</a> 章节以了解<code>babel</code>选项的更多详情。</p>
+<h2 id="文档"><a href="#文档" class="headerlink" title="文档"></a>文档</h2><p>测试是并发执行的，你可以选择同步或异步执行测试，在返回一个 promise 或 <a href="https://github.com/zenparsing/zen-observable" target="_blank" rel="external">observable</a> 时你才需要考虑使用同步。</p>
+<p>我们<em>强烈</em>推荐使用 <a href="#支持async">async 函数</a>，它让异步代码简洁更具可读性，并且它隐式返回一个 promise 让你无需手动创建。</p>
+<p>如果你不能使用 promise 或者 observales，你可以通过这样定义你的测试<code>test.cb([title], fn)</code>来启用“callback 模式”。通过这种方式声明的测试<em>必须</em>手动添加<code>t.end()</code>来结束，这种模式的主要目的是为了测试 callback 方式的 API。</p>
+<p>你必须同时将所有测试都定义为同步，它们不能定义在<code>setTimeout</code>，<code>setImmediate</code>等里面。</p>
+<p>测试文件在当前文件夹中被执行，所以 <a href="https://nodejs.org/api/process.html#process_process_cwd" target="_blank" rel="external"><code>process.cwd()</code></a> 和 <a href="https://nodejs.org/api/globals.html#globals_dirname" target="_blank" rel="external"><code>__dirname</code></a> 总是相同。你可以使用相对路径代替<code>path.join(__dirname, &#39;relative/path&#39;)</code>操作。</p>
+<h3 id="创建测试"><a href="#创建测试" class="headerlink" title="创建测试"></a>创建测试</h3><p>你可以通过调用 AVA 中导入的<code>test</code>方法来创建一个测试。提供可选的标题和 callback 函数，函数将在你运行测试时被调用。它会传递一个<a href="#t">执行对象</a> 作为其第一个且唯一的一个参数。按照惯例这个参数名字为<code>t</code>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> test <span class="keyword">from</span> <span class="string">'ava'</span>;</div><div class="line"></div><div class="line">test(<span class="string">'my passing test'</span>, t =&gt; &#123;</div><div class="line">    t.pass();</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h4 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h4><p>标题是可选的，意味着你可以这样：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">test(<span class="function"><span class="params">t</span> =&gt;</span> &#123;</div><div class="line">    t.pass();</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>如果你有多个测试的话建议写上测试标题。</p>
+<p>如果你没有提供测试标题，但 callback 是一个有名字的函数，那这个名字将作为测试标题：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">test(<span class="function"><span class="keyword">function</span> <span class="title">name</span>(<span class="params">t</span>) </span>&#123;</div><div class="line">    t.pass();</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="断言计划"><a href="#断言计划" class="headerlink" title="断言计划"></a>断言计划</h3><p>断言计划确保测试只能通过指定次数的断言，它们可以帮你捕捉测试太早退出的情况，如果太多断言被执行的话它们也会让测试失败，如果在你的 callback 或循环中有断言的话断言计划会比较有用。</p>
+<p>请注意：不像 <a href="https://www.npmjs.com/package/tap" target="_blank" rel="external"><code>tap</code></a> 和 <a href="https://www.npmjs.com/package/tape" target="_blank" rel="external"><code>tape</code></a>，当断言计划数达到了指定数量 AVA 并<em>不</em>会自动结束。</p>
+<p>这些例子将会通过测试：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">test(<span class="function"><span class="params">t</span> =&gt;</span> &#123;</div><div class="line">    t.plan(<span class="number">1</span>);</div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="built_in">Promise</span>.resolve(<span class="number">3</span>).then(<span class="function"><span class="params">n</span> =&gt;</span> &#123;</div><div class="line">        t.is(n, <span class="number">3</span>);</div><div class="line">    &#125;);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">test.cb(<span class="function"><span class="params">t</span> =&gt;</span> &#123;</div><div class="line">    t.plan(<span class="number">1</span>);</div><div class="line"></div><div class="line">    someAsyncFunction(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">        t.pass();</div><div class="line">        t.end();</div><div class="line">    &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>这些则不会：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">test(<span class="function"><span class="params">t</span> =&gt;</span> &#123;</div><div class="line">    t.plan(<span class="number">2</span>);</div><div class="line"></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++) &#123;</div><div class="line">        t.true(i &lt; <span class="number">3</span>);</div><div class="line">    &#125;</div><div class="line">&#125;); <span class="comment">// 失败，3 个断言被执行，但计划只有 2 个</span></div><div class="line"></div><div class="line">test(<span class="function"><span class="params">t</span> =&gt;</span> &#123;</div><div class="line">    t.plan(<span class="number">1</span>);</div><div class="line"></div><div class="line">    someAsyncFunction(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">        t.pass();</div><div class="line">    &#125;);</div><div class="line">&#125;); <span class="comment">// 失败，在断言执行之前测试会因为同步而提前结束。</span></div></pre></td></tr></table></figure>
+<h3 id="串行运行测试"><a href="#串行运行测试" class="headerlink" title="串行运行测试"></a>串行运行测试</h3><p>测试默认是并发运行的，这很棒。但有时你必须写不是并发运行的测试。</p>
+<p>这种情况比较少见，但你可以使用<code>.serial</code>修饰符，它将强制让那些测试在并发的测试前<em>先</em>串行运行。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">test.serial(<span class="function"><span class="params">t</span> =&gt;</span> &#123;</div><div class="line">    t.pass();</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>注意这只影响一个特定测试文件里面的测试，AVA 将仍然同时运行多个测试文件，除非你传递 <a href="#cli"><code>--serial</code> CLI 标志</a>。</p>
+<h3 id="运行指定的测试"><a href="#运行指定的测试" class="headerlink" title="运行指定的测试"></a>运行指定的测试</h3><p>在开发中只运行少量指定的测试非常有用，这可以通过使用<code>.only</code>修饰符来完成。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">test(<span class="string">'will not be run'</span>, t =&gt; &#123;</div><div class="line">    t.fail();</div><div class="line">&#125;);</div><div class="line"></div><div class="line">test.only(<span class="string">'will be run'</span>, t =&gt; &#123;</div><div class="line">    t.pass();</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p><code>.only</code> 影响所有测试文件，所以你在一个文件里面使用了它，那其他测试文件里的测试将不会运行。</p>
+<h3 id="运行匹配标题的测试"><a href="#运行匹配标题的测试" class="headerlink" title="运行匹配标题的测试"></a>运行匹配标题的测试</h3><p><code>--match</code>标志允许你只运行包含匹配标题的测试，这可以通过简单的通配模式来做到，模式是大小写敏感的，详情请看 <a href="https://github.com/sindresorhus/matcher" target="_blank" rel="external"><code>matcher</code></a>。</p>
+<p>匹配以<code>foo</code>结尾的标题：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ava --match=&apos;*foo&apos;</div></pre></td></tr></table></figure>
+<p>匹配以<code>foo</code>开头的标题：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ava --match=&apos;foo*&apos;</div></pre></td></tr></table></figure>
+<p>匹配包含了<code>foo</code>的标题：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ava --match=&apos;*foo*&apos;</div></pre></td></tr></table></figure>
+<p>匹配<em>精确</em>等于<code>foo</code>的标题（尽管大小写敏感）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ava --match=&apos;foo&apos;</div></pre></td></tr></table></figure>
+<p>匹配不包含了<code>foo</code>的标题：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ava --match=&apos;!*foo*&apos;</div></pre></td></tr></table></figure>
+<p>匹配以<code>foo</code>开头并且以<code>bar</code>结束的标题：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ava --match=&apos;foo*bar&apos;</div></pre></td></tr></table></figure>
+<p>匹配以<code>foo</code>开头或者以<code>bar</code>结束的标题：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ava --match=&apos;foo*&apos; --match=&apos;*bar&apos;</div></pre></td></tr></table></figure>
+<p>注意，匹配模式优先级高于<code>.only</code>修饰符，只有带明确标题的测试可以被匹配，当使用<code>--match</code>时，没有标题的或者标题是从 callback 函数名来的测试都会被跳过。</p>
+<p>下面是当使用一个匹配模式<code>*oo*</code>来匹配测试的结果：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">test(<span class="string">'foo will run'</span>, t =&gt; &#123;</div><div class="line">    t.pass();</div><div class="line">&#125;);</div><div class="line"></div><div class="line">test(<span class="string">'moo will also run'</span>, t =&gt; &#123;</div><div class="line">    t.pass();</div><div class="line">&#125;);</div><div class="line"></div><div class="line">test.only(<span class="string">'boo will run but not exclusively'</span>, t =&gt; &#123;</div><div class="line">    t.pass();</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">// 不会运行，没有标题</span></div><div class="line">test(<span class="function"><span class="keyword">function</span> (<span class="params">t</span>) </span>&#123;</div><div class="line">    t.fail();</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">// 不会运行，没有明确定义的标题</span></div><div class="line">test(<span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">t</span>) </span>&#123;</div><div class="line">    t.fail();</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="跳过测试"><a href="#跳过测试" class="headerlink" title="跳过测试"></a>跳过测试</h3><p>有时候失败的测试一时难以修复，你可以使用<code>.skip</code>来告诉 AVA 跳过这些测试。它们仍然会显示在输出结果中（标识为 skipped），但不会被运行。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">test.skip(<span class="string">'will not be run'</span>, t =&gt; &#123;</div><div class="line">    t.fail();</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>你必须指定 callback 函数。</p>
+<h3 id="测试占位符-“todo”"><a href="#测试占位符-“todo”" class="headerlink" title="测试占位符 (“todo”)"></a>测试占位符 (“todo”)</h3><p>当你计划写一个测试的时候你可以使用<code>.todo</code>修饰符，像跳过测试一样这些占位符也会显示在输出结果中，它们只要求一个标题，你不能指定 callback 函数。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">test.todo(<span class="string">'will think about writing this later'</span>);</div></pre></td></tr></table></figure>
+<h3 id="Before-amp-after-钩子"><a href="#Before-amp-after-钩子" class="headerlink" title="Before &amp; after 钩子"></a>Before &amp; after 钩子</h3><p>AVA 让你可以注册在测试之前和之后跑的钩子，这允许你执行 setup 和 teardow 代码。</p>
+<p><code>test.before()</code>在你的测试文件中注册了一个钩子并在第一个测试前运行，同样地，<code>test.after()</code>注册了一个钩子在最后一个测试后运行。</p>
+<p><code>test.beforeEach()</code>在你的测试文件中注册了一个钩子并在每个测试前运行，同样地，<code>test.afterEach()</code>注册了一个钩子在每个测试后运行。</p>
+<p>像<code>test()</code>这些方法一样接收一个可选的标题和一个 callback 函数，如果你的钩子失败了标题就会显示出来，callback 函数传递一个<a href="#t">执行对象</a>。</p>
+<p><code>before</code>在<code>beforeEach</code>之前执行，<code>afterEach</code>在<code>after</code>之前执行，同一类的钩子按照它们定义的顺序来执行。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">test.before(<span class="function"><span class="params">t</span> =&gt;</span> &#123;</div><div class="line">    <span class="comment">// 这个会在所有测试前运行</span></div><div class="line">&#125;);</div><div class="line"></div><div class="line">test.before(<span class="function"><span class="params">t</span> =&gt;</span> &#123;</div><div class="line">    <span class="comment">// 这个会在上面的方法后面运行，但在测试之前运行</span></div><div class="line">&#125;);</div><div class="line"></div><div class="line">test.after(<span class="string">'cleanup'</span>, t =&gt; &#123;</div><div class="line">    <span class="comment">// 这个会在所有测试之后运行</span></div><div class="line">&#125;);</div><div class="line"></div><div class="line">test.beforeEach(<span class="function"><span class="params">t</span> =&gt;</span> &#123;</div><div class="line">    <span class="comment">// 这个会在每个测试之前运行</span></div><div class="line">&#125;);</div><div class="line"></div><div class="line">test.afterEach(<span class="function"><span class="params">t</span> =&gt;</span> &#123;</div><div class="line">    <span class="comment">// 这个会在每个测试之后运行</span></div><div class="line">&#125;);</div><div class="line"></div><div class="line">test(<span class="function"><span class="params">t</span> =&gt;</span> &#123;</div><div class="line">    <span class="comment">// 正常的测试</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>钩子可以同步或异步，就像测试一样。让钩子异步返回一个 promise 或 observable，使用一个 async 函数，或者通过<code>test.cb.before()</code>，<code>test.cb.beforeEach()</code>等来启用 callback 模式。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">test.before(<span class="keyword">async</span> t =&gt; &#123;</div><div class="line">    <span class="keyword">await</span> promiseFn();</div><div class="line">&#125;);</div><div class="line"></div><div class="line">test.after(<span class="function"><span class="params">t</span> =&gt;</span> &#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="comment">/* ... */</span>);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">test.cb.beforeEach(<span class="function"><span class="params">t</span> =&gt;</span> &#123;</div><div class="line">    setTimeout(t.end);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">test.afterEach.cb(<span class="function"><span class="params">t</span> =&gt;</span> &#123;</div><div class="line">    setTimeout(t.end);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>请记住，<code>beforeEach</code>和<code>afterEach</code>钩子在一个测试之前和之后运行，并且默认情况下测试是并发运行的，如果你需要为每个测试设置一个全局的状态（比如<code>console.log</code>的 spying<a href="https://github.com/avajs/ava/issues/560" target="_blank" rel="external">例子</a>），你需要确保这些测试是<a href="#串行运行测试">串行运行</a>的。</p>
+<p>记住，AVA 运行每个测试文件会有各自单独的进程，你可能不需要在<code>after</code>钩子中清理全局状态，因为它只会在进程退出前被调用。</p>
+<p><code>beforeEach</code>和<code>afterEach</code>钩子可以共享测试的上下文：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">test.beforeEach(<span class="function"><span class="params">t</span> =&gt;</span> &#123;</div><div class="line">    t.context.data = generateUniqueData();</div><div class="line">&#125;);</div><div class="line"></div><div class="line">test(<span class="function"><span class="params">t</span> =&gt;</span> &#123;</div><div class="line">    t.is(t.context.data + <span class="string">'bar'</span>, <span class="string">'foobar'</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>默认情况下<code>t.context</code>是一个对象，但你可以重新赋值：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">test.beforeEach(<span class="function"><span class="params">t</span> =&gt;</span> &#123;</div><div class="line">    t.context = <span class="string">'unicorn'</span>;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">test(<span class="function"><span class="params">t</span> =&gt;</span> &#123;</div><div class="line">    t.is(t.context, <span class="string">'unicorn'</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>上下文共享在<code>before</code>和<code>after</code>钩子中<em>不</em>可用。</p>
+<h3 id="连接测试修饰符"><a href="#连接测试修饰符" class="headerlink" title="连接测试修饰符"></a>连接测试修饰符</h3><p>你可以以任何顺序使用<code>.serial</code>，<code>.only</code>和<code>.skip</code>，与<code>test</code>，<code>before</code>，<code>after</code>，<code>beforeEach</code>和<code>afterEach</code>一起，比如：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">test.before.skip(...);</div><div class="line">test.skip.after(...);</div><div class="line">test.serial.only(...);</div><div class="line">test.only.serial(...);</div></pre></td></tr></table></figure>
+<p>这意味着你可以在每个测试或钩子的末尾临时添加<code>.skip</code>或<code>.only</code>，而不用做其他的修改。</p>
+<h3 id="自定义断言"><a href="#自定义断言" class="headerlink" title="自定义断言"></a>自定义断言</h3><p>你可以使用其他断言库来替代内置的断言库，当断言失败可以让其抛出异常。</p>
+<p>但这样做的话你将得不到<a href="#断言">内置断言库</a>的良好体验，同时你也将不会用到<a href="https://github.com/avajs/ava/issues/25" target="_blank" rel="external">断言计划](#断言计划） (『看#25</a>)。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> assert <span class="keyword">from</span> <span class="string">'assert'</span>;</div><div class="line"></div><div class="line">test(<span class="function"><span class="params">t</span> =&gt;</span> &#123;</div><div class="line">    assert(<span class="literal">true</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="支持ES2015"><a href="#支持ES2015" class="headerlink" title="支持ES2015"></a>支持ES2015</h3><p>AVA 通过 <a href="https://babeljs.io" target="_blank" rel="external">Babel 6</a> 内置支持 ES2015，只需要用 ES2015 的方式写你测试，不需要额外的配置。你可以在你的工程中使用任何的 Babel 版本，我们使用我们捆绑的 Babel，带有 <a href="https://babeljs.io/docs/plugins/preset-es2015/" target="_blank" rel="external"><code>es2015</code></a> 和 <a href="https://babeljs.io/docs/plugins/preset-stage-2/" target="_blank" rel="external"><code>stage-2</code></a> 设置，和 <a href="https://github.com/power-assert-js/babel-plugin-espower" target="_blank" rel="external"><code>espower</code></a> 和 <a href="https://babeljs.io/docs/plugins/transform-runtime/" target="_blank" rel="external"><code>transform-runtime</code></a> 插件一样。</p>
+<p>类似的 Babel 配置同样适用于 AVA，如下：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="attr">"presets"</span>: [</div><div class="line">    <span class="string">"es2015"</span>,</div><div class="line">    <span class="string">"stage-2"</span>,</div><div class="line">  ],</div><div class="line">  <span class="attr">"plugins"</span>: [</div><div class="line">    <span class="string">"espower"</span>,</div><div class="line">    <span class="string">"transform-runtime"</span></div><div class="line">  ]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>你可以自定义 AVA 如何通过 <a href="#配置"><code>package.json</code>配置</a><code>babel</code>选项来转换测试文件，例如你可以这样来覆盖配置：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="attr">"ava"</span>: &#123;</div><div class="line">    <span class="attr">"babel"</span>: &#123;</div><div class="line">      <span class="attr">"presets"</span>: [</div><div class="line">        <span class="string">"es2015"</span>,</div><div class="line">        <span class="string">"stage-0"</span>,</div><div class="line">        <span class="string">"react"</span></div><div class="line">      ]</div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>你也可以使用特殊的<code>&quot;inherit&quot;</code>关键字，这让 AVA 遵从你的 <a href="https://babeljs.io/docs/usage/babelrc/" target="_blank" rel="external"><code>.babelrc</code>或<code>package.json</code>文件</a> 中的 Babel 配置，这种方式让测试文件的转换方式和与源文件的相同，可以无需在 AVA 中重复配置。</p>
+ <figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="attr">"babel"</span>: &#123;</div><div class="line">        <span class="attr">"presets"</span>: [</div><div class="line">            <span class="string">"es2015"</span>,</div><div class="line">            <span class="string">"stage-0"</span>,</div><div class="line">            <span class="string">"react"</span></div><div class="line">        ]</div><div class="line">    &#125;,</div><div class="line">    <span class="attr">"ava"</span>: &#123;</div><div class="line">        <span class="attr">"babel"</span>: <span class="string">"inherit"</span>,</div><div class="line">    &#125;,</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>注意，AVA<em>总是</em>应用 <a href="https://github.com/power-assert-js/babel-plugin-espower" target="_blank" rel="external"><code>espower</code></a> 和 <a href="https://babeljs.io/docs/plugins/transform-runtime/" target="_blank" rel="external"><code>transform-runtime</code></a> 插件。</p>
+<h3 id="支持-TypeScript"><a href="#支持-TypeScript" class="headerlink" title="支持 TypeScript"></a>支持 TypeScript</h3><p>AVA 支持 TypeScript，你必须自己配置转换规则，当你在你的<code>tsconfig.json</code>文件中把<code>module</code>设为<code>commonjs</code>，TypeScipt 将自动为 AVA 找到类型定义。你应该把<code>target</code>设置为<code>es2015</code>来使用 promises 和 async 函数。</p>
+<h3 id="转换导入模块"><a href="#转换导入模块" class="headerlink" title="转换导入模块"></a>转换导入模块</h3><p>AVA 现在只转换需要运行的测试，<em>它不会转换那些在测试中你<code>import</code>的模块</em>，这可能不是你所期望的但这就是现在的工作方案。</p>
+<p>如果你使用 Babel 你可以使用它的 <a href="https://babeljs.io/docs/usage/require/" target="_blank" rel="external">require 钩子</a> 来实时转换导入模块，运行 AVA 带上<code>--require babel-register</code> （请看 <a href="#cli">CLI</a>) 参数或<a href="#配置">在你的<code>package.json</code>里配置</a>。</p>
+<p>你也可以在另外一个进程里转换你的模块，并且参考你的转换文件而不是你的测试源码。</p>
+<h3 id="支持Promise"><a href="#支持Promise" class="headerlink" title="支持Promise"></a>支持Promise</h3><p>如果你在测试里返回一个 promise，你不需要在测试里明确的结束测试，当 promise resolve 的时候它会自己结束。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">test(<span class="function"><span class="params">t</span> =&gt;</span> &#123;</div><div class="line">    <span class="keyword">return</span> somePromise().then(<span class="function"><span class="params">result</span> =&gt;</span> &#123;</div><div class="line">        t.is(result, <span class="string">'unicorn'</span>);</div><div class="line">    &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="支持Generator"><a href="#支持Generator" class="headerlink" title="支持Generator"></a>支持Generator</h3><p>AVA 自带对 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/function*" target="_blank" rel="external">generator 函数</a> 的内置支持。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">test(<span class="function"><span class="keyword">function</span> * (<span class="params">t</span>) </span>&#123;</div><div class="line">    <span class="keyword">const</span> value = <span class="keyword">yield</span> generatorFn();</div><div class="line">    t.true(value);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="支持Async"><a href="#支持Async" class="headerlink" title="支持Async"></a>支持Async</h3><p>AVA 自带对 <a href="https://tc39.github.io/ecmascript-asyncawait/" target="_blank" rel="external">async functions</a> <em>(async/await)</em>的内置支持。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">test(<span class="keyword">async</span> <span class="function"><span class="keyword">function</span> (<span class="params">t</span>) </span>&#123;</div><div class="line">    <span class="keyword">const</span> value = <span class="keyword">await</span> promiseFn();</div><div class="line">    t.true(value);</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">// 异步箭头函数</span></div><div class="line">test(<span class="keyword">async</span> t =&gt; &#123;</div><div class="line">    <span class="keyword">const</span> value = <span class="keyword">await</span> promiseFn();</div><div class="line">    t.true(value);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="支持Observable"><a href="#支持Observable" class="headerlink" title="支持Observable"></a>支持Observable</h3><p>AVA 自带对 <a href="https://github.com/zenparsing/es-observable" target="_blank" rel="external">observables</a> 的内置支持。如果你从测试中返回一个 observable，AVA 会自动消费它使其在测试结束前完成。</p>
+<p><em>你不需要使用“callback 模式”或者调用<code>t.end()</code>。</em></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">test(<span class="function"><span class="params">t</span> =&gt;</span> &#123;</div><div class="line">    t.plan(<span class="number">3</span>);</div><div class="line">    <span class="keyword">return</span> Observable.of(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>)</div><div class="line">        .filter(<span class="function"><span class="params">n</span> =&gt;</span> &#123;</div><div class="line">            <span class="comment">// 只有奇数</span></div><div class="line">            <span class="keyword">return</span> n % <span class="number">2</span> === <span class="number">0</span>;</div><div class="line">        &#125;)</div><div class="line">        .map(<span class="function"><span class="params">()</span> =&gt;</span> t.pass());</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="支持-Callback"><a href="#支持-Callback" class="headerlink" title="支持 Callback"></a>支持 Callback</h3><p>当使用 node-style, error-first 等 callback API 时，AVA 支持使用<code>t.end</code>作为最后一个 callback 函数。AVA 将把任何为真的值传递给<code>t.end</code>其实变成一个 error。注意，<code>t.end</code>要求“callback 模式”，这个可以通过使用<code>test.cb</code>链来启用。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">test.cb(<span class="function"><span class="params">t</span> =&gt;</span> &#123;</div><div class="line">    <span class="comment">// t.end 自动检查第一个参数是否为错误</span></div><div class="line">    fs.readFile(<span class="string">'data.txt'</span>, t.end);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="可选的TAP输出"><a href="#可选的TAP输出" class="headerlink" title="可选的TAP输出"></a>可选的TAP输出</h3><p>AVA 可以通过<code>--tap</code>选项来生成 TAP 的输出，可以选择任意的 <a href="https://github.com/sindresorhus/awesome-tap#reporters" target="_blank" rel="external">TAP 报告</a>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ava --tap | tap-nyan</div></pre></td></tr></table></figure>
+<p><img src="https://github.com/avajs/ava/blob/master/media/tap-output.png" width="398"></p>
+<h3 id="简明的堆栈跟踪"><a href="#简明的堆栈跟踪" class="headerlink" title="简明的堆栈跟踪"></a>简明的堆栈跟踪</h3><p>AVA 会在堆栈跟踪信息里面自动移除不相关的行，让你更快地找到错误的原因。</p>
+<p><img src="https://github.com/avajs/ava/blob/master/media/stack-traces.png" width="300"></p>
+<h2 id="API"><a href="#API" class="headerlink" title="API"></a>API</h2><h3 id="test-title-callback"><a href="#test-title-callback" class="headerlink" title="test([title], callback)"></a><code>test([title], callback)</code></h3><h3 id="test-serial-title-callback"><a href="#test-serial-title-callback" class="headerlink" title="test.serial([title], callback)"></a><code>test.serial([title], callback)</code></h3><h3 id="test-cb-title-callback"><a href="#test-cb-title-callback" class="headerlink" title="test.cb([title], callback)"></a><code>test.cb([title], callback)</code></h3><h3 id="test-only-title-callback"><a href="#test-only-title-callback" class="headerlink" title="test.only([title], callback)"></a><code>test.only([title], callback)</code></h3><h3 id="test-skip-title-callback"><a href="#test-skip-title-callback" class="headerlink" title="test.skip([title], callback)"></a><code>test.skip([title], callback)</code></h3><h3 id="test-todo-title"><a href="#test-todo-title" class="headerlink" title="test.todo(title)"></a><code>test.todo(title)</code></h3><h3 id="test-before-title-callback"><a href="#test-before-title-callback" class="headerlink" title="test.before([title], callback)"></a><code>test.before([title], callback)</code></h3><h3 id="test-after-title-callback"><a href="#test-after-title-callback" class="headerlink" title="test.after([title], callback)"></a><code>test.after([title], callback)</code></h3><h3 id="test-beforeEach-title-callback"><a href="#test-beforeEach-title-callback" class="headerlink" title="test.beforeEach([title], callback)"></a><code>test.beforeEach([title], callback)</code></h3><h3 id="test-afterEach-title-callback"><a href="#test-afterEach-title-callback" class="headerlink" title="test.afterEach([title], callback)"></a><code>test.afterEach([title], callback)</code></h3><h4 id="title"><a href="#title" class="headerlink" title="title"></a><code>title</code></h4><p>类型：<code>string</code></p>
+<p>测试标题</p>
+<h4 id="callback-t"><a href="#callback-t" class="headerlink" title="callback(t)"></a><code>callback(t)</code></h4><p>类型：<code>function</code></p>
+<p>应该包含实际的测试。</p>
+<h5 id="t"><a href="#t" class="headerlink" title="t"></a><code>t</code></h5><p>类型：<code>object</code></p>
+<p>特定测试的执行对象，每个测试的 callback 接收到一个不同的对象，包含<a href="#断言） ，`.plan(count">断言</a><code>和</code>.end()<code>等方法。</code>t.context<code>可以包含</code>beforeEach`钩子中的共享状态。</p>
+<h6 id="t-plan-count"><a href="#t-plan-count" class="headerlink" title="t.plan(count)"></a><code>t.plan(count)</code></h6><p>计划有多少断言将在测试中被执行，如果实际断言的数量没有匹配计划数，那么测试将失败，详情请见<a href="#断言计划">断言计划</a>。</p>
+<h6 id="t-end"><a href="#t-end" class="headerlink" title="t.end()"></a><code>t.end()</code></h6><p>结束测试，只在<code>test.cb()</code>中有效。</p>
+<h2 id="断言"><a href="#断言" class="headerlink" title="断言"></a>断言</h2><p>断言也被包含在<a href="#t">执行对象</a> 中，可以提供给每个测试 callback：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">test(<span class="function"><span class="params">t</span> =&gt;</span> &#123;</div><div class="line">    t.ok(<span class="string">'unicorn'</span>); <span class="comment">// 断言</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>如果单个测试中有多个断言同时失败了，那 AVA 只会显示<em>第一个</em>。</p>
+<h3 id="pass-message"><a href="#pass-message" class="headerlink" title=".pass([message])"></a><code>.pass([message])</code></h3><p>测试通过。</p>
+<h3 id="fail-message"><a href="#fail-message" class="headerlink" title=".fail([message])"></a><code>.fail([message])</code></h3><p>断言失败。</p>
+<h3 id="ok-value-message"><a href="#ok-value-message" class="headerlink" title=".ok(value, [message])"></a><code>.ok(value, [message])</code></h3><p>断言<code>value</code>是否是真值。</p>
+<h3 id="notOk-value-message"><a href="#notOk-value-message" class="headerlink" title=".notOk(value, [message])"></a><code>.notOk(value, [message])</code></h3><p>断言<code>value</code>是否是假值。</p>
+<h3 id="true-value-message"><a href="#true-value-message" class="headerlink" title=".true(value, [message])"></a><code>.true(value, [message])</code></h3><p>断言<code>value</code>是否是<code>true</code>。</p>
+<h3 id="false-value-message"><a href="#false-value-message" class="headerlink" title=".false(value, [message])"></a><code>.false(value, [message])</code></h3><p>断言<code>value</code>是否是<code>false</code>。</p>
+<h3 id="is-value-expected-message"><a href="#is-value-expected-message" class="headerlink" title=".is(value, expected, [message])"></a><code>.is(value, expected, [message])</code></h3><p>断言<code>value</code>是否和<code>expected</code>相等。</p>
+<h3 id="not-value-expected-message"><a href="#not-value-expected-message" class="headerlink" title=".not(value, expected, [message])"></a><code>.not(value, expected, [message])</code></h3><p>断言<code>value</code>是否和<code>expected</code>不等。</p>
+<h3 id="same-value-expected-message"><a href="#same-value-expected-message" class="headerlink" title=".same(value, expected, [message])"></a><code>.same(value, expected, [message])</code></h3><p>断言<code>value</code>是否和<code>expected</code>深度相等。</p>
+<h3 id="notSame-value-expected-message"><a href="#notSame-value-expected-message" class="headerlink" title=".notSame(value, expected, [message])"></a><code>.notSame(value, expected, [message])</code></h3><p>断言<code>value</code>是否和<code>expected</code>深度不等。</p>
+<h3 id="throws-function-promise-error-message"><a href="#throws-function-promise-error-message" class="headerlink" title=".throws(function|promise, [error, [message]])"></a><code>.throws(function|promise, [error, [message]])</code></h3><p>断言<code>function</code>抛出一个异常，或者<code>promise</code> reject 一个错误。</p>
+<p><code>error</code>可以是一个构造器，正则，错误信息或者验证函数。</p>
+<p>返回由<code>function</code>抛出的异常或<code>promise</code>的拒绝原因。</p>
+<h3 id="notThrows-function-promise-message"><a href="#notThrows-function-promise-message" class="headerlink" title=".notThrows(function|promise, [message])"></a><code>.notThrows(function|promise, [message])</code></h3><p>断言<code>function</code>没有抛出一个异常，或者<code>promise</code> resolve。</p>
+<h3 id="regex-contents-regex-message"><a href="#regex-contents-regex-message" class="headerlink" title=".regex(contents, regex, [message])"></a><code>.regex(contents, regex, [message])</code></h3><p>断言<code>contents</code>匹配<code>regex</code>。</p>
+<h3 id="ifError-error-message"><a href="#ifError-error-message" class="headerlink" title=".ifError(error, [message])"></a><code>.ifError(error, [message])</code></h3><p>断言<code>error</code>是假值。</p>
+<h3 id="跳过断言"><a href="#跳过断言" class="headerlink" title="跳过断言"></a>跳过断言</h3><p>通过<code>skip</code>修饰符可以跳过任何断言，跳过的断言仍然会被计数，所以不需要去改变你的断言计划数量。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">test(<span class="function"><span class="params">t</span> =&gt;</span> &#123;</div><div class="line">    t.plan(<span class="number">2</span>);</div><div class="line">    t.skip.is(foo(), <span class="number">5</span>); <span class="comment">// 当跳过时不需要改变你的计划数</span></div><div class="line">    t.is(<span class="number">1</span>, <span class="number">1</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="强化断言信息"><a href="#强化断言信息" class="headerlink" title="强化断言信息"></a>强化断言信息</h3><p>AVA 自带内置的 <a href="https://github.com/power-assert-js/power-assert" target="_blank" rel="external"><code>power-assert</code></a>，给你更多的描述性断言信息，它阅读你的测试代码并从中试图推断出更多信息。</p>
+<p>我们来举个例子，使用 Node 的标准 <a href="https://nodejs.org/api/assert.html" target="_blank" rel="external"><code>断言</code>库</a>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> a = <span class="regexp">/foo/</span>;</div><div class="line"><span class="keyword">const</span> b = <span class="string">'bar'</span>;</div><div class="line"><span class="keyword">const</span> c = <span class="string">'baz'</span>;</div><div class="line"><span class="built_in">require</span>(<span class="string">'assert'</span>).ok(a.test(b) || b === c);</div></pre></td></tr></table></figure>
+<p>如果你把代码粘贴到 Node REPL 中会返回：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">AssertionError: false == true</div></pre></td></tr></table></figure>
+<p>而在 AVA 中，这个测试：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">test(<span class="function"><span class="params">t</span> =&gt;</span> &#123;</div><div class="line">    <span class="keyword">const</span> a = <span class="regexp">/foo/</span>;</div><div class="line">    <span class="keyword">const</span> b = <span class="string">'bar'</span>;</div><div class="line">    <span class="keyword">const</span> c = <span class="string">'baz'</span>;</div><div class="line">    t.ok(a.test(b) || b === c);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>将会输出：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">t.ok(a.test(b) || b === c)</div><div class="line">       |    |     |     |</div><div class="line">       |    &quot;bar&quot; &quot;bar&quot; &quot;baz&quot;</div><div class="line">       false</div></pre></td></tr></table></figure>
+<h2 id="隔离进程"><a href="#隔离进程" class="headerlink" title="隔离进程"></a>隔离进程</h2><p>每个测试文件都会在一个独立的 Node 进程中运行，这样让你可以在一个测试文件中改变全局状态或将其覆盖一个内置的全局状态，而不会影响其他测试文件。这样更加有效地利用现代的多核处理器，让多个测试可以并发地执行。</p>
+<h2 id="小贴士"><a href="#小贴士" class="headerlink" title="小贴士"></a>小贴士</h2><h3 id="临时文件"><a href="#临时文件" class="headerlink" title="临时文件"></a>临时文件</h3><p>并发运行测试面临着许多挑战，文件的 IO 操作就是其中一个。</p>
+<p>一般来讲，串行测试在当前文件夹中创建临时文件夹，然后会在测试结束的时候清理它们。但这种做法在并发测试中不起作用，因为测试会一起操作这个文件夹而导致冲突。正确的做法是为每个测试创建一个新的临时文件夹，使用 <a href="https://github.com/sindresorhus/tempfile" target="_blank" rel="external"><code>tempfile</code></a> 和 <a href="https://github.com/sindresorhus/temp-write" target="_blank" rel="external"><code>temp-write</code></a> 模块可能会有帮助。</p>
+<h3 id="调试"><a href="#调试" class="headerlink" title="调试"></a>调试</h3><p>AVA 默认情况下是并发执行测试，这样在调试信息时并不是最理想的，你可以通过设置<code>--serial</code>选项来让测试串行执行。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ava --serial</div></pre></td></tr></table></figure>
+<h3 id="代码覆盖率"><a href="#代码覆盖率" class="headerlink" title="代码覆盖率"></a>代码覆盖率</h3><p>你不能使用 <a href="https://github.com/gotwarlost/istanbul" target="_blank" rel="external"><code>istanbul</code></a> 来做代码覆盖率因为 AVA<a href="#隔离进程），你可以使用 [`nyc`](https://github.com/bcoe/nyc">处理过这些测试文件</a> 来代替，你可以把它看做是支持子进程的<code>istanbul</code>。</p>
+<p>从版本<code>5.0.0</code>开始，在报告覆盖率时为你的代码使用原生映射，而不是转换后的代码。确保你测试的代码包括了一个内联的原生映射或者引用了一个原生映射文件。如果你使用了<code>babel-register</code>，你可以在你的 Babel 配置中将<code>sourceMaps</code>设置为<code>inline</code>。</p>
+<h2 id="FAQ"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ</h2><h3 id="为什么不用mocha，tape，tap？"><a href="#为什么不用mocha，tape，tap？" class="headerlink" title="为什么不用mocha，tape，tap？"></a>为什么不用<code>mocha</code>，<code>tape</code>，<code>tap</code>？</h3><p>Mocha 要求你使用隐式全局变量比如<code>describe</code>和<code>it</code>作为其默认接口（这是大部分人使用的）。这样做不是很好，并且串行执行测试没有进程隔离，使得测试十分缓慢。</p>
+<p>Tape 和 tap 是非常好的。AVA 在它们的语法中得到大量启发，但它们也是串行执行测试，它们的默认 <a href="https://testanything.org" target="_blank" rel="external">TAP</a> 输出不是非常友好，因此你总是需要使用额外的 tap 报告。</p>
+<p>与它们不同的是，AVA 可以并发执行测试，为每个测试文件提供独立进程，它的默认报告简单明了，并且 AVA 也支持通过 CLI 标志来输出一个 TAP 报告。</p>
+<h3 id="我如何使用自定义的报告？"><a href="#我如何使用自定义的报告？" class="headerlink" title="我如何使用自定义的报告？"></a>我如何使用自定义的报告？</h3><p>AVA 支持 TAP 格式，所以它兼容任何 <a href="https://github.com/sindresorhus/awesome-tap#reporters" target="_blank" rel="external">TAP 报告</a>，使用 <a href="#可选的tap输出"><code>--tap</code>标志</a>来启用 TAP 输出。</p>
+<h3 id="项目名字要怎么写才是正确的？如何发音？"><a href="#项目名字要怎么写才是正确的？如何发音？" class="headerlink" title="项目名字要怎么写才是正确的？如何发音？"></a>项目名字要怎么写才是正确的？如何发音？</h3><p>AVA，不是 Ava，也不是 ava，发音 <a href="https://github.com/avajs/ava/blob/master/media/pronunciation.m4a?raw=true" target="_blank" rel="external"><code>/ˈeɪvə/</code> ay-və</a>。</p>
+<h3 id="项目背景图片是什么意思？"><a href="#项目背景图片是什么意思？" class="headerlink" title="项目背景图片是什么意思？"></a>项目背景图片是什么意思？</h3><p>它是<a href="https://zh.wikipedia.org/wiki/%E4%BB%99%E5%A5%B3%E5%BA%A7%E6%98%9F%E7%B3%BB" target="_blank" rel="external">处女座星系</a>。</p>
+<h3 id="并发和并行有什么不同？"><a href="#并发和并行有什么不同？" class="headerlink" title="并发和并行有什么不同？"></a>并发和并行有什么不同？</h3><p><a href="https://stackoverflow.com/q/1050222" target="_blank" rel="external">并发不是并行，并发可以并行。</a></p>
+<h2 id="秘方"><a href="#秘方" class="headerlink" title="秘方"></a>秘方</h2><ul>
+<li><a href="docs/recipes/code-coverage.md">代码覆盖率</a></li>
+<li><a href="docs/recipes/watch-mode.md">观察模式</a></li>
+<li><a href="docs/recipes/endpoint-testing.md">端点测试</a></li>
+<li><a href="docs/recipes/when-to-use-plan.md">什么时候使用<code>t.plan()</code></a></li>
+<li><a href="docs/recipes/browser-testing.md">浏览器测试</a></li>
+<li><a href="docs/recipes/typescript.md">TypeScript</a></li>
+</ul>
+<h2 id="支持"><a href="#支持" class="headerlink" title="支持"></a>支持</h2><ul>
+<li><a href="https://stackoverflow.com/questions/tagged/ava" target="_blank" rel="external">Stack Overflow</a></li>
+<li><a href="https://gitter.im/avajs/ava" target="_blank" rel="external">Gitter chat</a></li>
+<li><a href="https://twitter.com/ava__js" target="_blank" rel="external">Twitter</a></li>
+</ul>
+<h2 id="相关"><a href="#相关" class="headerlink" title="相关"></a>相关</h2><ul>
+<li><a href="https://github.com/avajs/sublime-ava" target="_blank" rel="external">sublime-ava</a> - AVA 测试的代码片段</li>
+<li><a href="https://github.com/avajs/atom-ava" target="_blank" rel="external">atom-ava</a> - AVA 测试的代码片段</li>
+<li><a href="https://github.com/samverschueren/vscode-ava" target="_blank" rel="external">vscode-ava</a> - AVA 测试的代码片段</li>
+<li><a href="https://github.com/avajs/eslint-plugin-ava" target="_blank" rel="external">eslint-plugin-ava</a> - AVA 测试的代码规则</li>
+<li><a href="https://github.com/avajs/gulp-ava" target="_blank" rel="external">gulp-ava</a> - 用 gulp 运行测试</li>
+<li><a href="https://github.com/avajs/grunt-ava" target="_blank" rel="external">grunt-ava</a> - 用 grunt 运行测试</li>
+<li><a href="https://github.com/pine/fly-ava" target="_blank" rel="external">fly-ava</a> - 用 fly 运行测试</li>
+<li><a href="https://github.com/start-runner/ava" target="_blank" rel="external">start-ava</a> - 用 start 运行测试</li>
+</ul>
+<p><a href="https://github.com/avajs/awesome-ava#packages" target="_blank" rel="external">更多…</a></p>
+<h2 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h2><ul>
+<li><a href="https://www.stickermule.com/user/1070705604/stickers" target="_blank" rel="external">购买 AVA 贴纸</a></li>
+<li><a href="https://github.com/avajs/awesome-ava" target="_blank" rel="external">Awesome 列表</a></li>
+</ul>
+<h2 id="团队"><a href="#团队" class="headerlink" title="团队"></a>团队</h2><table>
+<thead>
+<tr>
+<th><a href="http://sindresorhus.com" target="_blank" rel="external"><img src="https://avatars.githubusercontent.com/u/170270?s=130" alt="Sindre Sorhus"></a></th>
+<th><a href="https://github.com/vdemedes" target="_blank" rel="external"><img src="https://avatars.githubusercontent.com/u/697676?s=130" alt="Vadim Demedes"></a></th>
+<th><a href="https://github.com/jamestalmage" target="_blank" rel="external"><img src="https://avatars.githubusercontent.com/u/4082216?s=130" alt="James Talmage"></a></th>
+<th><a href="https://novemberborn.net" target="_blank" rel="external"><img src="https://avatars.githubusercontent.com/u/33538?s=130" alt="Mark Wubben"></a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://sindresorhus.com" target="_blank" rel="external">Sindre Sorhus</a></td>
+<td><a href="https://github.com/vdemedes" target="_blank" rel="external">Vadim Demedes</a></td>
+<td><a href="https://github.com/jamestalmage" target="_blank" rel="external">James Talmage</a></td>
+<td><a href="https://novemberborn.net" target="_blank" rel="external">Mark Wubben</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="前任"><a href="#前任" class="headerlink" title="前任"></a>前任</h3><ul>
+<li><a href="https://github.com/kevva" target="_blank" rel="external">Kevin Mårtensson</a></li>
+</ul>
+<div align="center"><br>    <br><br>    <br><br>    <br><br>    <img src="https://cdn.rawgit.com/avajs/ava/fe1cea1ca3d2c8518c0cc39ec8be592beab90558/media/logo.svg" width="200" alt="AVA"><br>    <br><br>    <br><br></div>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-ecosystem.json" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/ecosystem.json/" class="article-date">
+  	<time datetime="2016-10-11T04:02:29.000Z" itemprop="datePublished">2016-10-11</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/ecosystem.json/">pm2 配置文件</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  /**</div><div class="line">   * Application configuration section</div><div class="line">   * http://pm2.keymetrics.io/docs/usage/application-declaration/</div><div class="line">   */</div><div class="line">  apps : [</div><div class="line"></div><div class="line">    // First application</div><div class="line">    &#123;</div><div class="line">      name      : &quot;dms-api&quot;,</div><div class="line">      script    : &quot;app.js&quot;,</div><div class="line">      env: &#123;</div><div class="line">        COMMON_VARIABLE: &quot;true&quot;</div><div class="line">      &#125;,</div><div class="line">      env_production : &#123;</div><div class="line">        NODE_ENV: &quot;production&quot;</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  ],</div><div class="line"></div><div class="line"></div><div class="line">  /**</div><div class="line">   * Deployment section</div><div class="line">   * http://pm2.keymetrics.io/docs/usage/deployment/</div><div class="line">   */</div><div class="line">  deploy : &#123;</div><div class="line">    test: &#123;</div><div class="line">      user : &quot;root&quot;,</div><div class="line">      host : &quot;.com&quot;,</div><div class="line">      ref  : &quot;origin/master&quot;,</div><div class="line">      repo : &quot;&quot;,</div><div class="line">      path : &quot;&quot;,</div><div class="line">      &quot;post-deploy&quot; : &quot;cd client ; npm install ; npm run build ; cd .. ; npm install ; pm2 startOrRestart ecosystem.json --env test&quot;,</div><div class="line">      env  : &#123;</div><div class="line">        NODE_ENV: &quot;test&quot;</div><div class="line">      &#125;</div><div class="line">    &#125;,</div><div class="line">    production : &#123;</div><div class="line">      user : &quot;root&quot;,</div><div class="line">      host : &quot;aircos.com&quot;,</div><div class="line">      ref  : &quot;origin/master&quot;,</div><div class="line">      repo : &quot;&quot;,</div><div class="line">      path : &quot;&quot;,</div><div class="line">      &quot;post-deploy&quot; : &quot;cd client ; npm install ; npm run build ; cd .. ; npm install ; pm2 startOrRestart ecosystem.json --env production&quot;,</div><div class="line">      env  : &#123;</div><div class="line">        NODE_ENV: &quot;production&quot;</div><div class="line">      &#125;</div><div class="line">    &#125;,</div><div class="line">    dev : &#123;</div><div class="line">      user : &quot;root&quot;,</div><div class="line">      host : &quot;&quot;,</div><div class="line">      ref  : &quot;origin/master&quot;,</div><div class="line">      repo : &quot;&quot;,</div><div class="line">      path : &quot;/var/www/development/dms-api&quot;,</div><div class="line">      &quot;post-deploy&quot; : &quot;npm install ; pm2 startOrRestart ecosystem.json --env dev&quot;,</div><div class="line">      env  : &#123;</div><div class="line">        NODE_ENV: &quot;dev&quot;</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-haproxy" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/haproxy/" class="article-date">
+  	<time datetime="2016-10-11T04:00:57.000Z" itemprop="datePublished">2016-10-11</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/haproxy/">安装 haproxy</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li><p>首先安装epel</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ rpm -ivh http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm</div></pre></td></tr></table></figure>
+</li>
+<li><p>安装haproxy</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ yum -y install haproxy</div></pre></td></tr></table></figure>
+</li>
+</ul>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-alinode" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/alinode/" class="article-date">
+  	<time datetime="2016-10-11T03:39:30.000Z" itemprop="datePublished">2016-10-11</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/alinode/">使用alinode监控服务器</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>alinode是由alinode运行时、AgentX、命令集、服务平台组成，提供对目标主机的实例，node进程进行包括<br>cpu、内存、堆栈信息等进行监控的服务。</p>
+<h3 id="安装alinode"><a href="#安装alinode" class="headerlink" title="安装alinode"></a>安装alinode</h3><ul>
+<li>安装tnvm</li>
+</ul>
+<p>alinode是与 Node 社区版完全兼容的二进制运行时环境，推荐使用tnvm工具进行安装, 它能自动识别你的操作系统和系统架构。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ wget -qO- https://raw.githubusercontent.com/aliyun-node/tnvm/master/install.sh | bash</div></pre></td></tr></table></figure>
+<p>完成安装后，需要将tnvm添加为命令行程序。根据平台的不同，可能是~/.bashrc，~/.profile或~/.zshrc等</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">source ~/.zshrc</div></pre></td></tr></table></figure>
+<p>tnvm 是一个可以完全替换nvm的命令功能，可以使用tnvm安转官方的node版本.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ tnvm ls-remote node</div></pre></td></tr></table></figure>
+<ul>
+<li>安装alinode</li>
+</ul>
+<p>前面提到的tnvm安装好了之后。可以使用tnvm安装alinode  </p>
+<p>查看alinode版本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">$ tnvm ls-remote alinode </div><div class="line">  alinode-v0.3.3</div><div class="line">  alinode-v0.3.4</div><div class="line">  alinode-v0.3.5</div><div class="line">  alinode-v1.1.1</div><div class="line">  alinode-v1.2.1</div><div class="line">  alinode-v1.2.2</div><div class="line">  alinode-v1.2.3</div><div class="line">  alinode-v1.3.0</div><div class="line">  alinode-v1.4.0</div><div class="line">  alinode-v1.5.1</div><div class="line">  alinode-v1.5.2</div></pre></td></tr></table></figure>
+<p>tnvm使用方法和nvm大致一样，下面安装alinode</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ tnvm install alinode-v0.3.4  </div><div class="line">$ tnvm use alinode-v0.3.4</div><div class="line">$ tnvm ls alinode</div><div class="line">  alinode-v0.3.4</div></pre></td></tr></table></figure>
+<h3 id="下载命令集"><a href="#下载命令集" class="headerlink" title="下载命令集"></a>下载命令集</h3><p>命令集为一组 alinode 服务执行任务所需要的命令集合，alinode 服务有且仅有执行这些命令的权限。<br>可以将该命令集随便放在摸个目录下，但是要记好，下面会需要这个路径。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git clone https://github.com/aliyun-node/commands</div></pre></td></tr></table></figure>
+<h3 id="安装AgentX"><a href="#安装AgentX" class="headerlink" title="安装AgentX"></a>安装AgentX</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install agentx -g</div></pre></td></tr></table></figure>
+<ul>
+<li>配置和运行AgentX</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  &quot;server&quot;: &quot;120.55.151.247:8080&quot;,</div><div class="line">  &quot;appid&quot;: &quot;您的应用ID&quot;,</div><div class="line">  &quot;secret&quot;: &quot;您的应用Secret&quot;,</div><div class="line">  &quot;heartbeatInterval&quot;: 60,</div><div class="line">  &quot;reconnectDelay&quot;: 10,</div><div class="line">  &quot;reportInterval&quot;: 60,</div><div class="line">  &quot;logdir&quot;: &quot;alinode生产的日志放置的路径，与NODE_LOG_DIR路径保持一致。如：/tmp/&quot;,</div><div class="line">  &quot;cmddir&quot;: &quot;命令集路径，绝对路径，如：/Users/jacksontian/commands&quot;,</div><div class="line">  &quot;error_log&quot;: [</div><div class="line">    &quot;您的应用在业务层面产生的异常日志的路径，如：/root/.logs/error.#YYYY#-#MM#-#DD#.log&quot;</div><div class="line">  ]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>注：上面的server不需要进行修改</p>
+<ul>
+<li>获取appid</li>
+</ul>
+<p>首先在<a href="http://alinode.aliyun.com/" target="_blank" rel="external">alinode官网注册登陆</a><br>上方菜单栏点击[ 控制台 ]  </p>
+<p><img src="../pic/alinode.png" width="600px" height="100px"></p>
+<ul>
+<li>根据提示创建完成  </li>
+<li>将appid和secret输入到上方的配置文件中  </li>
+<li>logdir，cmddir，error_log根据自己的需求自行填写目录</li>
+</ul>
+<h3 id="启动agentx"><a href="#启动agentx" class="headerlink" title="启动agentx"></a>启动agentx</h3><ul>
+<li>添加环境变量</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ export ENABLE_NODE_LOG=YES</div><div class="line">$ export NODE_LOG_DIR=/tmp/</div></pre></td></tr></table></figure>
+<p>需要注意的是，此处的NODE_LOG_DIR需要与配置文件中的logdir保持一致。</p>
+<ul>
+<li>启动agentx</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ nohup agentx /path/to/your/config.json &amp;</div></pre></td></tr></table></figure>
+<p>当agentx启动之后，你在该服务器使用node进行启动的所有进程都能被监视到（查看时存在一定的延时）</p>
+<h3 id="查看监控详情"><a href="#查看监控详情" class="headerlink" title="查看监控详情"></a>查看监控详情</h3><p><img src="../pic/alinode_info.png" width="800px" height="400px"></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    </nav>
   
 </div>
       <footer id="footer">
   <div class="outer">
     <div id="footer-info">
       <div class="footer-left">
-        &copy; 2016 John Doe
+        &copy; 2016 zxy
       </div>
         <div class="footer-right">
           <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/winnerweb/hexo-Yilia-Smackdown" target="_blank">Yilia(Smackdown)</a>

@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>mq集群 | NODE NEWBEE</title>
+
+  <!-- keywords -->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="mq的使用状态分为
+
+单一模式（非集群，单一服务）
+
+没啥好说的.
+
+
+默认的集群方式
+
+连接一个节点(node1)，只能将消息任务从node1向其他节点(node2,node3)同步，如果连接这个节点挂掉之后不能保证消息的传递，挂掉之后不能进行重新的连接。整体的服务就是挂掉了。
+
+
+负载 + rabbitmq集群模式
+
+这种方式的好处是，使用负载（可以想象成SLB对服务器的负载），连接多个mq节">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mq集群">
+<meta property="og:url" content="http://127.0.0.1:4000/rabbitmq_cluster/index.html">
+<meta property="og:site_name" content="NODE NEWBEE">
+<meta property="og:description" content="mq的使用状态分为
+
+单一模式（非集群，单一服务）
+
+没啥好说的.
+
+
+默认的集群方式
+
+连接一个节点(node1)，只能将消息任务从node1向其他节点(node2,node3)同步，如果连接这个节点挂掉之后不能保证消息的传递，挂掉之后不能进行重新的连接。整体的服务就是挂掉了。
+
+
+负载 + rabbitmq集群模式
+
+这种方式的好处是，使用负载（可以想象成SLB对服务器的负载），连接多个mq节">
+<meta property="og:image" content="http://127.0.0.1:4000/../pic/mq集群拓扑.png">
+<meta property="og:image" content="http://127.0.0.1:4000/../pic/keepalived-haproxy.png">
+<meta property="og:updated_time" content="2016-10-11T05:32:15.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="mq集群">
+<meta name="twitter:description" content="mq的使用状态分为
+
+单一模式（非集群，单一服务）
+
+没啥好说的.
+
+
+默认的集群方式
+
+连接一个节点(node1)，只能将消息任务从node1向其他节点(node2,node3)同步，如果连接这个节点挂掉之后不能保证消息的传递，挂掉之后不能进行重新的连接。整体的服务就是挂掉了。
+
+
+负载 + rabbitmq集群模式
+
+这种方式的好处是，使用负载（可以想象成SLB对服务器的负载），连接多个mq节">
+<meta name="twitter:image" content="http://127.0.0.1:4000/../pic/mq集群拓扑.png">
+  
+    <link rel="alternative" href="/atom.xml" title="NODE NEWBEE" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+  
+
+  <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+  
+</head>
+<body>
+  <div id="container">
+    <div id="particles-js"></div>
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="https://avatars0.githubusercontent.com/u/15117664?v=3&amp;u=a64a0ca7dfffa9da8eafc9673bb6d45038235a58&amp;s=140" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">zxy</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com/winnerweb/hexo-theme-smackdown">smackdown</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">zxy</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="https://avatars0.githubusercontent.com/u/15117664?v=3&amp;u=a64a0ca7dfffa9da8eafc9673bb6d45038235a58&amp;s=140" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">zxy</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-rabbitmq_cluster" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/rabbitmq_cluster/" class="article-date">
+  	<time datetime="2016-10-11T05:06:20.000Z" itemprop="datePublished">2016-10-11</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      mq集群
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>mq的使用状态分为</p>
+<ul>
+<li><p>单一模式（非集群，单一服务）</p>
+<blockquote>
+<p>没啥好说的.</p>
+</blockquote>
+</li>
+<li><p>默认的集群方式</p>
+<blockquote>
+<p>连接一个节点(node1)，只能将消息任务从node1向其他节点(node2,node3)同步，如果连接这个节点<br>挂掉之后不能保证消息的传递，挂掉之后不能进行重新的连接。整体的服务就是挂掉了。</p>
+</blockquote>
+</li>
+<li><p>负载 + rabbitmq集群模式</p>
+<blockquote>
+<p>这种方式的好处是，使用负载（可以想象成SLB对服务器的负载），连接多个mq节点，当有mq节点挂掉之后，<br>其他节点还是可以继续工作，同时使用负载进行对多个mq节点的连接请求进行优化。将压力分摊到各个节点。</p>
+</blockquote>
+</li>
+</ul>
+<p>今天做的是搭建负载 + rabbitmq集群模式，先来看张图：</p>
+<div align="center"><br><img src="../pic/mq集群拓扑.png" width="650px" height="600px" text-align:center=""><br></div>
+
+<blockquote>
+<p>这里一共分为三个mq节点和一个负载节点（即搭建负载的连接节点），其中有两个是ram（内存），和一个disc(硬盘)<br>节点，这样可以保证队列的效率，同时也可以保证数据的安全性（持久化数据到硬盘）。</p>
+</blockquote>
+<h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><p>以下所有操作均是root用户,且需要在三台节点机器上都进行操作</p>
+<ul>
+<li>修改主机的hostname<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ vi /etc/hostname</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>如果是node1，则修改为node1，余下两台以此类推。</p>
+<ul>
+<li>修改hosts<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ vi /etc/hosts</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>分别将三个节点的信息添加进去,格式如下:   </p>
+<blockquote>
+<p>192.168.199.1 node1<br>192.168.199.2 node2<br>193.168.199.2 node3  </p>
+</blockquote>
+<ul>
+<li>重启机器<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">reboot</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>修改hostname和hosts是为了能将hostname格式统一，方便管理和观察。</p>
+<h3 id="在三个机器安装rabbimq"><a href="#在三个机器安装rabbimq" class="headerlink" title="在三个机器安装rabbimq"></a>在三个机器安装rabbimq</h3><ul>
+<li><p>首先安装erlang</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo yum install erlang</div></pre></td></tr></table></figure>
+</li>
+<li><p>下载最新版本rabbitmq</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ wget &quot;http://www.rabbitmq.com/releases/rabbitmq-server/v3.6.2/rabbitmq-server-3.6.2-1.noarch.rpm&quot;</div><div class="line">$ rpm -ivh rabbitmq-server-3.6.2-1.noarch.rpm</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>.rpm是linux系统的可执行文件，像win下的.exe一样，rpm -ivh 是安装 .rpm的命令</p>
+</blockquote>
+<ul>
+<li><p>安装时可能会需要socat</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">socat是一个netcat的升级版，是在两个流之间建立双向通道</div></pre></td></tr></table></figure>
+</li>
+<li><p>安装socat</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo yum install socat</div></pre></td></tr></table></figure>
+</li>
+<li><p>以服务的方式启动mq</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ service rabbitmq-server start</div></pre></td></tr></table></figure>
+</li>
+<li><p>安装mq客户端插件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ rabbitmq-plugins enable rabbitmq_management</div></pre></td></tr></table></figure>
+</li>
+<li><p>重启mq</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ service rabbitmq-server restart</div></pre></td></tr></table></figure>
+</li>
+<li><p>解决无法登录问题</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo vi /etc/rabbitmq/rabbitmq.config</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>添加如下内容</p>
+<blockquote>
+<p>[{rabbit, [{loopback_users, []}]}].</p>
+</blockquote>
+<p>注意后面的’.’</p>
+<h3 id="统一每个机器的erlang-cookie"><a href="#统一每个机器的erlang-cookie" class="headerlink" title="统一每个机器的erlang.cookie"></a>统一每个机器的erlang.cookie</h3><p>rabbitmq 是基于erlang进行工作的，erlang 天生就是用于集群的语言，其健壮性，高并发，分布式的优点为<br>rabbitmq提供了很好的环境。erlang集群是基于erlang.cookie的同步性进行通信，所以在配置集群之前应该<br>将erlang.cookie统一。</p>
+<ul>
+<li>复制erlang.cookie到各个节点<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ cat /var/lib/rabbitmq/.erlang.cookie </div><div class="line">TJXAHQIUTYPRHIFYSNNF</div><div class="line">$ cat ~/.erlang.cookie</div><div class="line">XKKEZRFMWHBKAQVQHSPV</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>分别将.erlang.cookie的内容复制到另外两个机器。</p>
+<ul>
+<li>修改.erlang.cookie权限<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ chmod 400 /var/lib/rabbitmq/.erlang.cookie</div><div class="line">$ chown rabbitmq /var/lib/rabbitmq/.erlang.cookie</div><div class="line">$ chgrp rabbitmq /var/lib/rabbitmq/.erlang.cookie</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>准备工作基本就到此结束，下面开始正式的部署集群</p>
+<h2 id="集群"><a href="#集群" class="headerlink" title="集群"></a>集群</h2><p>集群的方式还是需要使用rabbitmq自带的集群方式</p>
+<ul>
+<li>三个节点同时启动rabbitmq<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ service rabbitmq-server start</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>默认加入集群node1</p>
+<ul>
+<li>组成集群<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">node2 $ rabbitmqctl stop_app </div><div class="line">node2 $ rabbitmqctl join_cluster rabbit@node1</div><div class="line">node2 $ rabbitmqctl start_app</div><div class="line"></div><div class="line">node3 $ rabbitmqctl stop_app </div><div class="line">node3 $ rabbitmqctl join_cluster rabbit@node1</div><div class="line">node3 $ rabbitmqctl start_app</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>此时 node2 与 node3 也会自动建立连接；如果要使用内存节点，则可以使用以下命令加入集群。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">node2 $ rabbitmqctl join_cluster --ram rabbit@node1</div></pre></td></tr></table></figure></p>
+<ul>
+<li>设置同步节点<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ rabbitmqctl set_policy ha-all &quot;^&quot; &apos;&#123;&quot;ha-mode&quot;:&quot;all&quot;&#125;&apos;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>将所有队列设置为镜像队列，即队列会被复制到各个节点，各个节点状态保持一致。</p>
+<h3 id="安装haproxy"><a href="#安装haproxy" class="headerlink" title="安装haproxy"></a>安装haproxy</h3><p>haproxy是一个负载均衡的软件，基于TCP和HTTP应用的代理，支持虚拟主机, HAProxy实现了一种事件驱动,<br>单一进程模型，此模型支持非常大的并发连接数。类似于nginx，但是haproxy不能进行静态界面的托管，<br>但是在其它方面，比如负载轮询的算法种类要比nginx的优化好很多。我们使用haproxy做mq的基于TCP的<br>代理，在其提供的管理端界面中能清楚的看到各个节点的状态。</p>
+<ul>
+<li><p>首先安装epel</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ rpm -ivh http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm</div></pre></td></tr></table></figure>
+</li>
+<li><p>安装haproxy</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ yum -y install haproxy</div></pre></td></tr></table></figure>
+</li>
+<li><p>修改haproxy配置文件</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ vi /etc/haproxy/haproxy.cfg</div></pre></td></tr></table></figure>
+<p>将如下内容添加到配置文件中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">listen admin_stat</div><div class="line">    bind  *:8888  ##Haproxy管理页面</div><div class="line">    mode  http</div><div class="line">    stats refresh 30s</div><div class="line">    stats uri /haproxy_stats</div><div class="line">    stats realm Haproxy\ Statistics</div><div class="line">    stats auth admin:admin  ##登录名和密码</div><div class="line">    stats hide-version</div><div class="line"></div><div class="line">listen rabbitmq_cluster 0.0.0.0:5670 ## 监听5670端口</div><div class="line">    mode     tcp</div><div class="line">    balance  roundrobin</div><div class="line">    server   node1 192.168.199.1:5672 check inter 2000 rise 2 fall 3 ## 节点1</div><div class="line">    server   node2 192.168.199.2:5672 check inter 2000 rise 2 fall 3 ## 节点2</div><div class="line">    server   node3 192.168.199.3:5672 check inter 2000 rise 2 fall 3 ## 节点3</div></pre></td></tr></table></figure></p>
+<ul>
+<li><p>启动haproxy</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ haproxy -f /etc/haproxy/haproxy.cfg</div></pre></td></tr></table></figure>
+</li>
+<li><p>查看是否启动成功</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ps -ef | grep haproxy</div></pre></td></tr></table></figure>
+</li>
+<li><p>登录管理界面</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://yourip:8888/haproxy_stats</div></pre></td></tr></table></figure>
+</li>
+<li><p>安装keepalived</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ yum –y install keepalived</div></pre></td></tr></table></figure>
+</li>
+<li><p>配置Keepalived </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ vi /etc/keepalived/keepalived.conf</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>将如下内容添加到配置文件中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">vrrp_script chk_haproxy &#123;</div><div class="line">    script &quot;/etc/keepalived/scripts/haproxy_check.sh&quot;  ## 脚本文件，检验haproxy进程是否启动</div><div class="line">    interval 2</div><div class="line">&#125;</div><div class="line">vrrp_instance VI_1 &#123;</div><div class="line">    state MASTER</div><div class="line">    interface eth0</div><div class="line">    virtual_router_id 51</div><div class="line">    priority 101   ##高优先级，主节点</div><div class="line">    authentication &#123;</div><div class="line">        auth_type PASS</div><div class="line">        auth_pass rabbitmq</div><div class="line">    &#125;</div><div class="line">    track_script &#123;</div><div class="line">        chk_haproxy</div><div class="line">    &#125;</div><div class="line">    virtual_ipaddress &#123;</div><div class="line">        192.168.100.195</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<ul>
+<li>创建脚本文件<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ mkdir -p /etc/keepalived/scripts/ </div><div class="line">$ vi /etc/keepalived/scripts/haproxy_check.sh</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>将如下内容添加到文件中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line">LOGFILE=&quot;/var/log/keepalived-ha-state.log&quot;</div><div class="line">pid1=` ps aux | grep /etc/haproxy/haproxy.cfg | grep -v grep | grep -v bash `</div><div class="line">if [ &quot;$pid1&quot; == &quot;&quot; ];then</div><div class="line">    echo -e &quot;===========================================&quot; &gt; $LOGFILE</div><div class="line">    date  +%Y%m%d-%H:%M:%S  &gt; $LOGFILE</div><div class="line">    echo -e &quot;Ready to start haproxy.....&quot;  &gt; $LOGFILE</div><div class="line">    haproxy -f /etc/haproxy/haproxy.cfg  ##启动Haproxy</div><div class="line">    echo &quot;Haproxy start success!!!&quot;</div><div class="line">    pid2=` ps aux | grep /etc/haproxy/haproxy.cfg | grep -v grep | grep -v bash `  </div><div class="line">    if [ &quot;$pid2&quot; == &quot;&quot; ];then</div><div class="line">        echo -e &quot;Haproxy failed to start !!! So,stop keepalived!!!&quot;  &gt; $LOGFILE   </div><div class="line">        /etc/init.d/keepalived stop</div><div class="line">    else</div><div class="line">        echo -e &quot;Haproxy start success!!!&quot; &gt; $LOGFILE</div><div class="line">    fi</div><div class="line">fi</div></pre></td></tr></table></figure></p>
+<ul>
+<li><p>创建日志文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ touch /var/log/keepalived-ha-state.log</div><div class="line">$ chmod 777 /var/log/keepalived-ha-state.log</div></pre></td></tr></table></figure>
+</li>
+<li><p>启动keepalived</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ service keepalived restart</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>此时启动keepalive的同时，haproxy也会启动，haproxy会对rabbitmq的三个节点进行负载。</p>
+<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><ul>
+<li>关停其中一个节点<br>当关停一个节点之后，其它的两个节点还是能继续工作。</li>
+<li>干掉haproxy负载进程<br>如图，当我干掉haproxy进程的时候，通过keepalived马上又新建了一个haproxy的进程.</li>
+</ul>
+<p><img src="../pic/keepalived-haproxy.png" width="650px" height="170px" text-align:center=""></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>到此 rabbitmq + haproxy + keepalived 热备集群就搭建完成了，搭建完成之后，妈妈再也不用担心我的<br>mq速度慢，安全性低，总挂的问题了。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/pm2/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">pm2自动部署</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2016 zxy
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/winnerweb/hexo-Yilia-Smackdown" target="_blank">Yilia(Smackdown)</a>
+        </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="/js/main.js"></script>
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

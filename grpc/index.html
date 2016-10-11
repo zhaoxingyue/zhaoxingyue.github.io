@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>gRPC使用简述 | NODE NEWBEE</title>
+
+  <!-- keywords -->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="技术点：  
+
+protocol buffers定义规范
+RPC协议
+gRPC
+
+protocol buffers
+先说说这是个什么玩意，Google Protocol Buffer( 简称 Protobuf) 是 Google公司内部的混合语言数据标准，目前已经正在使用的有超过 48,162 种报文格式定义和超过 12,183 个.proto 文件。他们用于 RPC 系统和持续数据存储系统。Pr">
+<meta property="og:type" content="article">
+<meta property="og:title" content="gRPC使用简述">
+<meta property="og:url" content="http://127.0.0.1:4000/grpc/index.html">
+<meta property="og:site_name" content="NODE NEWBEE">
+<meta property="og:description" content="技术点：  
+
+protocol buffers定义规范
+RPC协议
+gRPC
+
+protocol buffers
+先说说这是个什么玩意，Google Protocol Buffer( 简称 Protobuf) 是 Google公司内部的混合语言数据标准，目前已经正在使用的有超过 48,162 种报文格式定义和超过 12,183 个.proto 文件。他们用于 RPC 系统和持续数据存储系统。Pr">
+<meta property="og:image" content="http://127.0.0.1:4000/../pic/proto-json.png">
+<meta property="og:updated_time" content="2016-10-11T05:20:28.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="gRPC使用简述">
+<meta name="twitter:description" content="技术点：  
+
+protocol buffers定义规范
+RPC协议
+gRPC
+
+protocol buffers
+先说说这是个什么玩意，Google Protocol Buffer( 简称 Protobuf) 是 Google公司内部的混合语言数据标准，目前已经正在使用的有超过 48,162 种报文格式定义和超过 12,183 个.proto 文件。他们用于 RPC 系统和持续数据存储系统。Pr">
+<meta name="twitter:image" content="http://127.0.0.1:4000/../pic/proto-json.png">
+  
+    <link rel="alternative" href="/atom.xml" title="NODE NEWBEE" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+  
+
+  <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+  
+</head>
+<body>
+  <div id="container">
+    <div id="particles-js"></div>
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="https://avatars0.githubusercontent.com/u/15117664?v=3&amp;u=a64a0ca7dfffa9da8eafc9673bb6d45038235a58&amp;s=140" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">zxy</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com/winnerweb/hexo-theme-smackdown">smackdown</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">zxy</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="https://avatars0.githubusercontent.com/u/15117664?v=3&amp;u=a64a0ca7dfffa9da8eafc9673bb6d45038235a58&amp;s=140" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">zxy</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-grpc" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/grpc/" class="article-date">
+  	<time datetime="2016-10-11T05:04:02.000Z" itemprop="datePublished">2016-10-11</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      gRPC使用简述
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>技术点：  </p>
+<ul>
+<li>protocol buffers定义规范</li>
+<li>RPC协议</li>
+<li>gRPC</li>
+</ul>
+<h2 id="protocol-buffers"><a href="#protocol-buffers" class="headerlink" title="protocol buffers"></a>protocol buffers</h2><blockquote>
+<p>先说说这是个什么玩意，Google Protocol Buffer( 简称 Protobuf) 是 Google<br>公司内部的混合语言数据标准，目前已经正在使用的有超过 48,162 种报文格式定义和超过 12,183 个<br>.proto 文件。他们用于 RPC 系统和持续数据存储系统。Protocol Buffers 是一种轻便高效的结构化数据存储格式，<br>可以用于结构化数据串行化，或者说序列化。它很适合做数据存储或 RPC 数据交换格式。可用于通讯协议、<br>数据存储等领域的语言无关、平台无关、可扩展的序列化结构数据格式。目前提供了 C++、Java、Python、<br>C#、Go、Node、php、ruby等一万种语言的API。谷歌还是够给力的，据说还要继续开发支持其他的几万种语言。<br>可能这么说protocol buffers是啥还是让人有点懵逼，直白点说这玩意就是跟XML、JSON是一个东西，<br>是数据的载体，但是Protobuf的效率要比JSON、XML高很多，上个图爽一下：</p>
+</blockquote>
+<p><img src="../pic/proto-json.png"></p>
+<blockquote>
+<p><a href="https://developers.google.com/protocol-buffers/docs/overview#whynotxml" target="_blank" rel="external">再看一下对比XML</a>。<br>好处就说到这，我自己没有进行过测试，有点遗憾。大家可以再网上搜一下protocol buffers的效率测试。</p>
+</blockquote>
+<h3 id="why-protocol-buffers"><a href="#why-protocol-buffers" class="headerlink" title="why protocol buffers"></a>why protocol buffers</h3><blockquote>
+<p>作为数据传输的消息格式和描述，JSON和XML是老炮了，老炮毛病是有点多的，比如传输时消息报文过大，XML解析<br>太难受，效率很低，protocol buffers很好的解决了这两点问题，同时最重要的原因还有protocol buffers对<br>新老版本的兼容特别好，在跨语言跨服务的应用场景中解决了很多痛点。下面说一下protocol buffers的基本语法。</p>
+</blockquote>
+<h3 id="Protobuf-的不足"><a href="#Protobuf-的不足" class="headerlink" title="Protobuf 的不足"></a>Protobuf 的不足</h3><blockquote>
+<p>Protbuf 与 XML 相比也有不足之处。它功能简单，无法用来表示复杂的概念。XML 已经成为多种行业标准的编写工具，<br>Protobuf 只是 Google 公司内部使用的工具，在通用性上还差很多。由于文本并不适合用来描述数据结构，<br>所以 Protobuf 也不适合用来对基于文本的标记文档（如 HTML）建模。另外，由于 XML 具有某种程度上的自解释性，<br>它可以被人直接读取编辑，在这一点上 Protobuf 不行，它以二进制的方式存储，除非你有 .proto 定义，<br>否则你没法直接读出 Protobuf 的任何内容。</p>
+</blockquote>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><h4 id="下载protocol-buffers源码"><a href="#下载protocol-buffers源码" class="headerlink" title="下载protocol buffers源码"></a>下载protocol buffers源码</h4><p>在protocol buffers的 <a href="https://github.com/google/protobuf" target="_blank" rel="external">github主页</a>下载源码。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ tar -xzf protobuf-3.0.0-alpha-6</div><div class="line">$ cd protobuf-3.0.0-alpha-6</div><div class="line">$ ./configure --prefix=$INSTALL_DIR </div><div class="line">$ make </div><div class="line">$ make check </div><div class="line">$ make install</div></pre></td></tr></table></figure>
+<p>执行完成之后回产生一个protoc的命令工具，可以用来生成protocol buffers支持的各种语言的代码。<br>具体的格式是这样的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">protoc --proto_path=IMPORT_PATH --cpp_out=DST_DIR --js_out=DST_DIR --python_out=DST_DIR path/to/file.proto</div></pre></td></tr></table></figure>
+<ul>
+<li>protoc为Protocol Buffer提供的命令行编译工具。</li>
+<li>–proto_path等同于-I选项，主要用于指定待编译的.proto消息定义文件所在的目录，该选项可以被同时指定多个。</li>
+<li>–cpp_out选项表示生成C++代码，–js_out表示生成js代码，–python_out则表示生成Python代码，<br> 其后的目录为生成后的代码所存放的目录。</li>
+<li>path/to/file.proto表示待编译的消息定义文件。<br>目前protocol buffers支持nodejs语言，本文使用场景就是nodejs，不过编译好的nodejs文件，我个人觉得<br>并没有什么卵用，不如直接使用proto文件来的痛快。<br>关于nodejs使用grpc的方法可以去github看一波。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git clone</div></pre></td></tr></table></figure>
+<h3 id="RPC"><a href="#RPC" class="headerlink" title="RPC"></a>RPC</h3><blockquote>
+<p>RPC即远程过程调用协议（Remote Procedure Call），它是一种通过网络从远程计算机上请求服务，<br>而不需要关心具体是什么语言实现的，一般使用TCP进行数据的交换。RPC使开发包括网络分布式多程序多服务开发的应用更加便捷。<br>RPC采用客户端／服务器模式，请求程序就是一个客户端，提供服务的就是一个服务器。客户端发送一个带有<br>参数的进程请求，请求到休眠中的服务端，服务端接收到请求后，提取参数进行计算，将计算结果返回给客户端。</p>
+</blockquote>
+<h3 id="gRPC"><a href="#gRPC" class="headerlink" title="gRPC"></a>gRPC</h3><blockquote>
+<p>gRPC是由谷歌开发，跨语言，跨平台，开源的远程过程调用（RPC）系统。gRPC基于HTTP/2标准设计，<br>带来诸如双向流控、头部压缩、单TCP连接上的多复用请求等特性。 gRPC跟其他RPC协议一样，<br>指定其调用的远程方法及其参数和返回值，gRPC默认使用Google的protocol buffers作为描述调用接口定义语言，<br>来描述接口和传递的消息结构。<br>有了 gRPC， 我们可以一次性的在一个 .proto 文件中定义服务并使用任何支持它的语言去实现客户端<br>和服务器，反过来，它们可以在各种环境中，从Google的服务器到你自己的平板电脑 – gRPC 帮你解决了<br>不同语言及环境间通信的复杂性。使用 protocol buffers 还能获得其他好处，包括高效的序列号，<br>简单的 IDL 以及容易进行接口更新。</p>
+</blockquote>
+<p>目前gRPC支持的语言有：</p>
+<ul>
+<li>C++</li>
+<li>C# </li>
+<li>Go </li>
+<li>Java </li>
+<li>Node </li>
+<li>php </li>
+<li>python </li>
+<li>ruby </li>
+</ul>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/pm2/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">&lt;</strong>
+      <div class="article-nav-title">
+        
+          pm2自动部署
+        
+      </div>
+    </a>
+  
+  
+    <a href="/docker/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">centOS下docker安装</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2016 zxy
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/winnerweb/hexo-Yilia-Smackdown" target="_blank">Yilia(Smackdown)</a>
+        </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="/js/main.js"></script>
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

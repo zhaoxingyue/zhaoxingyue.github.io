@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>ava | NODE NEWBEE</title>
+
+  <!-- keywords -->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="未来的测试运行器
+
+虽然 JavaScript 是单线程，但在 Node.js 里由于其异步的特性使得 IO 可以并行。AVA 利用这个优点让你的测试可以并发执行，这对于 IO 繁重的测试特别有用。另外，测试文件可以在不同的进程里并行运行，让每一个测试文件可以获得更好的性能和独立的环境。在 Pageres 项目中从 Mocha切换 到 AVA 让测试时间从 31 秒下降到 11 秒。测试并发执行">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ava">
+<meta property="og:url" content="http://127.0.0.1:4000/ava/index.html">
+<meta property="og:site_name" content="NODE NEWBEE">
+<meta property="og:description" content="未来的测试运行器
+
+虽然 JavaScript 是单线程，但在 Node.js 里由于其异步的特性使得 IO 可以并行。AVA 利用这个优点让你的测试可以并发执行，这对于 IO 繁重的测试特别有用。另外，测试文件可以在不同的进程里并行运行，让每一个测试文件可以获得更好的性能和独立的环境。在 Pageres 项目中从 Mocha切换 到 AVA 让测试时间从 31 秒下降到 11 秒。测试并发执行">
+<meta property="og:image" content="https://github.com/avajs/ava/blob/master/media/screenshot.png">
+<meta property="og:image" content="https://github.com/avajs/ava/blob/master/media/screenshot-mini-reporter.gif">
+<meta property="og:image" content="https://github.com/avajs/ava/blob/master/media/tap-output.png">
+<meta property="og:image" content="https://github.com/avajs/ava/blob/master/media/stack-traces.png">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/170270?s=130">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/697676?s=130">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/4082216?s=130">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/33538?s=130">
+<meta property="og:image" content="https://cdn.rawgit.com/avajs/ava/fe1cea1ca3d2c8518c0cc39ec8be592beab90558/media/logo.svg">
+<meta property="og:updated_time" content="2016-10-11T04:26:58.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ava">
+<meta name="twitter:description" content="未来的测试运行器
+
+虽然 JavaScript 是单线程，但在 Node.js 里由于其异步的特性使得 IO 可以并行。AVA 利用这个优点让你的测试可以并发执行，这对于 IO 繁重的测试特别有用。另外，测试文件可以在不同的进程里并行运行，让每一个测试文件可以获得更好的性能和独立的环境。在 Pageres 项目中从 Mocha切换 到 AVA 让测试时间从 31 秒下降到 11 秒。测试并发执行">
+<meta name="twitter:image" content="https://github.com/avajs/ava/blob/master/media/screenshot.png">
+  
+    <link rel="alternative" href="/atom.xml" title="NODE NEWBEE" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+  
+
+  <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+  
+</head>
+<body>
+  <div id="container">
+    <div id="particles-js"></div>
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="https://avatars0.githubusercontent.com/u/15117664?v=3&amp;u=a64a0ca7dfffa9da8eafc9673bb6d45038235a58&amp;s=140" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">zxy</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com/winnerweb/hexo-theme-smackdown">smackdown</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">zxy</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="https://avatars0.githubusercontent.com/u/15117664?v=3&amp;u=a64a0ca7dfffa9da8eafc9673bb6d45038235a58&amp;s=140" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">zxy</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-ava" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/ava/" class="article-date">
+  	<time datetime="2016-10-11T04:24:31.000Z" itemprop="datePublished">2016-10-11</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      ava
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>未来的测试运行器</p>
+</blockquote>
+<p>虽然 JavaScript 是单线程，但在 Node.js 里由于其异步的特性使得 IO 可以并行。AVA 利用这个优点让你的测试可以并发执行，这对于 IO 繁重的测试特别有用。另外，测试文件可以在不同的进程里并行运行，让每一个测试文件可以获得更好的性能和独立的环境。在 Pageres 项目中从 Mocha<a href="https://github.com/sindresorhus/pageres/commit/663be15acb3dd2eb0f71b1956ef28c2cd3fdeed0" target="_blank" rel="external">切换</a> 到 AVA 让测试时间从 31 秒下降到 11 秒。测试并发执行强制你写原子测试，意味着测试不需要依赖全局状态或者其他测试的状态，这是一件非常好的事情。</p>
+<p><em>如果你想贡献（问题、PRs 等），请先阅读我们的<a href="contributing.md">贡献向导</a>。</em></p>
+<p>关注 <a href="https://twitter.com/ava__js" target="_blank" rel="external">AVA 的 Twitter 账号</a> 以获取最新信息。</p>
+<p>翻译：<a href="https://github.com/avajs/ava-docs/blob/master/es_ES/readme.md" target="_blank" rel="external">Español</a>, <a href="https://github.com/avajs/ava-docs/blob/master/fr_FR/readme.md" target="_blank" rel="external">Français</a>, <a href="https://github.com/avajs/ava-docs/blob/master/it_IT/readme.md" target="_blank" rel="external">Italiano</a>, <a href="https://github.com/avajs/ava-docs/blob/master/ja_JP/readme.md" target="_blank" rel="external">日本語</a>, <a href="https://github.com/avajs/ava-docs/blob/master/pt_BR/readme.md" target="_blank" rel="external">Português</a>, <a href="https://github.com/avajs/ava-docs/blob/master/zh_CN/readme.md" target="_blank" rel="external">简体中文</a></p>
+<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ul>
+<li><a href="#用法">用法</a></li>
+<li><a href="#cli">CLI 用法</a></li>
+<li><a href="#配置">配置</a></li>
+<li><a href="#文档">文档</a></li>
+<li><a href="#api">API</a></li>
+<li><a href="#断言">断言</a></li>
+<li><a href="#小贴士">小贴士</a></li>
+<li><a href="#faq">FAQ</a></li>
+<li><a href="#秘方">秘方</a></li>
+<li><a href="#支持">支持</a></li>
+<li><a href="#相关">相关</a></li>
+<li><a href="#链接">链接</a></li>
+<li><a href="#团队">团队</a></li>
+</ul>
+<h2 id="为什么要用-AVA"><a href="#为什么要用-AVA" class="headerlink" title="为什么要用 AVA?"></a>为什么要用 AVA?</h2><ul>
+<li>轻量和高效</li>
+<li>简单的测试语法</li>
+<li>并发运行测试</li>
+<li>强制编写原子测试</li>
+<li>没有隐藏的全局变量</li>
+<li><a href="#隔离进程">为每个测试文件隔离环境</a></li>
+<li><a href="#支持es2015">用 ES2015 编写测试</a></li>
+<li><a href="#支持promise">支持 Promise</a></li>
+<li><a href="#支持generator">支持 Generator</a></li>
+<li><a href="#支持async">支持 Async</a></li>
+<li><a href="#支持observable">支持 Observable</a></li>
+<li><a href="#强化断言信息">强化断言信息</a></li>
+<li><a href="#可选的tap输出">可选的 TAP 输出显示</a></li>
+<li><a href="#简明的堆栈跟踪">简明的堆栈跟踪</a></li>
+</ul>
+<h2 id="测试语法"><a href="#测试语法" class="headerlink" title="测试语法"></a>测试语法</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> test <span class="keyword">from</span> <span class="string">'ava'</span>;</div><div class="line"></div><div class="line">test(<span class="function"><span class="params">t</span> =&gt;</span> &#123;</div><div class="line">    t.same([<span class="number">1</span>, <span class="number">2</span>], [<span class="number">1</span>, <span class="number">2</span>]);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h2 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h2><h3 id="在项目中添加-AVA"><a href="#在项目中添加-AVA" class="headerlink" title="在项目中添加 AVA"></a>在项目中添加 AVA</h3><p>通过带<code>--init</code>参数运行 AVA 全局安装命令，将会添加 AVA 到<code>package.json</code>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ npm install --global ava</div><div class="line">$ ava --init</div></pre></td></tr></table></figure>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="attr">"name"</span>: <span class="string">"awesome-package"</span>,</div><div class="line">    <span class="attr">"scripts"</span>: &#123;</div><div class="line">        <span class="attr">"test"</span>: <span class="string">"ava"</span></div><div class="line">    &#125;,</div><div class="line">    <span class="attr">"devDependencies"</span>: &#123;</div><div class="line">        <span class="attr">"ava"</span>: <span class="string">"^0.11.0"</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>写在<code>--init</code>后面的任何参数都会被添加到<code>package.json</code>。</p>
+<h4 id="手动安装"><a href="#手动安装" class="headerlink" title="手动安装"></a>手动安装</h4><p>你也可以直接安装 AVA：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install --save-dev ava</div></pre></td></tr></table></figure></p>
+<p>你还需要配置<code>test</code>脚本在你的<code>package.json</code>，值为<code>ava</code>（参照上面的配置）。</p>
+<h3 id="创建你的测试文件"><a href="#创建你的测试文件" class="headerlink" title="创建你的测试文件"></a>创建你的测试文件</h3><p>在你的工程根目录下创建一个名字为<code>test.js</code>的文件：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> test <span class="keyword">from</span> <span class="string">'ava'</span>;</div><div class="line"></div><div class="line">test(<span class="string">'foo'</span>, t =&gt; &#123;</div><div class="line">    t.pass();</div><div class="line">&#125;);</div><div class="line"></div><div class="line">test(<span class="string">'bar'</span>, <span class="keyword">async</span> t =&gt; &#123;</div><div class="line">    <span class="keyword">const</span> bar = <span class="built_in">Promise</span>.resolve(<span class="string">'bar'</span>);</div><div class="line"></div><div class="line">    t.is(<span class="keyword">await</span> bar, <span class="string">'bar'</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p><img src="https://github.com/avajs/ava/blob/master/media/screenshot.png" width="150" align="right"></p>
+<h3 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm test</div></pre></td></tr></table></figure>
+<h3 id="观察"><a href="#观察" class="headerlink" title="观察"></a>观察</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm test -- --watch</div></pre></td></tr></table></figure>
+<p>AVA 来自一个非常聪明的观察模式。<a href="docs/recipes/watch-mode.md">可以在它的秘方中查看详情</a>。</p>
+<h2 id="CLI"><a href="#CLI" class="headerlink" title="CLI"></a>CLI</h2><p><img src="https://github.com/avajs/ava/blob/master/media/screenshot-mini-reporter.gif" alt=""></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">$ ava --help</div><div class="line"></div><div class="line">  Usage</div><div class="line">    ava [&lt;file|directory|glob&gt; ...]</div><div class="line"></div><div class="line">  Options</div><div class="line">    --init           Add AVA to your project</div><div class="line">    --fail-fast      Stop after first test failure</div><div class="line">    --serial, -s     Run tests serially</div><div class="line">    --require, -r    Module to preload (Can be repeated)</div><div class="line">    --tap, -t        Generate TAP output</div><div class="line">    --verbose, -v    Enable verbose output</div><div class="line">    --no-cache       Disable the transpiler cache</div><div class="line">    --match, -m      Only run tests with matching title (Can be repeated)&apos;,</div><div class="line">    --watch, -w      Re-run tests when tests and source files change</div><div class="line">    --source, -S     Pattern to match source files so tests can be re-run (Can be repeated)</div><div class="line"></div><div class="line">  Examples</div><div class="line">    ava</div><div class="line">    ava test.js test2.js</div><div class="line">    ava test-*.js</div><div class="line">    ava test</div><div class="line">    ava --init</div><div class="line">    ava --init foo.js</div><div class="line"></div><div class="line">  Default patterns when no arguments:</div><div class="line">  test.js test-*.js test/**/*.js</div></pre></td></tr></table></figure>
+<p><em>注意，如果你本地安装的 AVA 可用的话 CLI 将会运行它，即使你的全局也安装了 AVA。</em></p>
+<p>文件夹会被递归遍历，带上<code>*.js</code>参数的话全部文件都会被作为测试文件。名字为<code>fixtures</code>，<code>helpers</code>和<code>node_modules</code>的文件夹<em>总会</em>被忽略。所以把 helper 名字以<code>_</code>开头命名就可以一起放置在测试文件的目录下。</p>
+<p>当使用<code>npm test</code>时你可以直接传参数<code>npm test test2.js</code>，但标志需要像这样传递<code>npm test -- --verbose</code>。</p>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>所有的 CLI 选项都可以配置在<code>package.json</code>的<code>ava</code>属性中。你可以修改<code>ava</code>命令的默认行为，所以你不需要重复在命令行中输入相同的选项。</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="attr">"ava"</span>: &#123;</div><div class="line">    <span class="attr">"files"</span>: [</div><div class="line">      <span class="string">"my-test-folder/*.js"</span>,</div><div class="line">      <span class="string">"!**/not-this-file.js"</span></div><div class="line">    ],</div><div class="line">    <span class="attr">"source"</span>: [</div><div class="line">      <span class="string">"**/*.&#123;js,jsx&#125;"</span>,</div><div class="line">      <span class="string">"!dist/**/*"</span></div><div class="line">    ],</div><div class="line">    <span class="attr">"match"</span>: [</div><div class="line">      <span class="string">"*oo"</span>,</div><div class="line">      <span class="string">"!foo"</span></div><div class="line">    ],</div><div class="line">    <span class="attr">"failFast"</span>: <span class="literal">true</span>,</div><div class="line">    <span class="attr">"tap"</span>: <span class="literal">true</span>,</div><div class="line">    <span class="attr">"require"</span>: [</div><div class="line">      <span class="string">"babel-register"</span></div><div class="line">    ],</div><div class="line">    <span class="attr">"babel"</span>: <span class="string">"inherit"</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>传递给 CLI 的参数总是比<code>package.json</code>中的配置优先级高。</p>
+<p>请看<a href="#支持es2015">支持ES2015</a> 章节以了解<code>babel</code>选项的更多详情。</p>
+<h2 id="文档"><a href="#文档" class="headerlink" title="文档"></a>文档</h2><p>测试是并发执行的，你可以选择同步或异步执行测试，在返回一个 promise 或 <a href="https://github.com/zenparsing/zen-observable" target="_blank" rel="external">observable</a> 时你才需要考虑使用同步。</p>
+<p>我们<em>强烈</em>推荐使用 <a href="#支持async">async 函数</a>，它让异步代码简洁更具可读性，并且它隐式返回一个 promise 让你无需手动创建。</p>
+<p>如果你不能使用 promise 或者 observales，你可以通过这样定义你的测试<code>test.cb([title], fn)</code>来启用“callback 模式”。通过这种方式声明的测试<em>必须</em>手动添加<code>t.end()</code>来结束，这种模式的主要目的是为了测试 callback 方式的 API。</p>
+<p>你必须同时将所有测试都定义为同步，它们不能定义在<code>setTimeout</code>，<code>setImmediate</code>等里面。</p>
+<p>测试文件在当前文件夹中被执行，所以 <a href="https://nodejs.org/api/process.html#process_process_cwd" target="_blank" rel="external"><code>process.cwd()</code></a> 和 <a href="https://nodejs.org/api/globals.html#globals_dirname" target="_blank" rel="external"><code>__dirname</code></a> 总是相同。你可以使用相对路径代替<code>path.join(__dirname, &#39;relative/path&#39;)</code>操作。</p>
+<h3 id="创建测试"><a href="#创建测试" class="headerlink" title="创建测试"></a>创建测试</h3><p>你可以通过调用 AVA 中导入的<code>test</code>方法来创建一个测试。提供可选的标题和 callback 函数，函数将在你运行测试时被调用。它会传递一个<a href="#t">执行对象</a> 作为其第一个且唯一的一个参数。按照惯例这个参数名字为<code>t</code>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> test <span class="keyword">from</span> <span class="string">'ava'</span>;</div><div class="line"></div><div class="line">test(<span class="string">'my passing test'</span>, t =&gt; &#123;</div><div class="line">    t.pass();</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h4 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h4><p>标题是可选的，意味着你可以这样：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">test(<span class="function"><span class="params">t</span> =&gt;</span> &#123;</div><div class="line">    t.pass();</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>如果你有多个测试的话建议写上测试标题。</p>
+<p>如果你没有提供测试标题，但 callback 是一个有名字的函数，那这个名字将作为测试标题：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">test(<span class="function"><span class="keyword">function</span> <span class="title">name</span>(<span class="params">t</span>) </span>&#123;</div><div class="line">    t.pass();</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="断言计划"><a href="#断言计划" class="headerlink" title="断言计划"></a>断言计划</h3><p>断言计划确保测试只能通过指定次数的断言，它们可以帮你捕捉测试太早退出的情况，如果太多断言被执行的话它们也会让测试失败，如果在你的 callback 或循环中有断言的话断言计划会比较有用。</p>
+<p>请注意：不像 <a href="https://www.npmjs.com/package/tap" target="_blank" rel="external"><code>tap</code></a> 和 <a href="https://www.npmjs.com/package/tape" target="_blank" rel="external"><code>tape</code></a>，当断言计划数达到了指定数量 AVA 并<em>不</em>会自动结束。</p>
+<p>这些例子将会通过测试：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">test(<span class="function"><span class="params">t</span> =&gt;</span> &#123;</div><div class="line">    t.plan(<span class="number">1</span>);</div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="built_in">Promise</span>.resolve(<span class="number">3</span>).then(<span class="function"><span class="params">n</span> =&gt;</span> &#123;</div><div class="line">        t.is(n, <span class="number">3</span>);</div><div class="line">    &#125;);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">test.cb(<span class="function"><span class="params">t</span> =&gt;</span> &#123;</div><div class="line">    t.plan(<span class="number">1</span>);</div><div class="line"></div><div class="line">    someAsyncFunction(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">        t.pass();</div><div class="line">        t.end();</div><div class="line">    &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>这些则不会：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">test(<span class="function"><span class="params">t</span> =&gt;</span> &#123;</div><div class="line">    t.plan(<span class="number">2</span>);</div><div class="line"></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++) &#123;</div><div class="line">        t.true(i &lt; <span class="number">3</span>);</div><div class="line">    &#125;</div><div class="line">&#125;); <span class="comment">// 失败，3 个断言被执行，但计划只有 2 个</span></div><div class="line"></div><div class="line">test(<span class="function"><span class="params">t</span> =&gt;</span> &#123;</div><div class="line">    t.plan(<span class="number">1</span>);</div><div class="line"></div><div class="line">    someAsyncFunction(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">        t.pass();</div><div class="line">    &#125;);</div><div class="line">&#125;); <span class="comment">// 失败，在断言执行之前测试会因为同步而提前结束。</span></div></pre></td></tr></table></figure>
+<h3 id="串行运行测试"><a href="#串行运行测试" class="headerlink" title="串行运行测试"></a>串行运行测试</h3><p>测试默认是并发运行的，这很棒。但有时你必须写不是并发运行的测试。</p>
+<p>这种情况比较少见，但你可以使用<code>.serial</code>修饰符，它将强制让那些测试在并发的测试前<em>先</em>串行运行。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">test.serial(<span class="function"><span class="params">t</span> =&gt;</span> &#123;</div><div class="line">    t.pass();</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>注意这只影响一个特定测试文件里面的测试，AVA 将仍然同时运行多个测试文件，除非你传递 <a href="#cli"><code>--serial</code> CLI 标志</a>。</p>
+<h3 id="运行指定的测试"><a href="#运行指定的测试" class="headerlink" title="运行指定的测试"></a>运行指定的测试</h3><p>在开发中只运行少量指定的测试非常有用，这可以通过使用<code>.only</code>修饰符来完成。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">test(<span class="string">'will not be run'</span>, t =&gt; &#123;</div><div class="line">    t.fail();</div><div class="line">&#125;);</div><div class="line"></div><div class="line">test.only(<span class="string">'will be run'</span>, t =&gt; &#123;</div><div class="line">    t.pass();</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p><code>.only</code> 影响所有测试文件，所以你在一个文件里面使用了它，那其他测试文件里的测试将不会运行。</p>
+<h3 id="运行匹配标题的测试"><a href="#运行匹配标题的测试" class="headerlink" title="运行匹配标题的测试"></a>运行匹配标题的测试</h3><p><code>--match</code>标志允许你只运行包含匹配标题的测试，这可以通过简单的通配模式来做到，模式是大小写敏感的，详情请看 <a href="https://github.com/sindresorhus/matcher" target="_blank" rel="external"><code>matcher</code></a>。</p>
+<p>匹配以<code>foo</code>结尾的标题：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ava --match=&apos;*foo&apos;</div></pre></td></tr></table></figure>
+<p>匹配以<code>foo</code>开头的标题：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ava --match=&apos;foo*&apos;</div></pre></td></tr></table></figure>
+<p>匹配包含了<code>foo</code>的标题：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ava --match=&apos;*foo*&apos;</div></pre></td></tr></table></figure>
+<p>匹配<em>精确</em>等于<code>foo</code>的标题（尽管大小写敏感）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ava --match=&apos;foo&apos;</div></pre></td></tr></table></figure>
+<p>匹配不包含了<code>foo</code>的标题：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ava --match=&apos;!*foo*&apos;</div></pre></td></tr></table></figure>
+<p>匹配以<code>foo</code>开头并且以<code>bar</code>结束的标题：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ava --match=&apos;foo*bar&apos;</div></pre></td></tr></table></figure>
+<p>匹配以<code>foo</code>开头或者以<code>bar</code>结束的标题：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ava --match=&apos;foo*&apos; --match=&apos;*bar&apos;</div></pre></td></tr></table></figure>
+<p>注意，匹配模式优先级高于<code>.only</code>修饰符，只有带明确标题的测试可以被匹配，当使用<code>--match</code>时，没有标题的或者标题是从 callback 函数名来的测试都会被跳过。</p>
+<p>下面是当使用一个匹配模式<code>*oo*</code>来匹配测试的结果：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">test(<span class="string">'foo will run'</span>, t =&gt; &#123;</div><div class="line">    t.pass();</div><div class="line">&#125;);</div><div class="line"></div><div class="line">test(<span class="string">'moo will also run'</span>, t =&gt; &#123;</div><div class="line">    t.pass();</div><div class="line">&#125;);</div><div class="line"></div><div class="line">test.only(<span class="string">'boo will run but not exclusively'</span>, t =&gt; &#123;</div><div class="line">    t.pass();</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">// 不会运行，没有标题</span></div><div class="line">test(<span class="function"><span class="keyword">function</span> (<span class="params">t</span>) </span>&#123;</div><div class="line">    t.fail();</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">// 不会运行，没有明确定义的标题</span></div><div class="line">test(<span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">t</span>) </span>&#123;</div><div class="line">    t.fail();</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="跳过测试"><a href="#跳过测试" class="headerlink" title="跳过测试"></a>跳过测试</h3><p>有时候失败的测试一时难以修复，你可以使用<code>.skip</code>来告诉 AVA 跳过这些测试。它们仍然会显示在输出结果中（标识为 skipped），但不会被运行。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">test.skip(<span class="string">'will not be run'</span>, t =&gt; &#123;</div><div class="line">    t.fail();</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>你必须指定 callback 函数。</p>
+<h3 id="测试占位符-“todo”"><a href="#测试占位符-“todo”" class="headerlink" title="测试占位符 (“todo”)"></a>测试占位符 (“todo”)</h3><p>当你计划写一个测试的时候你可以使用<code>.todo</code>修饰符，像跳过测试一样这些占位符也会显示在输出结果中，它们只要求一个标题，你不能指定 callback 函数。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">test.todo(<span class="string">'will think about writing this later'</span>);</div></pre></td></tr></table></figure>
+<h3 id="Before-amp-after-钩子"><a href="#Before-amp-after-钩子" class="headerlink" title="Before &amp; after 钩子"></a>Before &amp; after 钩子</h3><p>AVA 让你可以注册在测试之前和之后跑的钩子，这允许你执行 setup 和 teardow 代码。</p>
+<p><code>test.before()</code>在你的测试文件中注册了一个钩子并在第一个测试前运行，同样地，<code>test.after()</code>注册了一个钩子在最后一个测试后运行。</p>
+<p><code>test.beforeEach()</code>在你的测试文件中注册了一个钩子并在每个测试前运行，同样地，<code>test.afterEach()</code>注册了一个钩子在每个测试后运行。</p>
+<p>像<code>test()</code>这些方法一样接收一个可选的标题和一个 callback 函数，如果你的钩子失败了标题就会显示出来，callback 函数传递一个<a href="#t">执行对象</a>。</p>
+<p><code>before</code>在<code>beforeEach</code>之前执行，<code>afterEach</code>在<code>after</code>之前执行，同一类的钩子按照它们定义的顺序来执行。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">test.before(<span class="function"><span class="params">t</span> =&gt;</span> &#123;</div><div class="line">    <span class="comment">// 这个会在所有测试前运行</span></div><div class="line">&#125;);</div><div class="line"></div><div class="line">test.before(<span class="function"><span class="params">t</span> =&gt;</span> &#123;</div><div class="line">    <span class="comment">// 这个会在上面的方法后面运行，但在测试之前运行</span></div><div class="line">&#125;);</div><div class="line"></div><div class="line">test.after(<span class="string">'cleanup'</span>, t =&gt; &#123;</div><div class="line">    <span class="comment">// 这个会在所有测试之后运行</span></div><div class="line">&#125;);</div><div class="line"></div><div class="line">test.beforeEach(<span class="function"><span class="params">t</span> =&gt;</span> &#123;</div><div class="line">    <span class="comment">// 这个会在每个测试之前运行</span></div><div class="line">&#125;);</div><div class="line"></div><div class="line">test.afterEach(<span class="function"><span class="params">t</span> =&gt;</span> &#123;</div><div class="line">    <span class="comment">// 这个会在每个测试之后运行</span></div><div class="line">&#125;);</div><div class="line"></div><div class="line">test(<span class="function"><span class="params">t</span> =&gt;</span> &#123;</div><div class="line">    <span class="comment">// 正常的测试</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>钩子可以同步或异步，就像测试一样。让钩子异步返回一个 promise 或 observable，使用一个 async 函数，或者通过<code>test.cb.before()</code>，<code>test.cb.beforeEach()</code>等来启用 callback 模式。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">test.before(<span class="keyword">async</span> t =&gt; &#123;</div><div class="line">    <span class="keyword">await</span> promiseFn();</div><div class="line">&#125;);</div><div class="line"></div><div class="line">test.after(<span class="function"><span class="params">t</span> =&gt;</span> &#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="comment">/* ... */</span>);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">test.cb.beforeEach(<span class="function"><span class="params">t</span> =&gt;</span> &#123;</div><div class="line">    setTimeout(t.end);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">test.afterEach.cb(<span class="function"><span class="params">t</span> =&gt;</span> &#123;</div><div class="line">    setTimeout(t.end);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>请记住，<code>beforeEach</code>和<code>afterEach</code>钩子在一个测试之前和之后运行，并且默认情况下测试是并发运行的，如果你需要为每个测试设置一个全局的状态（比如<code>console.log</code>的 spying<a href="https://github.com/avajs/ava/issues/560" target="_blank" rel="external">例子</a>），你需要确保这些测试是<a href="#串行运行测试">串行运行</a>的。</p>
+<p>记住，AVA 运行每个测试文件会有各自单独的进程，你可能不需要在<code>after</code>钩子中清理全局状态，因为它只会在进程退出前被调用。</p>
+<p><code>beforeEach</code>和<code>afterEach</code>钩子可以共享测试的上下文：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">test.beforeEach(<span class="function"><span class="params">t</span> =&gt;</span> &#123;</div><div class="line">    t.context.data = generateUniqueData();</div><div class="line">&#125;);</div><div class="line"></div><div class="line">test(<span class="function"><span class="params">t</span> =&gt;</span> &#123;</div><div class="line">    t.is(t.context.data + <span class="string">'bar'</span>, <span class="string">'foobar'</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>默认情况下<code>t.context</code>是一个对象，但你可以重新赋值：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">test.beforeEach(<span class="function"><span class="params">t</span> =&gt;</span> &#123;</div><div class="line">    t.context = <span class="string">'unicorn'</span>;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">test(<span class="function"><span class="params">t</span> =&gt;</span> &#123;</div><div class="line">    t.is(t.context, <span class="string">'unicorn'</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>上下文共享在<code>before</code>和<code>after</code>钩子中<em>不</em>可用。</p>
+<h3 id="连接测试修饰符"><a href="#连接测试修饰符" class="headerlink" title="连接测试修饰符"></a>连接测试修饰符</h3><p>你可以以任何顺序使用<code>.serial</code>，<code>.only</code>和<code>.skip</code>，与<code>test</code>，<code>before</code>，<code>after</code>，<code>beforeEach</code>和<code>afterEach</code>一起，比如：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">test.before.skip(...);</div><div class="line">test.skip.after(...);</div><div class="line">test.serial.only(...);</div><div class="line">test.only.serial(...);</div></pre></td></tr></table></figure>
+<p>这意味着你可以在每个测试或钩子的末尾临时添加<code>.skip</code>或<code>.only</code>，而不用做其他的修改。</p>
+<h3 id="自定义断言"><a href="#自定义断言" class="headerlink" title="自定义断言"></a>自定义断言</h3><p>你可以使用其他断言库来替代内置的断言库，当断言失败可以让其抛出异常。</p>
+<p>但这样做的话你将得不到<a href="#断言">内置断言库</a>的良好体验，同时你也将不会用到<a href="https://github.com/avajs/ava/issues/25" target="_blank" rel="external">断言计划](#断言计划） (『看#25</a>)。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> assert <span class="keyword">from</span> <span class="string">'assert'</span>;</div><div class="line"></div><div class="line">test(<span class="function"><span class="params">t</span> =&gt;</span> &#123;</div><div class="line">    assert(<span class="literal">true</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="支持ES2015"><a href="#支持ES2015" class="headerlink" title="支持ES2015"></a>支持ES2015</h3><p>AVA 通过 <a href="https://babeljs.io" target="_blank" rel="external">Babel 6</a> 内置支持 ES2015，只需要用 ES2015 的方式写你测试，不需要额外的配置。你可以在你的工程中使用任何的 Babel 版本，我们使用我们捆绑的 Babel，带有 <a href="https://babeljs.io/docs/plugins/preset-es2015/" target="_blank" rel="external"><code>es2015</code></a> 和 <a href="https://babeljs.io/docs/plugins/preset-stage-2/" target="_blank" rel="external"><code>stage-2</code></a> 设置，和 <a href="https://github.com/power-assert-js/babel-plugin-espower" target="_blank" rel="external"><code>espower</code></a> 和 <a href="https://babeljs.io/docs/plugins/transform-runtime/" target="_blank" rel="external"><code>transform-runtime</code></a> 插件一样。</p>
+<p>类似的 Babel 配置同样适用于 AVA，如下：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="attr">"presets"</span>: [</div><div class="line">    <span class="string">"es2015"</span>,</div><div class="line">    <span class="string">"stage-2"</span>,</div><div class="line">  ],</div><div class="line">  <span class="attr">"plugins"</span>: [</div><div class="line">    <span class="string">"espower"</span>,</div><div class="line">    <span class="string">"transform-runtime"</span></div><div class="line">  ]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>你可以自定义 AVA 如何通过 <a href="#配置"><code>package.json</code>配置</a><code>babel</code>选项来转换测试文件，例如你可以这样来覆盖配置：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="attr">"ava"</span>: &#123;</div><div class="line">    <span class="attr">"babel"</span>: &#123;</div><div class="line">      <span class="attr">"presets"</span>: [</div><div class="line">        <span class="string">"es2015"</span>,</div><div class="line">        <span class="string">"stage-0"</span>,</div><div class="line">        <span class="string">"react"</span></div><div class="line">      ]</div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>你也可以使用特殊的<code>&quot;inherit&quot;</code>关键字，这让 AVA 遵从你的 <a href="https://babeljs.io/docs/usage/babelrc/" target="_blank" rel="external"><code>.babelrc</code>或<code>package.json</code>文件</a> 中的 Babel 配置，这种方式让测试文件的转换方式和与源文件的相同，可以无需在 AVA 中重复配置。</p>
+ <figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="attr">"babel"</span>: &#123;</div><div class="line">        <span class="attr">"presets"</span>: [</div><div class="line">            <span class="string">"es2015"</span>,</div><div class="line">            <span class="string">"stage-0"</span>,</div><div class="line">            <span class="string">"react"</span></div><div class="line">        ]</div><div class="line">    &#125;,</div><div class="line">    <span class="attr">"ava"</span>: &#123;</div><div class="line">        <span class="attr">"babel"</span>: <span class="string">"inherit"</span>,</div><div class="line">    &#125;,</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>注意，AVA<em>总是</em>应用 <a href="https://github.com/power-assert-js/babel-plugin-espower" target="_blank" rel="external"><code>espower</code></a> 和 <a href="https://babeljs.io/docs/plugins/transform-runtime/" target="_blank" rel="external"><code>transform-runtime</code></a> 插件。</p>
+<h3 id="支持-TypeScript"><a href="#支持-TypeScript" class="headerlink" title="支持 TypeScript"></a>支持 TypeScript</h3><p>AVA 支持 TypeScript，你必须自己配置转换规则，当你在你的<code>tsconfig.json</code>文件中把<code>module</code>设为<code>commonjs</code>，TypeScipt 将自动为 AVA 找到类型定义。你应该把<code>target</code>设置为<code>es2015</code>来使用 promises 和 async 函数。</p>
+<h3 id="转换导入模块"><a href="#转换导入模块" class="headerlink" title="转换导入模块"></a>转换导入模块</h3><p>AVA 现在只转换需要运行的测试，<em>它不会转换那些在测试中你<code>import</code>的模块</em>，这可能不是你所期望的但这就是现在的工作方案。</p>
+<p>如果你使用 Babel 你可以使用它的 <a href="https://babeljs.io/docs/usage/require/" target="_blank" rel="external">require 钩子</a> 来实时转换导入模块，运行 AVA 带上<code>--require babel-register</code> （请看 <a href="#cli">CLI</a>) 参数或<a href="#配置">在你的<code>package.json</code>里配置</a>。</p>
+<p>你也可以在另外一个进程里转换你的模块，并且参考你的转换文件而不是你的测试源码。</p>
+<h3 id="支持Promise"><a href="#支持Promise" class="headerlink" title="支持Promise"></a>支持Promise</h3><p>如果你在测试里返回一个 promise，你不需要在测试里明确的结束测试，当 promise resolve 的时候它会自己结束。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">test(<span class="function"><span class="params">t</span> =&gt;</span> &#123;</div><div class="line">    <span class="keyword">return</span> somePromise().then(<span class="function"><span class="params">result</span> =&gt;</span> &#123;</div><div class="line">        t.is(result, <span class="string">'unicorn'</span>);</div><div class="line">    &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="支持Generator"><a href="#支持Generator" class="headerlink" title="支持Generator"></a>支持Generator</h3><p>AVA 自带对 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/function*" target="_blank" rel="external">generator 函数</a> 的内置支持。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">test(<span class="function"><span class="keyword">function</span> * (<span class="params">t</span>) </span>&#123;</div><div class="line">    <span class="keyword">const</span> value = <span class="keyword">yield</span> generatorFn();</div><div class="line">    t.true(value);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="支持Async"><a href="#支持Async" class="headerlink" title="支持Async"></a>支持Async</h3><p>AVA 自带对 <a href="https://tc39.github.io/ecmascript-asyncawait/" target="_blank" rel="external">async functions</a> <em>(async/await)</em>的内置支持。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">test(<span class="keyword">async</span> <span class="function"><span class="keyword">function</span> (<span class="params">t</span>) </span>&#123;</div><div class="line">    <span class="keyword">const</span> value = <span class="keyword">await</span> promiseFn();</div><div class="line">    t.true(value);</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">// 异步箭头函数</span></div><div class="line">test(<span class="keyword">async</span> t =&gt; &#123;</div><div class="line">    <span class="keyword">const</span> value = <span class="keyword">await</span> promiseFn();</div><div class="line">    t.true(value);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="支持Observable"><a href="#支持Observable" class="headerlink" title="支持Observable"></a>支持Observable</h3><p>AVA 自带对 <a href="https://github.com/zenparsing/es-observable" target="_blank" rel="external">observables</a> 的内置支持。如果你从测试中返回一个 observable，AVA 会自动消费它使其在测试结束前完成。</p>
+<p><em>你不需要使用“callback 模式”或者调用<code>t.end()</code>。</em></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">test(<span class="function"><span class="params">t</span> =&gt;</span> &#123;</div><div class="line">    t.plan(<span class="number">3</span>);</div><div class="line">    <span class="keyword">return</span> Observable.of(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>)</div><div class="line">        .filter(<span class="function"><span class="params">n</span> =&gt;</span> &#123;</div><div class="line">            <span class="comment">// 只有奇数</span></div><div class="line">            <span class="keyword">return</span> n % <span class="number">2</span> === <span class="number">0</span>;</div><div class="line">        &#125;)</div><div class="line">        .map(<span class="function"><span class="params">()</span> =&gt;</span> t.pass());</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="支持-Callback"><a href="#支持-Callback" class="headerlink" title="支持 Callback"></a>支持 Callback</h3><p>当使用 node-style, error-first 等 callback API 时，AVA 支持使用<code>t.end</code>作为最后一个 callback 函数。AVA 将把任何为真的值传递给<code>t.end</code>其实变成一个 error。注意，<code>t.end</code>要求“callback 模式”，这个可以通过使用<code>test.cb</code>链来启用。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">test.cb(<span class="function"><span class="params">t</span> =&gt;</span> &#123;</div><div class="line">    <span class="comment">// t.end 自动检查第一个参数是否为错误</span></div><div class="line">    fs.readFile(<span class="string">'data.txt'</span>, t.end);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="可选的TAP输出"><a href="#可选的TAP输出" class="headerlink" title="可选的TAP输出"></a>可选的TAP输出</h3><p>AVA 可以通过<code>--tap</code>选项来生成 TAP 的输出，可以选择任意的 <a href="https://github.com/sindresorhus/awesome-tap#reporters" target="_blank" rel="external">TAP 报告</a>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ava --tap | tap-nyan</div></pre></td></tr></table></figure>
+<p><img src="https://github.com/avajs/ava/blob/master/media/tap-output.png" width="398"></p>
+<h3 id="简明的堆栈跟踪"><a href="#简明的堆栈跟踪" class="headerlink" title="简明的堆栈跟踪"></a>简明的堆栈跟踪</h3><p>AVA 会在堆栈跟踪信息里面自动移除不相关的行，让你更快地找到错误的原因。</p>
+<p><img src="https://github.com/avajs/ava/blob/master/media/stack-traces.png" width="300"></p>
+<h2 id="API"><a href="#API" class="headerlink" title="API"></a>API</h2><h3 id="test-title-callback"><a href="#test-title-callback" class="headerlink" title="test([title], callback)"></a><code>test([title], callback)</code></h3><h3 id="test-serial-title-callback"><a href="#test-serial-title-callback" class="headerlink" title="test.serial([title], callback)"></a><code>test.serial([title], callback)</code></h3><h3 id="test-cb-title-callback"><a href="#test-cb-title-callback" class="headerlink" title="test.cb([title], callback)"></a><code>test.cb([title], callback)</code></h3><h3 id="test-only-title-callback"><a href="#test-only-title-callback" class="headerlink" title="test.only([title], callback)"></a><code>test.only([title], callback)</code></h3><h3 id="test-skip-title-callback"><a href="#test-skip-title-callback" class="headerlink" title="test.skip([title], callback)"></a><code>test.skip([title], callback)</code></h3><h3 id="test-todo-title"><a href="#test-todo-title" class="headerlink" title="test.todo(title)"></a><code>test.todo(title)</code></h3><h3 id="test-before-title-callback"><a href="#test-before-title-callback" class="headerlink" title="test.before([title], callback)"></a><code>test.before([title], callback)</code></h3><h3 id="test-after-title-callback"><a href="#test-after-title-callback" class="headerlink" title="test.after([title], callback)"></a><code>test.after([title], callback)</code></h3><h3 id="test-beforeEach-title-callback"><a href="#test-beforeEach-title-callback" class="headerlink" title="test.beforeEach([title], callback)"></a><code>test.beforeEach([title], callback)</code></h3><h3 id="test-afterEach-title-callback"><a href="#test-afterEach-title-callback" class="headerlink" title="test.afterEach([title], callback)"></a><code>test.afterEach([title], callback)</code></h3><h4 id="title"><a href="#title" class="headerlink" title="title"></a><code>title</code></h4><p>类型：<code>string</code></p>
+<p>测试标题</p>
+<h4 id="callback-t"><a href="#callback-t" class="headerlink" title="callback(t)"></a><code>callback(t)</code></h4><p>类型：<code>function</code></p>
+<p>应该包含实际的测试。</p>
+<h5 id="t"><a href="#t" class="headerlink" title="t"></a><code>t</code></h5><p>类型：<code>object</code></p>
+<p>特定测试的执行对象，每个测试的 callback 接收到一个不同的对象，包含<a href="#断言） ，`.plan(count">断言</a><code>和</code>.end()<code>等方法。</code>t.context<code>可以包含</code>beforeEach`钩子中的共享状态。</p>
+<h6 id="t-plan-count"><a href="#t-plan-count" class="headerlink" title="t.plan(count)"></a><code>t.plan(count)</code></h6><p>计划有多少断言将在测试中被执行，如果实际断言的数量没有匹配计划数，那么测试将失败，详情请见<a href="#断言计划">断言计划</a>。</p>
+<h6 id="t-end"><a href="#t-end" class="headerlink" title="t.end()"></a><code>t.end()</code></h6><p>结束测试，只在<code>test.cb()</code>中有效。</p>
+<h2 id="断言"><a href="#断言" class="headerlink" title="断言"></a>断言</h2><p>断言也被包含在<a href="#t">执行对象</a> 中，可以提供给每个测试 callback：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">test(<span class="function"><span class="params">t</span> =&gt;</span> &#123;</div><div class="line">    t.ok(<span class="string">'unicorn'</span>); <span class="comment">// 断言</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>如果单个测试中有多个断言同时失败了，那 AVA 只会显示<em>第一个</em>。</p>
+<h3 id="pass-message"><a href="#pass-message" class="headerlink" title=".pass([message])"></a><code>.pass([message])</code></h3><p>测试通过。</p>
+<h3 id="fail-message"><a href="#fail-message" class="headerlink" title=".fail([message])"></a><code>.fail([message])</code></h3><p>断言失败。</p>
+<h3 id="ok-value-message"><a href="#ok-value-message" class="headerlink" title=".ok(value, [message])"></a><code>.ok(value, [message])</code></h3><p>断言<code>value</code>是否是真值。</p>
+<h3 id="notOk-value-message"><a href="#notOk-value-message" class="headerlink" title=".notOk(value, [message])"></a><code>.notOk(value, [message])</code></h3><p>断言<code>value</code>是否是假值。</p>
+<h3 id="true-value-message"><a href="#true-value-message" class="headerlink" title=".true(value, [message])"></a><code>.true(value, [message])</code></h3><p>断言<code>value</code>是否是<code>true</code>。</p>
+<h3 id="false-value-message"><a href="#false-value-message" class="headerlink" title=".false(value, [message])"></a><code>.false(value, [message])</code></h3><p>断言<code>value</code>是否是<code>false</code>。</p>
+<h3 id="is-value-expected-message"><a href="#is-value-expected-message" class="headerlink" title=".is(value, expected, [message])"></a><code>.is(value, expected, [message])</code></h3><p>断言<code>value</code>是否和<code>expected</code>相等。</p>
+<h3 id="not-value-expected-message"><a href="#not-value-expected-message" class="headerlink" title=".not(value, expected, [message])"></a><code>.not(value, expected, [message])</code></h3><p>断言<code>value</code>是否和<code>expected</code>不等。</p>
+<h3 id="same-value-expected-message"><a href="#same-value-expected-message" class="headerlink" title=".same(value, expected, [message])"></a><code>.same(value, expected, [message])</code></h3><p>断言<code>value</code>是否和<code>expected</code>深度相等。</p>
+<h3 id="notSame-value-expected-message"><a href="#notSame-value-expected-message" class="headerlink" title=".notSame(value, expected, [message])"></a><code>.notSame(value, expected, [message])</code></h3><p>断言<code>value</code>是否和<code>expected</code>深度不等。</p>
+<h3 id="throws-function-promise-error-message"><a href="#throws-function-promise-error-message" class="headerlink" title=".throws(function|promise, [error, [message]])"></a><code>.throws(function|promise, [error, [message]])</code></h3><p>断言<code>function</code>抛出一个异常，或者<code>promise</code> reject 一个错误。</p>
+<p><code>error</code>可以是一个构造器，正则，错误信息或者验证函数。</p>
+<p>返回由<code>function</code>抛出的异常或<code>promise</code>的拒绝原因。</p>
+<h3 id="notThrows-function-promise-message"><a href="#notThrows-function-promise-message" class="headerlink" title=".notThrows(function|promise, [message])"></a><code>.notThrows(function|promise, [message])</code></h3><p>断言<code>function</code>没有抛出一个异常，或者<code>promise</code> resolve。</p>
+<h3 id="regex-contents-regex-message"><a href="#regex-contents-regex-message" class="headerlink" title=".regex(contents, regex, [message])"></a><code>.regex(contents, regex, [message])</code></h3><p>断言<code>contents</code>匹配<code>regex</code>。</p>
+<h3 id="ifError-error-message"><a href="#ifError-error-message" class="headerlink" title=".ifError(error, [message])"></a><code>.ifError(error, [message])</code></h3><p>断言<code>error</code>是假值。</p>
+<h3 id="跳过断言"><a href="#跳过断言" class="headerlink" title="跳过断言"></a>跳过断言</h3><p>通过<code>skip</code>修饰符可以跳过任何断言，跳过的断言仍然会被计数，所以不需要去改变你的断言计划数量。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">test(<span class="function"><span class="params">t</span> =&gt;</span> &#123;</div><div class="line">    t.plan(<span class="number">2</span>);</div><div class="line">    t.skip.is(foo(), <span class="number">5</span>); <span class="comment">// 当跳过时不需要改变你的计划数</span></div><div class="line">    t.is(<span class="number">1</span>, <span class="number">1</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="强化断言信息"><a href="#强化断言信息" class="headerlink" title="强化断言信息"></a>强化断言信息</h3><p>AVA 自带内置的 <a href="https://github.com/power-assert-js/power-assert" target="_blank" rel="external"><code>power-assert</code></a>，给你更多的描述性断言信息，它阅读你的测试代码并从中试图推断出更多信息。</p>
+<p>我们来举个例子，使用 Node 的标准 <a href="https://nodejs.org/api/assert.html" target="_blank" rel="external"><code>断言</code>库</a>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> a = <span class="regexp">/foo/</span>;</div><div class="line"><span class="keyword">const</span> b = <span class="string">'bar'</span>;</div><div class="line"><span class="keyword">const</span> c = <span class="string">'baz'</span>;</div><div class="line"><span class="built_in">require</span>(<span class="string">'assert'</span>).ok(a.test(b) || b === c);</div></pre></td></tr></table></figure>
+<p>如果你把代码粘贴到 Node REPL 中会返回：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">AssertionError: false == true</div></pre></td></tr></table></figure>
+<p>而在 AVA 中，这个测试：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">test(<span class="function"><span class="params">t</span> =&gt;</span> &#123;</div><div class="line">    <span class="keyword">const</span> a = <span class="regexp">/foo/</span>;</div><div class="line">    <span class="keyword">const</span> b = <span class="string">'bar'</span>;</div><div class="line">    <span class="keyword">const</span> c = <span class="string">'baz'</span>;</div><div class="line">    t.ok(a.test(b) || b === c);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>将会输出：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">t.ok(a.test(b) || b === c)</div><div class="line">       |    |     |     |</div><div class="line">       |    &quot;bar&quot; &quot;bar&quot; &quot;baz&quot;</div><div class="line">       false</div></pre></td></tr></table></figure>
+<h2 id="隔离进程"><a href="#隔离进程" class="headerlink" title="隔离进程"></a>隔离进程</h2><p>每个测试文件都会在一个独立的 Node 进程中运行，这样让你可以在一个测试文件中改变全局状态或将其覆盖一个内置的全局状态，而不会影响其他测试文件。这样更加有效地利用现代的多核处理器，让多个测试可以并发地执行。</p>
+<h2 id="小贴士"><a href="#小贴士" class="headerlink" title="小贴士"></a>小贴士</h2><h3 id="临时文件"><a href="#临时文件" class="headerlink" title="临时文件"></a>临时文件</h3><p>并发运行测试面临着许多挑战，文件的 IO 操作就是其中一个。</p>
+<p>一般来讲，串行测试在当前文件夹中创建临时文件夹，然后会在测试结束的时候清理它们。但这种做法在并发测试中不起作用，因为测试会一起操作这个文件夹而导致冲突。正确的做法是为每个测试创建一个新的临时文件夹，使用 <a href="https://github.com/sindresorhus/tempfile" target="_blank" rel="external"><code>tempfile</code></a> 和 <a href="https://github.com/sindresorhus/temp-write" target="_blank" rel="external"><code>temp-write</code></a> 模块可能会有帮助。</p>
+<h3 id="调试"><a href="#调试" class="headerlink" title="调试"></a>调试</h3><p>AVA 默认情况下是并发执行测试，这样在调试信息时并不是最理想的，你可以通过设置<code>--serial</code>选项来让测试串行执行。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ava --serial</div></pre></td></tr></table></figure>
+<h3 id="代码覆盖率"><a href="#代码覆盖率" class="headerlink" title="代码覆盖率"></a>代码覆盖率</h3><p>你不能使用 <a href="https://github.com/gotwarlost/istanbul" target="_blank" rel="external"><code>istanbul</code></a> 来做代码覆盖率因为 AVA<a href="#隔离进程），你可以使用 [`nyc`](https://github.com/bcoe/nyc">处理过这些测试文件</a> 来代替，你可以把它看做是支持子进程的<code>istanbul</code>。</p>
+<p>从版本<code>5.0.0</code>开始，在报告覆盖率时为你的代码使用原生映射，而不是转换后的代码。确保你测试的代码包括了一个内联的原生映射或者引用了一个原生映射文件。如果你使用了<code>babel-register</code>，你可以在你的 Babel 配置中将<code>sourceMaps</code>设置为<code>inline</code>。</p>
+<h2 id="FAQ"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ</h2><h3 id="为什么不用mocha，tape，tap？"><a href="#为什么不用mocha，tape，tap？" class="headerlink" title="为什么不用mocha，tape，tap？"></a>为什么不用<code>mocha</code>，<code>tape</code>，<code>tap</code>？</h3><p>Mocha 要求你使用隐式全局变量比如<code>describe</code>和<code>it</code>作为其默认接口（这是大部分人使用的）。这样做不是很好，并且串行执行测试没有进程隔离，使得测试十分缓慢。</p>
+<p>Tape 和 tap 是非常好的。AVA 在它们的语法中得到大量启发，但它们也是串行执行测试，它们的默认 <a href="https://testanything.org" target="_blank" rel="external">TAP</a> 输出不是非常友好，因此你总是需要使用额外的 tap 报告。</p>
+<p>与它们不同的是，AVA 可以并发执行测试，为每个测试文件提供独立进程，它的默认报告简单明了，并且 AVA 也支持通过 CLI 标志来输出一个 TAP 报告。</p>
+<h3 id="我如何使用自定义的报告？"><a href="#我如何使用自定义的报告？" class="headerlink" title="我如何使用自定义的报告？"></a>我如何使用自定义的报告？</h3><p>AVA 支持 TAP 格式，所以它兼容任何 <a href="https://github.com/sindresorhus/awesome-tap#reporters" target="_blank" rel="external">TAP 报告</a>，使用 <a href="#可选的tap输出"><code>--tap</code>标志</a>来启用 TAP 输出。</p>
+<h3 id="项目名字要怎么写才是正确的？如何发音？"><a href="#项目名字要怎么写才是正确的？如何发音？" class="headerlink" title="项目名字要怎么写才是正确的？如何发音？"></a>项目名字要怎么写才是正确的？如何发音？</h3><p>AVA，不是 Ava，也不是 ava，发音 <a href="https://github.com/avajs/ava/blob/master/media/pronunciation.m4a?raw=true" target="_blank" rel="external"><code>/ˈeɪvə/</code> ay-və</a>。</p>
+<h3 id="项目背景图片是什么意思？"><a href="#项目背景图片是什么意思？" class="headerlink" title="项目背景图片是什么意思？"></a>项目背景图片是什么意思？</h3><p>它是<a href="https://zh.wikipedia.org/wiki/%E4%BB%99%E5%A5%B3%E5%BA%A7%E6%98%9F%E7%B3%BB" target="_blank" rel="external">处女座星系</a>。</p>
+<h3 id="并发和并行有什么不同？"><a href="#并发和并行有什么不同？" class="headerlink" title="并发和并行有什么不同？"></a>并发和并行有什么不同？</h3><p><a href="https://stackoverflow.com/q/1050222" target="_blank" rel="external">并发不是并行，并发可以并行。</a></p>
+<h2 id="秘方"><a href="#秘方" class="headerlink" title="秘方"></a>秘方</h2><ul>
+<li><a href="docs/recipes/code-coverage.md">代码覆盖率</a></li>
+<li><a href="docs/recipes/watch-mode.md">观察模式</a></li>
+<li><a href="docs/recipes/endpoint-testing.md">端点测试</a></li>
+<li><a href="docs/recipes/when-to-use-plan.md">什么时候使用<code>t.plan()</code></a></li>
+<li><a href="docs/recipes/browser-testing.md">浏览器测试</a></li>
+<li><a href="docs/recipes/typescript.md">TypeScript</a></li>
+</ul>
+<h2 id="支持"><a href="#支持" class="headerlink" title="支持"></a>支持</h2><ul>
+<li><a href="https://stackoverflow.com/questions/tagged/ava" target="_blank" rel="external">Stack Overflow</a></li>
+<li><a href="https://gitter.im/avajs/ava" target="_blank" rel="external">Gitter chat</a></li>
+<li><a href="https://twitter.com/ava__js" target="_blank" rel="external">Twitter</a></li>
+</ul>
+<h2 id="相关"><a href="#相关" class="headerlink" title="相关"></a>相关</h2><ul>
+<li><a href="https://github.com/avajs/sublime-ava" target="_blank" rel="external">sublime-ava</a> - AVA 测试的代码片段</li>
+<li><a href="https://github.com/avajs/atom-ava" target="_blank" rel="external">atom-ava</a> - AVA 测试的代码片段</li>
+<li><a href="https://github.com/samverschueren/vscode-ava" target="_blank" rel="external">vscode-ava</a> - AVA 测试的代码片段</li>
+<li><a href="https://github.com/avajs/eslint-plugin-ava" target="_blank" rel="external">eslint-plugin-ava</a> - AVA 测试的代码规则</li>
+<li><a href="https://github.com/avajs/gulp-ava" target="_blank" rel="external">gulp-ava</a> - 用 gulp 运行测试</li>
+<li><a href="https://github.com/avajs/grunt-ava" target="_blank" rel="external">grunt-ava</a> - 用 grunt 运行测试</li>
+<li><a href="https://github.com/pine/fly-ava" target="_blank" rel="external">fly-ava</a> - 用 fly 运行测试</li>
+<li><a href="https://github.com/start-runner/ava" target="_blank" rel="external">start-ava</a> - 用 start 运行测试</li>
+</ul>
+<p><a href="https://github.com/avajs/awesome-ava#packages" target="_blank" rel="external">更多…</a></p>
+<h2 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h2><ul>
+<li><a href="https://www.stickermule.com/user/1070705604/stickers" target="_blank" rel="external">购买 AVA 贴纸</a></li>
+<li><a href="https://github.com/avajs/awesome-ava" target="_blank" rel="external">Awesome 列表</a></li>
+</ul>
+<h2 id="团队"><a href="#团队" class="headerlink" title="团队"></a>团队</h2><table>
+<thead>
+<tr>
+<th><a href="http://sindresorhus.com" target="_blank" rel="external"><img src="https://avatars.githubusercontent.com/u/170270?s=130" alt="Sindre Sorhus"></a></th>
+<th><a href="https://github.com/vdemedes" target="_blank" rel="external"><img src="https://avatars.githubusercontent.com/u/697676?s=130" alt="Vadim Demedes"></a></th>
+<th><a href="https://github.com/jamestalmage" target="_blank" rel="external"><img src="https://avatars.githubusercontent.com/u/4082216?s=130" alt="James Talmage"></a></th>
+<th><a href="https://novemberborn.net" target="_blank" rel="external"><img src="https://avatars.githubusercontent.com/u/33538?s=130" alt="Mark Wubben"></a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://sindresorhus.com" target="_blank" rel="external">Sindre Sorhus</a></td>
+<td><a href="https://github.com/vdemedes" target="_blank" rel="external">Vadim Demedes</a></td>
+<td><a href="https://github.com/jamestalmage" target="_blank" rel="external">James Talmage</a></td>
+<td><a href="https://novemberborn.net" target="_blank" rel="external">Mark Wubben</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="前任"><a href="#前任" class="headerlink" title="前任"></a>前任</h3><ul>
+<li><a href="https://github.com/kevva" target="_blank" rel="external">Kevin Mårtensson</a></li>
+</ul>
+<div align="center"><br>    <br><br>    <br><br>    <br><br>    <img src="https://cdn.rawgit.com/avajs/ava/fe1cea1ca3d2c8518c0cc39ec8be592beab90558/media/logo.svg" width="200" alt="AVA"><br>    <br><br>    <br><br></div>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/create_git_server/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">&lt;</strong>
+      <div class="article-nav-title">
+        
+          centos 搭建 git 服务器
+        
+      </div>
+    </a>
+  
+  
+    <a href="/ecosystem.json/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">pm2 配置文件</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2016 zxy
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/winnerweb/hexo-Yilia-Smackdown" target="_blank">Yilia(Smackdown)</a>
+        </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="/js/main.js"></script>
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

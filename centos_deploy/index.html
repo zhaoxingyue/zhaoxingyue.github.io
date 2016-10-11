@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>centOS 服务器部署 | NODE NEWBEE</title>
+
+  <!-- keywords -->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="如果是新的阿里云服务器，使用root用户登陆，终端输入：
+1ssh root@ip
+终端显示 ： deploy@ip’s password:输入密码
+进入服务器后，默认是root用户，该用户具有最高的权限
+
+在服务器新建用户:
+
+1sudo useradd -m -d /home/aircos -s /bin/bash -c &amp;quot;the aircos user&amp;quot; -U airco">
+<meta property="og:type" content="article">
+<meta property="og:title" content="centOS 服务器部署">
+<meta property="og:url" content="http://127.0.0.1:4000/centos_deploy/index.html">
+<meta property="og:site_name" content="NODE NEWBEE">
+<meta property="og:description" content="如果是新的阿里云服务器，使用root用户登陆，终端输入：
+1ssh root@ip
+终端显示 ： deploy@ip’s password:输入密码
+进入服务器后，默认是root用户，该用户具有最高的权限
+
+在服务器新建用户:
+
+1sudo useradd -m -d /home/aircos -s /bin/bash -c &amp;quot;the aircos user&amp;quot; -U airco">
+<meta property="og:updated_time" content="2016-10-11T05:02:39.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="centOS 服务器部署">
+<meta name="twitter:description" content="如果是新的阿里云服务器，使用root用户登陆，终端输入：
+1ssh root@ip
+终端显示 ： deploy@ip’s password:输入密码
+进入服务器后，默认是root用户，该用户具有最高的权限
+
+在服务器新建用户:
+
+1sudo useradd -m -d /home/aircos -s /bin/bash -c &amp;quot;the aircos user&amp;quot; -U airco">
+  
+    <link rel="alternative" href="/atom.xml" title="NODE NEWBEE" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+  
+
+  <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+  
+</head>
+<body>
+  <div id="container">
+    <div id="particles-js"></div>
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="https://avatars0.githubusercontent.com/u/15117664?v=3&amp;u=a64a0ca7dfffa9da8eafc9673bb6d45038235a58&amp;s=140" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">zxy</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com/winnerweb/hexo-theme-smackdown">smackdown</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">zxy</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="https://avatars0.githubusercontent.com/u/15117664?v=3&amp;u=a64a0ca7dfffa9da8eafc9673bb6d45038235a58&amp;s=140" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">zxy</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-centos_deploy" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/centos_deploy/" class="article-date">
+  	<time datetime="2016-10-11T05:02:20.000Z" itemprop="datePublished">2016-10-11</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      centOS 服务器部署
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>如果是新的阿里云服务器，使用root用户登陆，终端输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh root@ip</div></pre></td></tr></table></figure>
+<p>终端显示 ： deploy@ip’s password:<br>输入密码</p>
+<p>进入服务器后，默认是root用户，该用户具有最高的权限</p>
+<ul>
+<li>在服务器新建用户:</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo useradd -m -d /home/aircos -s /bin/bash -c &quot;the aircos user&quot; -U aircos</div></pre></td></tr></table></figure>
+<p>-d : 指定用户登陆的主目录<br>-m : 为用户创建用户目录</p>
+<ul>
+<li>为用户设定密码：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">passwd username</div></pre></td></tr></table></figure>
+<p>Enter new UNIX password:<br>Retype new UNIX password:<br>passwd: password updated successfully</p>
+<p>－ 赋予sudo权限</p>
+<p>sudo : super user do </p>
+<p>如果有必要使用sudu权限，请修改</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo vi /etc/sudoers</div></pre></td></tr></table></figure>
+<p>复制root行改为username即可</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">User privilege specification</div><div class="line">root  ALL=(ALL:ALL) ALL</div><div class="line">aircos  ALL=(ALL:ALL) ALL</div></pre></td></tr></table></figure>
+<ul>
+<li>切换用户 </li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">su - username</div></pre></td></tr></table></figure>
+<h3 id="安装必备软件"><a href="#安装必备软件" class="headerlink" title="安装必备软件"></a>安装必备软件</h3><ul>
+<li>安装mongodb<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo vi /etc/yum.repos.d/mongodb-org-3.2.repo</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>将下面复制到/etc/yum.repos.d/mongodb-org-3.2.repo<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[mongodb-org-3.2]</div><div class="line">name=MongoDB Repository</div><div class="line">baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/3.2/x86_64/</div><div class="line">gpgcheck=0</div><div class="line">enabled=1</div></pre></td></tr></table></figure></p>
+<p>开始安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo yum install -y mongodb-org</div></pre></td></tr></table></figure></p>
+<p>启动<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo service mongod start</div></pre></td></tr></table></figure></p>
+<p>配置文件在/etc/mongodb.conf<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"># mongod.conf</div><div class="line"># for documentation of all options, see:</div><div class="line">#   http://docs.mongodb.org/manual/reference/configuration-options/</div><div class="line"># where to write logging data.</div><div class="line">systemLog:</div><div class="line">  destination: file</div><div class="line">  logAppend: true</div><div class="line">  path: /var/log/mongodb/mongod.log</div><div class="line"># Where and how to store data.</div><div class="line">storage:</div><div class="line">  dbPath: /data/mongo</div><div class="line">  journal:</div><div class="line">    enabled: true</div><div class="line">#  engine:</div><div class="line">#  mmapv1:</div><div class="line">#  wiredTiger:</div><div class="line"># how the process runs</div><div class="line">processManagement:</div><div class="line">  fork: true  # fork and run in background</div><div class="line">  pidFilePath: /var/run/mongodb/mongod.pid  # location of pidfile</div><div class="line"># network interfaces</div><div class="line">net:</div><div class="line">  port: 27017</div><div class="line">  bindIp: 127.0.0.1,&lt;内网IP&gt; # Listen to local interface only, comment to listen on all interfaces.注意不要逗号前后不要有空格</div><div class="line">#security:</div><div class="line">#operationProfiling:</div><div class="line">#replication:</div><div class="line">#sharding:</div><div class="line">## Enterprise-Only Options</div><div class="line">#auditLog:</div></pre></td></tr></table></figure></p>
+<p>如需远程访问，将配置文件中的bindIp注释掉。</p>
+<ul>
+<li><p>配置用户名密码<br>如需配置用户名密码，需要将配置文件中的security: 注释解开改写成以下形式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">security:</div><div class="line">  authorization: enabled</div></pre></td></tr></table></figure>
+</li>
+<li><p>启动数据库 ：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo service mongod start</div></pre></td></tr></table></figure>
+</li>
+<li><p>添加用户</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ mongo</div><div class="line">$ show dbs</div><div class="line">$ use admin</div><div class="line">$ db.addUser(&apos;admin&apos;,&apos;admin&apos;)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>注意这里添加的用户是超级管理员用户，可以针对所有的数据库起作用。</p>
+<ul>
+<li>使用用户名密码登录数据库<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ mongo</div><div class="line">$ db.auth(&apos;admin&apos;, &apos;admin&apos;)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>假设给shop数据库增加用户<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ mongo </div><div class="line">$ db.auth(&apos;admin&apos;, &apos;admin&apos;)</div><div class="line">$ use shop</div><div class="line">$ db.addUser(&apos;shop&apos;, &apos;shop&apos;)</div></pre></td></tr></table></figure></p>
+<p>以后链接shop数据库时就可以直接使用shop／shop进行授权登录</p>
+<ul>
+<li>安装git</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ sudo yum update</div><div class="line">$ sudo yum install git</div></pre></td></tr></table></figure>
+<ul>
+<li><p>安装nginx</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo yum install nginx</div></pre></td></tr></table></figure>
+</li>
+<li><p>安装redis</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">wget http://download.redis.io/redis-stable.tar.gz</div><div class="line">tar xvzf redis-stable.tar.gz</div><div class="line">cd redis-stable</div><div class="line">make</div></pre></td></tr></table></figure>
+<p>出现异常自行百度</p>
+<h3 id="设置工作目录"><a href="#设置工作目录" class="headerlink" title="设置工作目录"></a>设置工作目录</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mkdir -p workspace/osc</div><div class="line">cd workspace/osc</div></pre></td></tr></table></figure>
+<p>-p 同时指定多级目录</p>
+<ul>
+<li>安装nvm<br>默认指定shell工具为bash</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | bash</div><div class="line">source ~/.bashrc</div></pre></td></tr></table></figure>
+<ul>
+<li><p>安装node版本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">nvm install 4</div><div class="line">nvm ls</div></pre></td></tr></table></figure>
+</li>
+<li><p>设定默认版本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nvm alias default v4.4.0</div></pre></td></tr></table></figure>
+</li>
+<li><p>查看npm版本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm -v</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>如果npm版本小于2.9,<br>请安装大于2.9版本<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm i -g npm@2.9.1</div></pre></td></tr></table></figure></p>
+<ul>
+<li><p>安装nrm(源管理工具)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm i -g nrm</div></pre></td></tr></table></figure>
+</li>
+<li><p>测试nrm</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">nrm test</div><div class="line">* npm ---- 1472ms</div><div class="line">  cnpm --- 277ms</div><div class="line">  taobao - 135ms</div><div class="line">  edunpm - 1466ms</div><div class="line">  eu ----- Fetch Error</div><div class="line">  au ----- Fetch Error</div><div class="line">  sl ----- 3199ms</div><div class="line">  nj ----- 4143ms</div><div class="line">  pt ----- Fetch Error</div></pre></td></tr></table></figure>
+</li>
+<li><p>安装pm2</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm i pm2 -g</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="部署nodejs项目"><a href="#部署nodejs项目" class="headerlink" title="部署nodejs项目"></a>部署nodejs项目</h3><p>基础操作 ：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">git init </div><div class="line">git clone </div><div class="line">npm i </div><div class="line">pm2 start</div></pre></td></tr></table></figure></p>
+<h3 id="修改nginx配置文件"><a href="#修改nginx配置文件" class="headerlink" title="修改nginx配置文件"></a>修改nginx配置文件</h3><ul>
+<li>如果托管的是静态界面， 那么修改如下内容</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">ls /etc/nginx/</div><div class="line"></div><div class="line">conf.d                  koi-utf             scgi_params</div><div class="line">default.d               koi-win             scgi_params.default</div><div class="line">fastcgi.conf            mime.types          uwsgi_params</div><div class="line">fastcgi.conf.default    mime.types.default  uwsgi_params.default</div><div class="line">fastcgi_params          nginx.conf          win-utf</div><div class="line">fastcgi_params.default  nginx.conf.default</div><div class="line"></div><div class="line">vi nginx.conf</div><div class="line"></div><div class="line">server &#123;</div><div class="line">        listen       80;</div><div class="line">        server_name  yourServerName;</div><div class="line">        root         your/folder;</div><div class="line">        index  index.html;</div><div class="line">        # Load configuration files for the default server block.</div><div class="line">        include /etc/nginx/default.d/*.conf;</div><div class="line"></div><div class="line">        location / &#123;&#125;</div><div class="line"></div><div class="line">        error_page 404 /404.html;</div><div class="line">            location = /40x.html &#123;</div><div class="line"></div><div class="line">        &#125;</div><div class="line">        error_page 500 502 503 504 /50x.html;</div><div class="line">            location = /50x.html &#123;</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>修改server下的server_name, root, index</p>
+<p>server_name 是指定的服务名称，可以自行拟定<br>root 下是托管的静态界面(html)文件目录<br>index 是root路径下面的默认文件 可以指定多个值 index.html,index.htm,index.php</p>
+<ul>
+<li>设置nginx开机自启</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">systemctl enable nginx</div><div class="line"></div><div class="line">systemctl restart nginx</div></pre></td></tr></table></figure>
+<ul>
+<li>注意 ：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">nginx 文件首行默认用户为nginx</div><div class="line">user nginx</div></pre></td></tr></table></figure>
+<p>将用户修改为你创建的用户，或者root(不推荐)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">user yourusername</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/docker/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">&lt;</strong>
+      <div class="article-nav-title">
+        
+          centOS下docker安装
+        
+      </div>
+    </a>
+  
+  
+    <a href="/create_git_server/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">centos 搭建 git 服务器</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2016 zxy
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/winnerweb/hexo-Yilia-Smackdown" target="_blank">Yilia(Smackdown)</a>
+        </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="/js/main.js"></script>
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
