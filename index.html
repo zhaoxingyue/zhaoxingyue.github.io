@@ -1087,9 +1087,7 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">test.cb(<span class="function"><span class="params">t</span> =&gt;</span> &#123;</div><div class="line">    <span class="comment">// t.end 自动检查第一个参数是否为错误</span></div><div class="line">    fs.readFile(<span class="string">'data.txt'</span>, t.end);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 <h3 id="可选的TAP输出"><a href="#可选的TAP输出" class="headerlink" title="可选的TAP输出"></a>可选的TAP输出</h3><p>AVA 可以通过<code>--tap</code>选项来生成 TAP 的输出，可以选择任意的 <a href="https://github.com/sindresorhus/awesome-tap#reporters" target="_blank" rel="external">TAP 报告</a>。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ava --tap | tap-nyan</div></pre></td></tr></table></figure>
-<p><img src="https://github.com/avajs/ava/blob/master/media/tap-output.png" width="398"></p>
 <h3 id="简明的堆栈跟踪"><a href="#简明的堆栈跟踪" class="headerlink" title="简明的堆栈跟踪"></a>简明的堆栈跟踪</h3><p>AVA 会在堆栈跟踪信息里面自动移除不相关的行，让你更快地找到错误的原因。</p>
-<p><img src="https://github.com/avajs/ava/blob/master/media/stack-traces.png" width="300"></p>
 <h2 id="API"><a href="#API" class="headerlink" title="API"></a>API</h2><h3 id="test-title-callback"><a href="#test-title-callback" class="headerlink" title="test([title], callback)"></a><code>test([title], callback)</code></h3><h3 id="test-serial-title-callback"><a href="#test-serial-title-callback" class="headerlink" title="test.serial([title], callback)"></a><code>test.serial([title], callback)</code></h3><h3 id="test-cb-title-callback"><a href="#test-cb-title-callback" class="headerlink" title="test.cb([title], callback)"></a><code>test.cb([title], callback)</code></h3><h3 id="test-only-title-callback"><a href="#test-only-title-callback" class="headerlink" title="test.only([title], callback)"></a><code>test.only([title], callback)</code></h3><h3 id="test-skip-title-callback"><a href="#test-skip-title-callback" class="headerlink" title="test.skip([title], callback)"></a><code>test.skip([title], callback)</code></h3><h3 id="test-todo-title"><a href="#test-todo-title" class="headerlink" title="test.todo(title)"></a><code>test.todo(title)</code></h3><h3 id="test-before-title-callback"><a href="#test-before-title-callback" class="headerlink" title="test.before([title], callback)"></a><code>test.before([title], callback)</code></h3><h3 id="test-after-title-callback"><a href="#test-after-title-callback" class="headerlink" title="test.after([title], callback)"></a><code>test.after([title], callback)</code></h3><h3 id="test-beforeEach-title-callback"><a href="#test-beforeEach-title-callback" class="headerlink" title="test.beforeEach([title], callback)"></a><code>test.beforeEach([title], callback)</code></h3><h3 id="test-afterEach-title-callback"><a href="#test-afterEach-title-callback" class="headerlink" title="test.afterEach([title], callback)"></a><code>test.afterEach([title], callback)</code></h3><h4 id="title"><a href="#title" class="headerlink" title="title"></a><code>title</code></h4><p>类型：<code>string</code></p>
 <p>测试标题</p>
 <h4 id="callback-t"><a href="#callback-t" class="headerlink" title="callback(t)"></a><code>callback(t)</code></h4><p>类型：<code>function</code></p>
@@ -1170,28 +1168,6 @@
 <li><a href="https://www.stickermule.com/user/1070705604/stickers" target="_blank" rel="external">购买 AVA 贴纸</a></li>
 <li><a href="https://github.com/avajs/awesome-ava" target="_blank" rel="external">Awesome 列表</a></li>
 </ul>
-<h2 id="团队"><a href="#团队" class="headerlink" title="团队"></a>团队</h2><table>
-<thead>
-<tr>
-<th><a href="http://sindresorhus.com" target="_blank" rel="external"><img src="https://avatars.githubusercontent.com/u/170270?s=130" alt="Sindre Sorhus"></a></th>
-<th><a href="https://github.com/vdemedes" target="_blank" rel="external"><img src="https://avatars.githubusercontent.com/u/697676?s=130" alt="Vadim Demedes"></a></th>
-<th><a href="https://github.com/jamestalmage" target="_blank" rel="external"><img src="https://avatars.githubusercontent.com/u/4082216?s=130" alt="James Talmage"></a></th>
-<th><a href="https://novemberborn.net" target="_blank" rel="external"><img src="https://avatars.githubusercontent.com/u/33538?s=130" alt="Mark Wubben"></a></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="http://sindresorhus.com" target="_blank" rel="external">Sindre Sorhus</a></td>
-<td><a href="https://github.com/vdemedes" target="_blank" rel="external">Vadim Demedes</a></td>
-<td><a href="https://github.com/jamestalmage" target="_blank" rel="external">James Talmage</a></td>
-<td><a href="https://novemberborn.net" target="_blank" rel="external">Mark Wubben</a></td>
-</tr>
-</tbody>
-</table>
-<h3 id="前任"><a href="#前任" class="headerlink" title="前任"></a>前任</h3><ul>
-<li><a href="https://github.com/kevva" target="_blank" rel="external">Kevin Mårtensson</a></li>
-</ul>
-<div align="center"><br>    <br><br>    <br><br>    <br><br>    <img src="https://cdn.rawgit.com/avajs/ava/fe1cea1ca3d2c8518c0cc39ec8be592beab90558/media/logo.svg" width="200" alt="AVA"><br>    <br><br>    <br><br></div>
 
       
     </div>
