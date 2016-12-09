@@ -156,6 +156,140 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-https" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/https/" class="article-date">
+  	<time datetime="2016-12-09T08:09:22.000Z" itemprop="datePublished">2016-12-09</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="HTTPS-构建"><a href="#HTTPS-构建" class="headerlink" title="HTTPS 构建"></a>HTTPS 构建</h2><p>HTTPS 最近火到不要不要的，原因是苹果公司又带了一波节奏。（2017年1月1日之后，所有 IO S应用请求数据接口必须采用 HTTPS 协议），<br>微信小程序也跟风出了相应的要求。（不过以后全线 HTTPS 一定是大势所趋，没有任何争议），现在连 NGINX 的默认配置文件中都有<br>HTTPS 相关的配置项了，我们还有什么理由不替换 HTTP（让我先哭一会~~）。</p>
+<p>所以我们的后端项目打算全线由 HTTP 协议替换为 HTTPS 协议。</p>
+<h3 id="科普一下-HTTPS"><a href="#科普一下-HTTPS" class="headerlink" title="科普一下 HTTPS"></a>科普一下 HTTPS</h3><blockquote>
+<p>https 是 secure http，是 HTTP 的升级安全版。 HTTP 是应用层协议，在 HTTP 下面是传输层协议 TCP，TCP 定义数据如何传输，<br>HTTP 定义数据如何包装。而 HTTPS 是在 HTTP 和 TCP 中间加了一层 SSL/TLS 加密层。</p>
+</blockquote>
+<ul>
+<li><p>啥是 SSL/TLS ?</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">说人话就是 SSL 是一个加密套件。负责将 HTTP 传输的数据加密。TLS 是 SSL 的升级版。现在 HTTPS 中的加密套件一般都是 TLS.</div></pre></td></tr></table></figure>
+</li>
+<li><p>啥又是加密套件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">之前都是应用层(HTTP)将数据直接传输给传输层 TCP，现在是在数据传输时通过 SSL/TLS 进行数据加密, 再给到 TCP 进行传输。</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>盗了张图，感受一下：</p>
+<p><img src="./pic/SSL-TLS.png"></p>
+<p>强烈推荐看一下这个兄弟的<a href="http://www.codeceo.com/article/https-knowledge.html" target="_blank" rel="external">扫盲贴</a><br>强烈推荐看一下这个兄弟的<a href="http://www.codeceo.com/article/https-knowledge.html" target="_blank" rel="external">扫盲贴</a><br>强烈推荐看一下这个兄弟的<a href="http://www.codeceo.com/article/https-knowledge.html" target="_blank" rel="external">扫盲贴</a><br>重要的事情说三遍</p>
+<h3 id="SSL-证书申请"><a href="#SSL-证书申请" class="headerlink" title="SSL 证书申请"></a>SSL 证书申请</h3><p>申请SSL 证书最重要的是什么？下面是我总结的三条：</p>
+<ul>
+<li>免费</li>
+<li>免费</li>
+<li>免费</li>
+</ul>
+<p>当然，免费的安全等级是入门级的，找到适合自己业务的 SSL 证书最重要。</p>
+<p>这次我要感谢<a href="https://www.qcloud.com/" target="_blank" rel="external">企鹅云</a>！！！</p>
+<ul>
+<li><p>免费证书申请</p>
+<blockquote>
+<p>登录腾讯云，找到证书管理 =&gt; 申请证书 =&gt; 填写信息 =&gt; 手动验证 DNS =&gt; <a href="https://www.qcloud.com/document/product/400/4142#2.E3.80.81.E6.89.8B.E5.8A.A8dns.E9.AA.8C.E8.AF.81" target="_blank" rel="external">后续操作文档</a></p>
+</blockquote>
+</li>
+<li><p>配置 SSL 证书</p>
+<blockquote>
+<p><a href="https://www.qcloud.com/document/product/400/4143" target="_blank" rel="external">文档地址</a></p>
+</blockquote>
+</li>
+</ul>
+<h3 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h3><ul>
+<li><p>感谢企鹅！！！！</p>
+</li>
+<li><p>最详细的 HTTPS 科普扫盲帖： <a href="http://www.codeceo.com/article/https-knowledge.html" target="_blank" rel="external">http://www.codeceo.com/article/https-knowledge.html</a></p>
+</li>
+</ul>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-ws" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/ws/" class="article-date">
+  	<time datetime="2016-10-26T07:46:32.000Z" itemprop="datePublished">2016-10-26</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Web-Services"><a href="#Web-Services" class="headerlink" title="Web Services"></a>Web Services</h1><p>基于 http 的跨编程语言和跨操作系统平台的远程调用技术。</p>
+<h2 id="SOAP-Simple-Object-Access-Protocol"><a href="#SOAP-Simple-Object-Access-Protocol" class="headerlink" title="SOAP(Simple Object Access Protocol)"></a>SOAP(Simple Object Access Protocol)</h2><p>简单对象访问协议。WebService通过 HTTP 协议发送请求和接收结果时，发送的请求内容和结果内容都采用XML格式封装，并增加了一些特定的HTTP消息头，<br>以说明HTTP消息的内容格式，这些特定的 HTTP 消息头和 XML 内容格式就是 SOAP 协议。SOAP 提供了标准的 RPC 方法来调用 Web Service。</p>
+<p>SOAP协议 = HTTP 协议 + XML 数据格式 + XSD(XML Schema)</p>
+<ul>
+<li>一条 SOAP 消息就是一个普通的 XML 文档，包含下列元素：<ul>
+<li>必需的 Envelope 元素，可把此 XML 文档标识为一条 SOAP 消息</li>
+<li>可选的 Header 元素，包含头部信息</li>
+<li>必需的 Body 元素，包含所有的调用和响应信息</li>
+<li>可选的 Fault 元素，提供有关在处理此消息所发生错误的信息</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-rabbitmq_cluster" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -1224,163 +1358,6 @@
     <div class="article-entry" itemprop="articleBody">
       
         <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  /**</div><div class="line">   * Application configuration section</div><div class="line">   * http://pm2.keymetrics.io/docs/usage/application-declaration/</div><div class="line">   */</div><div class="line">  apps : [</div><div class="line"></div><div class="line">    // First application</div><div class="line">    &#123;</div><div class="line">      name      : &quot;dms-api&quot;,</div><div class="line">      script    : &quot;app.js&quot;,</div><div class="line">      env: &#123;</div><div class="line">        COMMON_VARIABLE: &quot;true&quot;</div><div class="line">      &#125;,</div><div class="line">      env_production : &#123;</div><div class="line">        NODE_ENV: &quot;production&quot;</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  ],</div><div class="line"></div><div class="line"></div><div class="line">  /**</div><div class="line">   * Deployment section</div><div class="line">   * http://pm2.keymetrics.io/docs/usage/deployment/</div><div class="line">   */</div><div class="line">  deploy : &#123;</div><div class="line">    test: &#123;</div><div class="line">      user : &quot;root&quot;,</div><div class="line">      host : &quot;.com&quot;,</div><div class="line">      ref  : &quot;origin/master&quot;,</div><div class="line">      repo : &quot;&quot;,</div><div class="line">      path : &quot;&quot;,</div><div class="line">      &quot;post-deploy&quot; : &quot;cd client ; npm install ; npm run build ; cd .. ; npm install ; pm2 startOrRestart ecosystem.json --env test&quot;,</div><div class="line">      env  : &#123;</div><div class="line">        NODE_ENV: &quot;test&quot;</div><div class="line">      &#125;</div><div class="line">    &#125;,</div><div class="line">    production : &#123;</div><div class="line">      user : &quot;root&quot;,</div><div class="line">      host : &quot;aircos.com&quot;,</div><div class="line">      ref  : &quot;origin/master&quot;,</div><div class="line">      repo : &quot;&quot;,</div><div class="line">      path : &quot;&quot;,</div><div class="line">      &quot;post-deploy&quot; : &quot;cd client ; npm install ; npm run build ; cd .. ; npm install ; pm2 startOrRestart ecosystem.json --env production&quot;,</div><div class="line">      env  : &#123;</div><div class="line">        NODE_ENV: &quot;production&quot;</div><div class="line">      &#125;</div><div class="line">    &#125;,</div><div class="line">    dev : &#123;</div><div class="line">      user : &quot;root&quot;,</div><div class="line">      host : &quot;&quot;,</div><div class="line">      ref  : &quot;origin/master&quot;,</div><div class="line">      repo : &quot;&quot;,</div><div class="line">      path : &quot;/var/www/development/dms-api&quot;,</div><div class="line">      &quot;post-deploy&quot; : &quot;npm install ; pm2 startOrRestart ecosystem.json --env dev&quot;,</div><div class="line">      env  : &#123;</div><div class="line">        NODE_ENV: &quot;dev&quot;</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-      
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-haproxy" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/haproxy/" class="article-date">
-  	<time datetime="2016-10-11T04:00:57.000Z" itemprop="datePublished">2016-10-11</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/haproxy/">安装 haproxy</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ul>
-<li><p>首先安装epel</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ rpm -ivh http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm</div></pre></td></tr></table></figure>
-</li>
-<li><p>安装haproxy</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ yum -y install haproxy</div></pre></td></tr></table></figure>
-</li>
-</ul>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-      
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-alinode" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/alinode/" class="article-date">
-  	<time datetime="2016-10-11T03:39:30.000Z" itemprop="datePublished">2016-10-11</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/alinode/">使用alinode监控服务器</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>alinode是由alinode运行时、AgentX、命令集、服务平台组成，提供对目标主机的实例，node进程进行包括<br>cpu、内存、堆栈信息等进行监控的服务。</p>
-<h3 id="安装alinode"><a href="#安装alinode" class="headerlink" title="安装alinode"></a>安装alinode</h3><ul>
-<li>安装tnvm</li>
-</ul>
-<p>alinode是与 Node 社区版完全兼容的二进制运行时环境，推荐使用tnvm工具进行安装, 它能自动识别你的操作系统和系统架构。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ wget -qO- https://raw.githubusercontent.com/aliyun-node/tnvm/master/install.sh | bash</div></pre></td></tr></table></figure>
-<p>完成安装后，需要将tnvm添加为命令行程序。根据平台的不同，可能是~/.bashrc，~/.profile或~/.zshrc等</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">source ~/.zshrc</div></pre></td></tr></table></figure>
-<p>tnvm 是一个可以完全替换nvm的命令功能，可以使用tnvm安转官方的node版本.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ tnvm ls-remote node</div></pre></td></tr></table></figure>
-<ul>
-<li>安装alinode</li>
-</ul>
-<p>前面提到的tnvm安装好了之后。可以使用tnvm安装alinode  </p>
-<p>查看alinode版本</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">$ tnvm ls-remote alinode </div><div class="line">  alinode-v0.3.3</div><div class="line">  alinode-v0.3.4</div><div class="line">  alinode-v0.3.5</div><div class="line">  alinode-v1.1.1</div><div class="line">  alinode-v1.2.1</div><div class="line">  alinode-v1.2.2</div><div class="line">  alinode-v1.2.3</div><div class="line">  alinode-v1.3.0</div><div class="line">  alinode-v1.4.0</div><div class="line">  alinode-v1.5.1</div><div class="line">  alinode-v1.5.2</div></pre></td></tr></table></figure>
-<p>tnvm使用方法和nvm大致一样，下面安装alinode</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ tnvm install alinode-v0.3.4  </div><div class="line">$ tnvm use alinode-v0.3.4</div><div class="line">$ tnvm ls alinode</div><div class="line">  alinode-v0.3.4</div></pre></td></tr></table></figure>
-<h3 id="下载命令集"><a href="#下载命令集" class="headerlink" title="下载命令集"></a>下载命令集</h3><p>命令集为一组 alinode 服务执行任务所需要的命令集合，alinode 服务有且仅有执行这些命令的权限。<br>可以将该命令集随便放在摸个目录下，但是要记好，下面会需要这个路径。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git clone https://github.com/aliyun-node/commands</div></pre></td></tr></table></figure>
-<h3 id="安装AgentX"><a href="#安装AgentX" class="headerlink" title="安装AgentX"></a>安装AgentX</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install agentx -g</div></pre></td></tr></table></figure>
-<ul>
-<li>配置和运行AgentX</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  &quot;server&quot;: &quot;120.55.151.247:8080&quot;,</div><div class="line">  &quot;appid&quot;: &quot;您的应用ID&quot;,</div><div class="line">  &quot;secret&quot;: &quot;您的应用Secret&quot;,</div><div class="line">  &quot;heartbeatInterval&quot;: 60,</div><div class="line">  &quot;reconnectDelay&quot;: 10,</div><div class="line">  &quot;reportInterval&quot;: 60,</div><div class="line">  &quot;logdir&quot;: &quot;alinode生产的日志放置的路径，与NODE_LOG_DIR路径保持一致。如：/tmp/&quot;,</div><div class="line">  &quot;cmddir&quot;: &quot;命令集路径，绝对路径，如：/Users/jacksontian/commands&quot;,</div><div class="line">  &quot;error_log&quot;: [</div><div class="line">    &quot;您的应用在业务层面产生的异常日志的路径，如：/root/.logs/error.#YYYY#-#MM#-#DD#.log&quot;</div><div class="line">  ]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>注：上面的server不需要进行修改</p>
-<ul>
-<li>获取appid</li>
-</ul>
-<p>首先在<a href="http://alinode.aliyun.com/" target="_blank" rel="external">alinode官网注册登陆</a><br>上方菜单栏点击[ 控制台 ]  </p>
-<p><img src="../pic/alinode.png" width="600px" height="100px"></p>
-<ul>
-<li>根据提示创建完成  </li>
-<li>将appid和secret输入到上方的配置文件中  </li>
-<li>logdir，cmddir，error_log根据自己的需求自行填写目录</li>
-</ul>
-<h3 id="启动agentx"><a href="#启动agentx" class="headerlink" title="启动agentx"></a>启动agentx</h3><ul>
-<li>添加环境变量</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ export ENABLE_NODE_LOG=YES</div><div class="line">$ export NODE_LOG_DIR=/tmp/</div></pre></td></tr></table></figure>
-<p>需要注意的是，此处的NODE_LOG_DIR需要与配置文件中的logdir保持一致。</p>
-<ul>
-<li>启动agentx</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ nohup agentx /path/to/your/config.json &amp;</div></pre></td></tr></table></figure>
-<p>当agentx启动之后，你在该服务器使用node进行启动的所有进程都能被监视到（查看时存在一定的延时）</p>
-<h3 id="查看监控详情"><a href="#查看监控详情" class="headerlink" title="查看监控详情"></a>查看监控详情</h3><p><img src="../pic/alinode_info.png" width="800px" height="400px"></p>
-
       
     </div>
     

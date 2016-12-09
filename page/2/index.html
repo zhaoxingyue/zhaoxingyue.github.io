@@ -156,6 +156,163 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-haproxy" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/haproxy/" class="article-date">
+  	<time datetime="2016-10-11T04:00:57.000Z" itemprop="datePublished">2016-10-11</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/haproxy/">安装 haproxy</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li><p>首先安装epel</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ rpm -ivh http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm</div></pre></td></tr></table></figure>
+</li>
+<li><p>安装haproxy</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ yum -y install haproxy</div></pre></td></tr></table></figure>
+</li>
+</ul>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-alinode" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/alinode/" class="article-date">
+  	<time datetime="2016-10-11T03:39:30.000Z" itemprop="datePublished">2016-10-11</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/alinode/">使用alinode监控服务器</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>alinode是由alinode运行时、AgentX、命令集、服务平台组成，提供对目标主机的实例，node进程进行包括<br>cpu、内存、堆栈信息等进行监控的服务。</p>
+<h3 id="安装alinode"><a href="#安装alinode" class="headerlink" title="安装alinode"></a>安装alinode</h3><ul>
+<li>安装tnvm</li>
+</ul>
+<p>alinode是与 Node 社区版完全兼容的二进制运行时环境，推荐使用tnvm工具进行安装, 它能自动识别你的操作系统和系统架构。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ wget -qO- https://raw.githubusercontent.com/aliyun-node/tnvm/master/install.sh | bash</div></pre></td></tr></table></figure>
+<p>完成安装后，需要将tnvm添加为命令行程序。根据平台的不同，可能是~/.bashrc，~/.profile或~/.zshrc等</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">source ~/.zshrc</div></pre></td></tr></table></figure>
+<p>tnvm 是一个可以完全替换nvm的命令功能，可以使用tnvm安转官方的node版本.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ tnvm ls-remote node</div></pre></td></tr></table></figure>
+<ul>
+<li>安装alinode</li>
+</ul>
+<p>前面提到的tnvm安装好了之后。可以使用tnvm安装alinode  </p>
+<p>查看alinode版本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">$ tnvm ls-remote alinode </div><div class="line">  alinode-v0.3.3</div><div class="line">  alinode-v0.3.4</div><div class="line">  alinode-v0.3.5</div><div class="line">  alinode-v1.1.1</div><div class="line">  alinode-v1.2.1</div><div class="line">  alinode-v1.2.2</div><div class="line">  alinode-v1.2.3</div><div class="line">  alinode-v1.3.0</div><div class="line">  alinode-v1.4.0</div><div class="line">  alinode-v1.5.1</div><div class="line">  alinode-v1.5.2</div></pre></td></tr></table></figure>
+<p>tnvm使用方法和nvm大致一样，下面安装alinode</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ tnvm install alinode-v0.3.4  </div><div class="line">$ tnvm use alinode-v0.3.4</div><div class="line">$ tnvm ls alinode</div><div class="line">  alinode-v0.3.4</div></pre></td></tr></table></figure>
+<h3 id="下载命令集"><a href="#下载命令集" class="headerlink" title="下载命令集"></a>下载命令集</h3><p>命令集为一组 alinode 服务执行任务所需要的命令集合，alinode 服务有且仅有执行这些命令的权限。<br>可以将该命令集随便放在摸个目录下，但是要记好，下面会需要这个路径。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git clone https://github.com/aliyun-node/commands</div></pre></td></tr></table></figure>
+<h3 id="安装AgentX"><a href="#安装AgentX" class="headerlink" title="安装AgentX"></a>安装AgentX</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install agentx -g</div></pre></td></tr></table></figure>
+<ul>
+<li>配置和运行AgentX</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  &quot;server&quot;: &quot;120.55.151.247:8080&quot;,</div><div class="line">  &quot;appid&quot;: &quot;您的应用ID&quot;,</div><div class="line">  &quot;secret&quot;: &quot;您的应用Secret&quot;,</div><div class="line">  &quot;heartbeatInterval&quot;: 60,</div><div class="line">  &quot;reconnectDelay&quot;: 10,</div><div class="line">  &quot;reportInterval&quot;: 60,</div><div class="line">  &quot;logdir&quot;: &quot;alinode生产的日志放置的路径，与NODE_LOG_DIR路径保持一致。如：/tmp/&quot;,</div><div class="line">  &quot;cmddir&quot;: &quot;命令集路径，绝对路径，如：/Users/jacksontian/commands&quot;,</div><div class="line">  &quot;error_log&quot;: [</div><div class="line">    &quot;您的应用在业务层面产生的异常日志的路径，如：/root/.logs/error.#YYYY#-#MM#-#DD#.log&quot;</div><div class="line">  ]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>注：上面的server不需要进行修改</p>
+<ul>
+<li>获取appid</li>
+</ul>
+<p>首先在<a href="http://alinode.aliyun.com/" target="_blank" rel="external">alinode官网注册登陆</a><br>上方菜单栏点击[ 控制台 ]  </p>
+<p><img src="../pic/alinode.png" width="600px" height="100px"></p>
+<ul>
+<li>根据提示创建完成  </li>
+<li>将appid和secret输入到上方的配置文件中  </li>
+<li>logdir，cmddir，error_log根据自己的需求自行填写目录</li>
+</ul>
+<h3 id="启动agentx"><a href="#启动agentx" class="headerlink" title="启动agentx"></a>启动agentx</h3><ul>
+<li>添加环境变量</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ export ENABLE_NODE_LOG=YES</div><div class="line">$ export NODE_LOG_DIR=/tmp/</div></pre></td></tr></table></figure>
+<p>需要注意的是，此处的NODE_LOG_DIR需要与配置文件中的logdir保持一致。</p>
+<ul>
+<li>启动agentx</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ nohup agentx /path/to/your/config.json &amp;</div></pre></td></tr></table></figure>
+<p>当agentx启动之后，你在该服务器使用node进行启动的所有进程都能被监视到（查看时存在一定的延时）</p>
+<h3 id="查看监控详情"><a href="#查看监控详情" class="headerlink" title="查看监控详情"></a>查看监控详情</h3><p><img src="../pic/alinode_info.png" width="800px" height="400px"></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-ali" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">

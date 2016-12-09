@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>NODE NEWBIE</title>
+
+  <!-- keywords -->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="HTTPS 构建HTTPS 最近火到不要不要的，原因是苹果公司又带了一波节奏。（2017年1月1日之后，所有 IO S应用请求数据接口必须采用 HTTPS 协议），微信小程序也跟风出了相应的要求。（不过以后全线 HTTPS 一定是大势所趋，没有任何争议），现在连 NGINX 的默认配置文件中都有HTTPS 相关的配置项了，我们还有什么理由不替换 HTTP（让我先哭一会~~）。
+所以我们的后端项目打">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NODE NEWBIE">
+<meta property="og:url" content="http://127.0.0.1:4000/https/index.html">
+<meta property="og:site_name" content="NODE NEWBIE">
+<meta property="og:description" content="HTTPS 构建HTTPS 最近火到不要不要的，原因是苹果公司又带了一波节奏。（2017年1月1日之后，所有 IO S应用请求数据接口必须采用 HTTPS 协议），微信小程序也跟风出了相应的要求。（不过以后全线 HTTPS 一定是大势所趋，没有任何争议），现在连 NGINX 的默认配置文件中都有HTTPS 相关的配置项了，我们还有什么理由不替换 HTTP（让我先哭一会~~）。
+所以我们的后端项目打">
+<meta property="og:image" content="http://127.0.0.1:4000/./pic/SSL-TLS.png">
+<meta property="og:updated_time" content="2016-12-09T08:09:30.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="NODE NEWBIE">
+<meta name="twitter:description" content="HTTPS 构建HTTPS 最近火到不要不要的，原因是苹果公司又带了一波节奏。（2017年1月1日之后，所有 IO S应用请求数据接口必须采用 HTTPS 协议），微信小程序也跟风出了相应的要求。（不过以后全线 HTTPS 一定是大势所趋，没有任何争议），现在连 NGINX 的默认配置文件中都有HTTPS 相关的配置项了，我们还有什么理由不替换 HTTP（让我先哭一会~~）。
+所以我们的后端项目打">
+<meta name="twitter:image" content="http://127.0.0.1:4000/./pic/SSL-TLS.png">
+  
+    <link rel="alternative" href="/atom.xml" title="NODE NEWBIE" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+  
+
+  <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+  
+</head>
+<body>
+  <div id="container">
+    <div id="particles-js"></div>
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="https://avatars0.githubusercontent.com/u/15117664?v=3&amp;u=a64a0ca7dfffa9da8eafc9673bb6d45038235a58&amp;s=140" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">zxy</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+					</div>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="https://github.com/zhaoxingyue">github</a></li>
+				        
+							<li><a href="/archives">目录</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com/winnerweb/hexo-theme-smackdown">smackdown</a>
+			        
+			        </div>
+				</section>
+				
+
+
+				
+				<section class="switch-part switch-part5">
+					<img src="http://chuantu.biz/t5/37/1476170042x712688294.png" />
+				</section>
+			</div>
+		</div>
+	</header>		
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">zxy</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="https://avatars0.githubusercontent.com/u/15117664?v=3&amp;u=a64a0ca7dfffa9da8eafc9673bb6d45038235a58&amp;s=140" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">zxy</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="https://github.com/zhaoxingyue">github</a></li>
+		        
+					<li><a href="/archives">目录</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-https" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/https/" class="article-date">
+  	<time datetime="2016-12-09T08:09:22.000Z" itemprop="datePublished">2016-12-09</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="HTTPS-构建"><a href="#HTTPS-构建" class="headerlink" title="HTTPS 构建"></a>HTTPS 构建</h2><p>HTTPS 最近火到不要不要的，原因是苹果公司又带了一波节奏。（2017年1月1日之后，所有 IO S应用请求数据接口必须采用 HTTPS 协议），<br>微信小程序也跟风出了相应的要求。（不过以后全线 HTTPS 一定是大势所趋，没有任何争议），现在连 NGINX 的默认配置文件中都有<br>HTTPS 相关的配置项了，我们还有什么理由不替换 HTTP（让我先哭一会~~）。</p>
+<p>所以我们的后端项目打算全线由 HTTP 协议替换为 HTTPS 协议。</p>
+<h3 id="科普一下-HTTPS"><a href="#科普一下-HTTPS" class="headerlink" title="科普一下 HTTPS"></a>科普一下 HTTPS</h3><blockquote>
+<p>https 是 secure http，是 HTTP 的升级安全版。 HTTP 是应用层协议，在 HTTP 下面是传输层协议 TCP，TCP 定义数据如何传输，<br>HTTP 定义数据如何包装。而 HTTPS 是在 HTTP 和 TCP 中间加了一层 SSL/TLS 加密层。</p>
+</blockquote>
+<ul>
+<li><p>啥是 SSL/TLS ?</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">说人话就是 SSL 是一个加密套件。负责将 HTTP 传输的数据加密。TLS 是 SSL 的升级版。现在 HTTPS 中的加密套件一般都是 TLS.</div></pre></td></tr></table></figure>
+</li>
+<li><p>啥又是加密套件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">之前都是应用层(HTTP)将数据直接传输给传输层 TCP，现在是在数据传输时通过 SSL/TLS 进行数据加密, 再给到 TCP 进行传输。</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>盗了张图，感受一下：</p>
+<p><img src="./pic/SSL-TLS.png"></p>
+<p>强烈推荐看一下这个兄弟的<a href="http://www.codeceo.com/article/https-knowledge.html" target="_blank" rel="external">扫盲贴</a><br>强烈推荐看一下这个兄弟的<a href="http://www.codeceo.com/article/https-knowledge.html" target="_blank" rel="external">扫盲贴</a><br>强烈推荐看一下这个兄弟的<a href="http://www.codeceo.com/article/https-knowledge.html" target="_blank" rel="external">扫盲贴</a><br>重要的事情说三遍</p>
+<h3 id="SSL-证书申请"><a href="#SSL-证书申请" class="headerlink" title="SSL 证书申请"></a>SSL 证书申请</h3><p>申请SSL 证书最重要的是什么？下面是我总结的三条：</p>
+<ul>
+<li>免费</li>
+<li>免费</li>
+<li>免费</li>
+</ul>
+<p>当然，免费的安全等级是入门级的，找到适合自己业务的 SSL 证书最重要。</p>
+<p>这次我要感谢<a href="https://www.qcloud.com/" target="_blank" rel="external">企鹅云</a>！！！</p>
+<ul>
+<li><p>免费证书申请</p>
+<blockquote>
+<p>登录腾讯云，找到证书管理 =&gt; 申请证书 =&gt; 填写信息 =&gt; 手动验证 DNS =&gt; <a href="https://www.qcloud.com/document/product/400/4142#2.E3.80.81.E6.89.8B.E5.8A.A8dns.E9.AA.8C.E8.AF.81" target="_blank" rel="external">后续操作文档</a></p>
+</blockquote>
+</li>
+<li><p>配置 SSL 证书</p>
+<blockquote>
+<p><a href="https://www.qcloud.com/document/product/400/4143" target="_blank" rel="external">文档地址</a></p>
+</blockquote>
+</li>
+</ul>
+<h3 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h3><ul>
+<li><p>感谢企鹅！！！！</p>
+</li>
+<li><p>最详细的 HTTPS 科普扫盲帖： <a href="http://www.codeceo.com/article/https-knowledge.html" target="_blank" rel="external">http://www.codeceo.com/article/https-knowledge.html</a></p>
+</li>
+</ul>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/ws/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2016 zxy
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/winnerweb/hexo-Yilia-Smackdown" target="_blank">Yilia(Smackdown)</a>
+        </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: true
+	}
+</script>
+<script src="/js/main.js"></script>
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
