@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>构建基于 struts2 和 maven 的web项目 demo | NODE NEWBIE</title>
+
+  <!-- keywords -->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="配置文件方式
+在eclipse中创建一个maven项目：
+打包方式选择 war
+
+
+
+
+
+勾选动态web项目
+
+
+
+添加依赖(pom.xml)
+
+123456789101112131415161718192021222324&amp;lt;!-- struts2核心依赖 --&amp;gt;&amp;lt;dependency&amp;gt;  &amp;lt;groupId&amp;gt;org.apache.struts&amp;lt;/group">
+<meta property="og:type" content="article">
+<meta property="og:title" content="构建基于 struts2 和 maven 的web项目 demo">
+<meta property="og:url" content="http://127.0.0.1:4000/maven_struts2/index.html">
+<meta property="og:site_name" content="NODE NEWBIE">
+<meta property="og:description" content="配置文件方式
+在eclipse中创建一个maven项目：
+打包方式选择 war
+
+
+
+
+
+勾选动态web项目
+
+
+
+添加依赖(pom.xml)
+
+123456789101112131415161718192021222324&amp;lt;!-- struts2核心依赖 --&amp;gt;&amp;lt;dependency&amp;gt;  &amp;lt;groupId&amp;gt;org.apache.struts&amp;lt;/group">
+<meta property="og:image" content="http://127.0.0.1:4000/../pic/创建maven项目.png">
+<meta property="og:image" content="http://127.0.0.1:4000/../pic/勾选web.png">
+<meta property="og:image" content="http://127.0.0.1:4000/../pic/结果.png">
+<meta property="og:image" content="http://127.0.0.1:4000/../pic/结果2.png">
+<meta property="og:updated_time" content="2017-02-14T02:42:42.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="构建基于 struts2 和 maven 的web项目 demo">
+<meta name="twitter:description" content="配置文件方式
+在eclipse中创建一个maven项目：
+打包方式选择 war
+
+
+
+
+
+勾选动态web项目
+
+
+
+添加依赖(pom.xml)
+
+123456789101112131415161718192021222324&amp;lt;!-- struts2核心依赖 --&amp;gt;&amp;lt;dependency&amp;gt;  &amp;lt;groupId&amp;gt;org.apache.struts&amp;lt;/group">
+<meta name="twitter:image" content="http://127.0.0.1:4000/../pic/创建maven项目.png">
+  
+    <link rel="alternative" href="/atom.xml" title="NODE NEWBIE" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+  
+
+  <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+  
+</head>
+<body>
+  <div id="container">
+    <div id="particles-js"></div>
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="https://avatars0.githubusercontent.com/u/15117664?v=3&amp;u=a64a0ca7dfffa9da8eafc9673bb6d45038235a58&amp;s=140" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">zxy</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+					</div>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="https://github.com/zhaoxingyue">github</a></li>
+				        
+							<li><a href="/archives">目录</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com/winnerweb/hexo-theme-smackdown">smackdown</a>
+			        
+			        </div>
+				</section>
+				
+
+
+				
+				<section class="switch-part switch-part5">
+					<img src="http://chuantu.biz/t5/37/1476170042x712688294.png" />
+				</section>
+			</div>
+		</div>
+	</header>		
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">zxy</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="https://avatars0.githubusercontent.com/u/15117664?v=3&amp;u=a64a0ca7dfffa9da8eafc9673bb6d45038235a58&amp;s=140" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">zxy</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="https://github.com/zhaoxingyue">github</a></li>
+		        
+					<li><a href="/archives">目录</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-maven_struts2" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/maven_struts2/" class="article-date">
+  	<time datetime="2017-02-14T02:41:15.000Z" itemprop="datePublished">2017-02-14</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      构建基于 struts2 和 maven 的web项目 demo
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="配置文件方式"><a href="#配置文件方式" class="headerlink" title="配置文件方式"></a>配置文件方式</h2><ul>
+<li>在eclipse中创建一个maven项目：<ul>
+<li>打包方式选择 war</li>
+</ul>
+</li>
+</ul>
+<p><img src="../pic/创建maven项目.png" width="500px" height="500px"></p>
+<ul>
+<li>勾选动态web项目</li>
+</ul>
+<p><img src="../pic/勾选web.png" width="500px" height="400px"></p>
+<ul>
+<li>添加依赖(pom.xml)</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- struts2核心依赖 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.struts<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>struts2-core<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.3.4<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">type</span>&gt;</span>jar<span class="tag">&lt;/<span class="name">type</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">scope</span>&gt;</span>compile<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line"><span class="comment">&lt;!-- struts2零配置依赖 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.struts<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>struts2-convention-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.3.4<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">type</span>&gt;</span>jar<span class="tag">&lt;/<span class="name">type</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">scope</span>&gt;</span>compile<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line"><span class="comment">&lt;!-- struts2的json依赖 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.struts<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>struts2-json-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.3.4<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">type</span>&gt;</span>jar<span class="tag">&lt;/<span class="name">type</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">scope</span>&gt;</span>compile<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure>
+<ul>
+<li>在web.xml中添加struts2拦截器</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">filter</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>struts2<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">filter-class</span>&gt;</span>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter<span class="tag">&lt;/<span class="name">filter-class</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">filter</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">filter-mapping</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>struts2<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/*<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">filter-mapping</span>&gt;</span></div></pre></td></tr></table></figure>
+<ul>
+<li>新建bean<ul>
+<li>新建 com.zxy.demo.bean 包</li>
+<li>新建 User 类</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.zxy.demo.bean;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</div><div class="line">  </div><div class="line">  <span class="keyword">private</span> String name;</div><div class="line">  <span class="keyword">private</span> String say;</div><div class="line">  <span class="meta">@Override</span></div><div class="line">  <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="string">"User [name="</span> + name + <span class="string">", say="</span> + say + <span class="string">"]"</span>;</div><div class="line">  &#125;</div><div class="line">  <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> name;</div><div class="line">  &#125;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</div><div class="line">    <span class="keyword">this</span>.name = name;</div><div class="line">  &#125;</div><div class="line">  <span class="function"><span class="keyword">public</span> String <span class="title">getSay</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> say;</div><div class="line">  &#125;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setSay</span><span class="params">(String say)</span> </span>&#123;</div><div class="line">    <span class="keyword">this</span>.say = say;</div><div class="line">  &#125;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="title">User</span><span class="params">(String name, String say)</span> </span>&#123;</div><div class="line">    <span class="keyword">super</span>();</div><div class="line">    <span class="keyword">this</span>.name = name;</div><div class="line">    <span class="keyword">this</span>.say = say;</div><div class="line">  &#125;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="title">User</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">super</span>();</div><div class="line">    <span class="comment">// TODO Auto-generated constructor stub</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li><p>创建Action</p>
+<ul>
+<li>新建com.zxy.demo.action包</li>
+<li>新建 ActionDemo 类继承 ActionSupport<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.zxy.demo.action;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.util.HashMap;</div><div class="line"><span class="keyword">import</span> java.util.Map;</div><div class="line"></div><div class="line"><span class="keyword">import</span> com.opensymphony.xwork2.ActionSupport;</div><div class="line"><span class="keyword">import</span> com.zxy.demo.bean.User;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ActionDemo</span> <span class="keyword">extends</span> <span class="title">ActionSupport</span> </span>&#123;</div><div class="line"></div><div class="line">  <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = <span class="number">1L</span>;</div><div class="line">  <span class="keyword">public</span> Map&lt;String, Object&gt; json;</div><div class="line">  </div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="title">ActionDemo</span><span class="params">()</span> </span>&#123;</div><div class="line">    json = <span class="keyword">new</span> HashMap&lt;String, Object&gt;();</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  </div><div class="line">  <span class="function"><span class="keyword">public</span> String <span class="title">say</span> <span class="params">()</span> </span>&#123;</div><div class="line">    User user = <span class="keyword">new</span> User();</div><div class="line">    user.setName(<span class="string">"heheda"</span>);</div><div class="line">    user.setSay(<span class="string">"I am a json"</span>);</div><div class="line">    json.put(<span class="string">"user"</span>, user);</div><div class="line">    json.put(<span class="string">"success"</span>, <span class="keyword">true</span>);</div><div class="line">    <span class="keyword">return</span> SUCCESS;</div><div class="line">  &#125;</div><div class="line"></div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">public</span> Map&lt;String, Object&gt; <span class="title">getJson</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> json;</div><div class="line">  &#125;</div><div class="line"></div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setJson</span><span class="params">(Map&lt;String, Object&gt; json)</span> </span>&#123;</div><div class="line">    <span class="keyword">this</span>.json = json;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>在 com/main/resources 新建 struts.xml</p>
+</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</div><div class="line"><span class="meta">&lt;!DOCTYPE struts PUBLIC</span></div><div class="line">    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"</div><div class="line">    "http://struts.apache.org/dtds/struts-2.0.dtd"&gt;</div><div class="line"><span class="tag">&lt;<span class="name">struts</span>&gt;</span>  </div><div class="line">    <span class="tag">&lt;<span class="name">package</span> <span class="attr">name</span>=<span class="string">"web"</span> <span class="attr">extends</span>=<span class="string">"json-default, struts-default"</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">action</span> <span class="attr">name</span>=<span class="string">"UserAction"</span> <span class="attr">class</span>=<span class="string">"com.zxy.demo.action.ActionDemo"</span> <span class="attr">method</span>=<span class="string">"say"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">type</span>=<span class="string">"json"</span>&gt;</span>json<span class="tag">&lt;/<span class="name">result</span>&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">action</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">package</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">struts</span>&gt;</span></div></pre></td></tr></table></figure>
+<ul>
+<li>使用 tomcat 运行项目</li>
+</ul>
+<p>访问 <a href="http://localhost:8080/webDemo/web/UserAction" target="_blank" rel="external">http://localhost:8080/webDemo/web/UserAction</a></p>
+<p><img src="../pic/结果.png"></p>
+<h2 id="注解方式"><a href="#注解方式" class="headerlink" title="注解方式"></a>注解方式</h2><ul>
+<li>干掉 struts.xml</li>
+<li>在Action中添加注释</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.zxy.demo.action;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.util.HashMap;</div><div class="line"><span class="keyword">import</span> java.util.Map;</div><div class="line"></div><div class="line"><span class="keyword">import</span> org.apache.struts2.convention.annotation.Action;</div><div class="line"><span class="keyword">import</span> org.apache.struts2.convention.annotation.ParentPackage;</div><div class="line"><span class="keyword">import</span> org.apache.struts2.convention.annotation.Result;</div><div class="line"><span class="keyword">import</span> org.apache.struts2.convention.annotation.Results;</div><div class="line"></div><div class="line"><span class="keyword">import</span> com.opensymphony.xwork2.ActionSupport;</div><div class="line"><span class="keyword">import</span> com.zxy.demo.bean.User;</div><div class="line"></div><div class="line"><span class="meta">@ParentPackage</span>(<span class="string">"json-default"</span>)</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ActionDemo</span> <span class="keyword">extends</span> <span class="title">ActionSupport</span> </span>&#123;</div><div class="line"></div><div class="line">  <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = <span class="number">1L</span>;</div><div class="line">  <span class="keyword">public</span> Map&lt;String, Object&gt; json;</div><div class="line">  </div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="title">ActionDemo</span><span class="params">()</span> </span>&#123;</div><div class="line">    json = <span class="keyword">new</span> HashMap&lt;String, Object&gt;();</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="meta">@Action</span>(value=<span class="string">"say"</span>, results=&#123;<span class="meta">@Result</span>(type=<span class="string">"json"</span>, params=&#123;<span class="string">"root"</span>, <span class="string">"json"</span>&#125;)&#125;)</div><div class="line">  <span class="function"><span class="keyword">public</span> String <span class="title">say</span> <span class="params">()</span> </span>&#123;</div><div class="line">    User user = <span class="keyword">new</span> User();</div><div class="line">    user.setName(<span class="string">"heheda"</span>);</div><div class="line">    user.setSay(<span class="string">"I am a json"</span>);</div><div class="line">    json.put(<span class="string">"user"</span>, user);</div><div class="line">    json.put(<span class="string">"success"</span>, <span class="keyword">true</span>);</div><div class="line">    <span class="keyword">return</span> SUCCESS;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">public</span> Map&lt;String, Object&gt; <span class="title">getJson</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> json;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setJson</span><span class="params">(Map&lt;String, Object&gt; json)</span> </span>&#123;</div><div class="line">    <span class="keyword">this</span>.json = json;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>访问 <a href="http://localhost:8080/webDemo/say" target="_blank" rel="external">http://localhost:8080/webDemo/say</a></li>
+</ul>
+<p><img src="../pic/结果2.png"></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/https/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">HTTPS 构建</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2017 zxy
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/winnerweb/hexo-Yilia-Smackdown" target="_blank">Yilia(Smackdown)</a>
+        </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: true
+	}
+</script>
+<script src="/js/main.js"></script>
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

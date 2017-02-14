@@ -156,6 +156,110 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-maven_struts2" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/maven_struts2/" class="article-date">
+  	<time datetime="2017-02-14T02:41:15.000Z" itemprop="datePublished">2017-02-14</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/maven_struts2/">构建基于 struts2 和 maven 的web项目 demo</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="配置文件方式"><a href="#配置文件方式" class="headerlink" title="配置文件方式"></a>配置文件方式</h2><ul>
+<li>在eclipse中创建一个maven项目：<ul>
+<li>打包方式选择 war</li>
+</ul>
+</li>
+</ul>
+<p><img src="../pic/创建maven项目.png" width="500px" height="500px"></p>
+<ul>
+<li>勾选动态web项目</li>
+</ul>
+<p><img src="../pic/勾选web.png" width="500px" height="400px"></p>
+<ul>
+<li>添加依赖(pom.xml)</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- struts2核心依赖 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.struts<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>struts2-core<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.3.4<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">type</span>&gt;</span>jar<span class="tag">&lt;/<span class="name">type</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">scope</span>&gt;</span>compile<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line"><span class="comment">&lt;!-- struts2零配置依赖 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.struts<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>struts2-convention-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.3.4<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">type</span>&gt;</span>jar<span class="tag">&lt;/<span class="name">type</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">scope</span>&gt;</span>compile<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line"><span class="comment">&lt;!-- struts2的json依赖 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.struts<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>struts2-json-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.3.4<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">type</span>&gt;</span>jar<span class="tag">&lt;/<span class="name">type</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">scope</span>&gt;</span>compile<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure>
+<ul>
+<li>在web.xml中添加struts2拦截器</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">filter</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>struts2<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">filter-class</span>&gt;</span>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter<span class="tag">&lt;/<span class="name">filter-class</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">filter</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">filter-mapping</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>struts2<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/*<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">filter-mapping</span>&gt;</span></div></pre></td></tr></table></figure>
+<ul>
+<li>新建bean<ul>
+<li>新建 com.zxy.demo.bean 包</li>
+<li>新建 User 类</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.zxy.demo.bean;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</div><div class="line">  </div><div class="line">  <span class="keyword">private</span> String name;</div><div class="line">  <span class="keyword">private</span> String say;</div><div class="line">  <span class="meta">@Override</span></div><div class="line">  <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="string">"User [name="</span> + name + <span class="string">", say="</span> + say + <span class="string">"]"</span>;</div><div class="line">  &#125;</div><div class="line">  <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> name;</div><div class="line">  &#125;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</div><div class="line">    <span class="keyword">this</span>.name = name;</div><div class="line">  &#125;</div><div class="line">  <span class="function"><span class="keyword">public</span> String <span class="title">getSay</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> say;</div><div class="line">  &#125;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setSay</span><span class="params">(String say)</span> </span>&#123;</div><div class="line">    <span class="keyword">this</span>.say = say;</div><div class="line">  &#125;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="title">User</span><span class="params">(String name, String say)</span> </span>&#123;</div><div class="line">    <span class="keyword">super</span>();</div><div class="line">    <span class="keyword">this</span>.name = name;</div><div class="line">    <span class="keyword">this</span>.say = say;</div><div class="line">  &#125;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="title">User</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">super</span>();</div><div class="line">    <span class="comment">// TODO Auto-generated constructor stub</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li><p>创建Action</p>
+<ul>
+<li>新建com.zxy.demo.action包</li>
+<li>新建 ActionDemo 类继承 ActionSupport<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.zxy.demo.action;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.util.HashMap;</div><div class="line"><span class="keyword">import</span> java.util.Map;</div><div class="line"></div><div class="line"><span class="keyword">import</span> com.opensymphony.xwork2.ActionSupport;</div><div class="line"><span class="keyword">import</span> com.zxy.demo.bean.User;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ActionDemo</span> <span class="keyword">extends</span> <span class="title">ActionSupport</span> </span>&#123;</div><div class="line"></div><div class="line">  <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = <span class="number">1L</span>;</div><div class="line">  <span class="keyword">public</span> Map&lt;String, Object&gt; json;</div><div class="line">  </div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="title">ActionDemo</span><span class="params">()</span> </span>&#123;</div><div class="line">    json = <span class="keyword">new</span> HashMap&lt;String, Object&gt;();</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  </div><div class="line">  <span class="function"><span class="keyword">public</span> String <span class="title">say</span> <span class="params">()</span> </span>&#123;</div><div class="line">    User user = <span class="keyword">new</span> User();</div><div class="line">    user.setName(<span class="string">"heheda"</span>);</div><div class="line">    user.setSay(<span class="string">"I am a json"</span>);</div><div class="line">    json.put(<span class="string">"user"</span>, user);</div><div class="line">    json.put(<span class="string">"success"</span>, <span class="keyword">true</span>);</div><div class="line">    <span class="keyword">return</span> SUCCESS;</div><div class="line">  &#125;</div><div class="line"></div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">public</span> Map&lt;String, Object&gt; <span class="title">getJson</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> json;</div><div class="line">  &#125;</div><div class="line"></div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setJson</span><span class="params">(Map&lt;String, Object&gt; json)</span> </span>&#123;</div><div class="line">    <span class="keyword">this</span>.json = json;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>在 com/main/resources 新建 struts.xml</p>
+</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</div><div class="line"><span class="meta">&lt;!DOCTYPE struts PUBLIC</span></div><div class="line">    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"</div><div class="line">    "http://struts.apache.org/dtds/struts-2.0.dtd"&gt;</div><div class="line"><span class="tag">&lt;<span class="name">struts</span>&gt;</span>  </div><div class="line">    <span class="tag">&lt;<span class="name">package</span> <span class="attr">name</span>=<span class="string">"web"</span> <span class="attr">extends</span>=<span class="string">"json-default, struts-default"</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">action</span> <span class="attr">name</span>=<span class="string">"UserAction"</span> <span class="attr">class</span>=<span class="string">"com.zxy.demo.action.ActionDemo"</span> <span class="attr">method</span>=<span class="string">"say"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">type</span>=<span class="string">"json"</span>&gt;</span>json<span class="tag">&lt;/<span class="name">result</span>&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">action</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">package</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">struts</span>&gt;</span></div></pre></td></tr></table></figure>
+<ul>
+<li>使用 tomcat 运行项目</li>
+</ul>
+<p>访问 <a href="http://localhost:8080/webDemo/web/UserAction" target="_blank" rel="external">http://localhost:8080/webDemo/web/UserAction</a></p>
+<p><img src="../pic/结果.png"></p>
+<h2 id="注解方式"><a href="#注解方式" class="headerlink" title="注解方式"></a>注解方式</h2><ul>
+<li>干掉 struts.xml</li>
+<li>在Action中添加注释</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.zxy.demo.action;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.util.HashMap;</div><div class="line"><span class="keyword">import</span> java.util.Map;</div><div class="line"></div><div class="line"><span class="keyword">import</span> org.apache.struts2.convention.annotation.Action;</div><div class="line"><span class="keyword">import</span> org.apache.struts2.convention.annotation.ParentPackage;</div><div class="line"><span class="keyword">import</span> org.apache.struts2.convention.annotation.Result;</div><div class="line"><span class="keyword">import</span> org.apache.struts2.convention.annotation.Results;</div><div class="line"></div><div class="line"><span class="keyword">import</span> com.opensymphony.xwork2.ActionSupport;</div><div class="line"><span class="keyword">import</span> com.zxy.demo.bean.User;</div><div class="line"></div><div class="line"><span class="meta">@ParentPackage</span>(<span class="string">"json-default"</span>)</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ActionDemo</span> <span class="keyword">extends</span> <span class="title">ActionSupport</span> </span>&#123;</div><div class="line"></div><div class="line">  <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = <span class="number">1L</span>;</div><div class="line">  <span class="keyword">public</span> Map&lt;String, Object&gt; json;</div><div class="line">  </div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="title">ActionDemo</span><span class="params">()</span> </span>&#123;</div><div class="line">    json = <span class="keyword">new</span> HashMap&lt;String, Object&gt;();</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="meta">@Action</span>(value=<span class="string">"say"</span>, results=&#123;<span class="meta">@Result</span>(type=<span class="string">"json"</span>, params=&#123;<span class="string">"root"</span>, <span class="string">"json"</span>&#125;)&#125;)</div><div class="line">  <span class="function"><span class="keyword">public</span> String <span class="title">say</span> <span class="params">()</span> </span>&#123;</div><div class="line">    User user = <span class="keyword">new</span> User();</div><div class="line">    user.setName(<span class="string">"heheda"</span>);</div><div class="line">    user.setSay(<span class="string">"I am a json"</span>);</div><div class="line">    json.put(<span class="string">"user"</span>, user);</div><div class="line">    json.put(<span class="string">"success"</span>, <span class="keyword">true</span>);</div><div class="line">    <span class="keyword">return</span> SUCCESS;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">public</span> Map&lt;String, Object&gt; <span class="title">getJson</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> json;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setJson</span><span class="params">(Map&lt;String, Object&gt; json)</span> </span>&#123;</div><div class="line">    <span class="keyword">this</span>.json = json;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>访问 <a href="http://localhost:8080/webDemo/say" target="_blank" rel="external">http://localhost:8080/webDemo/say</a></li>
+</ul>
+<p><img src="../pic/结果2.png"></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-https" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -262,9 +366,20 @@
       <input type="hidden" class="isFancy" />
     
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/ws/">Web Services</a>
+    </h1>
+  
+
+      </header>
+      
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Web-Services"><a href="#Web-Services" class="headerlink" title="Web Services"></a>Web Services</h1><p>基于 http 的跨编程语言和跨操作系统平台的远程调用技术。</p>
+        <p>基于 http 的跨编程语言和跨操作系统平台的远程调用技术。</p>
 <h2 id="SOAP-Simple-Object-Access-Protocol"><a href="#SOAP-Simple-Object-Access-Protocol" class="headerlink" title="SOAP(Simple Object Access Protocol)"></a>SOAP(Simple Object Access Protocol)</h2><p>简单对象访问协议。WebService通过 HTTP 协议发送请求和接收结果时，发送的请求内容和结果内容都采用XML格式封装，并增加了一些特定的HTTP消息头，<br>以说明HTTP消息的内容格式，这些特定的 HTTP 消息头和 XML 内容格式就是 SOAP 协议。SOAP 提供了标准的 RPC 方法来调用 Web Service。</p>
 <p>SOAP协议 = HTTP 协议 + XML 数据格式 + XSD(XML Schema)</p>
 <ul>
@@ -1342,57 +1457,6 @@
 
 
   
-    <article id="post-ecosystem.json" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/ecosystem.json/" class="article-date">
-  	<time datetime="2016-10-11T04:02:29.000Z" itemprop="datePublished">2016-10-11</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/ecosystem.json/">pm2 配置文件</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  /**</div><div class="line">   * Application configuration section</div><div class="line">   * http://pm2.keymetrics.io/docs/usage/application-declaration/</div><div class="line">   */</div><div class="line">  apps : [</div><div class="line"></div><div class="line">    // First application</div><div class="line">    &#123;</div><div class="line">      name      : &quot;dms-api&quot;,</div><div class="line">      script    : &quot;app.js&quot;,</div><div class="line">      env: &#123;</div><div class="line">        COMMON_VARIABLE: &quot;true&quot;</div><div class="line">      &#125;,</div><div class="line">      env_production : &#123;</div><div class="line">        NODE_ENV: &quot;production&quot;</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  ],</div><div class="line"></div><div class="line"></div><div class="line">  /**</div><div class="line">   * Deployment section</div><div class="line">   * http://pm2.keymetrics.io/docs/usage/deployment/</div><div class="line">   */</div><div class="line">  deploy : &#123;</div><div class="line">    test: &#123;</div><div class="line">      user : &quot;root&quot;,</div><div class="line">      host : &quot;.com&quot;,</div><div class="line">      ref  : &quot;origin/master&quot;,</div><div class="line">      repo : &quot;&quot;,</div><div class="line">      path : &quot;&quot;,</div><div class="line">      &quot;post-deploy&quot; : &quot;cd client ; npm install ; npm run build ; cd .. ; npm install ; pm2 startOrRestart ecosystem.json --env test&quot;,</div><div class="line">      env  : &#123;</div><div class="line">        NODE_ENV: &quot;test&quot;</div><div class="line">      &#125;</div><div class="line">    &#125;,</div><div class="line">    production : &#123;</div><div class="line">      user : &quot;root&quot;,</div><div class="line">      host : &quot;aircos.com&quot;,</div><div class="line">      ref  : &quot;origin/master&quot;,</div><div class="line">      repo : &quot;&quot;,</div><div class="line">      path : &quot;&quot;,</div><div class="line">      &quot;post-deploy&quot; : &quot;cd client ; npm install ; npm run build ; cd .. ; npm install ; pm2 startOrRestart ecosystem.json --env production&quot;,</div><div class="line">      env  : &#123;</div><div class="line">        NODE_ENV: &quot;production&quot;</div><div class="line">      &#125;</div><div class="line">    &#125;,</div><div class="line">    dev : &#123;</div><div class="line">      user : &quot;root&quot;,</div><div class="line">      host : &quot;&quot;,</div><div class="line">      ref  : &quot;origin/master&quot;,</div><div class="line">      repo : &quot;&quot;,</div><div class="line">      path : &quot;/var/www/development/dms-api&quot;,</div><div class="line">      &quot;post-deploy&quot; : &quot;npm install ; pm2 startOrRestart ecosystem.json --env dev&quot;,</div><div class="line">      env  : &#123;</div><div class="line">        NODE_ENV: &quot;dev&quot;</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-      
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1403,7 +1467,7 @@
   <div class="outer">
     <div id="footer-info">
       <div class="footer-left">
-        &copy; 2016 zxy
+        &copy; 2017 zxy
       </div>
         <div class="footer-right">
           <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/winnerweb/hexo-Yilia-Smackdown" target="_blank">Yilia(Smackdown)</a>
