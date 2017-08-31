@@ -1,0 +1,115 @@
+<!DOCTYPE html><html lang="zh-cn"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"><meta name="format-detection" content="telephone=no"><meta name="format-detection" content="email=no"><meta name="description" content="赵兴越的博客"><meta name="keywords" content="Hexo, Gruntjs, Nodejs, Reactjs, Vuejs"><title>kong 安装部署及使用 - 赵兴越的博客</title><link rel="stylesheet" href="/css/main_style.min.css"><link rel="icon" href="https://avatars3.githubusercontent.com/u/15117664?v=3&amp;u=be65f65918502f9dc3f282b7cad9336ddf140cc0&amp;s=400"></head><body><div class="post-header"><img class="background" src="/default_images/post_background.jpg"><div class="post-title"><h1 class="title">kong 安装部署及使用</h1><ul class="meta"><li><i class="icon icon-author"></i>zxy</li><li><i class="icon icon-clock"></i>14 Minutes</li><li><i class="icon icon-calendar"></i>August 31, 2017</li></ul></div></div><div class="article-content" style="max-width:600px"><p>本文适用 CentOS7.0。  </p>
+<h2 id="安装-kong"><a href="#安装-kong" class="headerlink" title="安装 kong"></a>安装 kong</h2><p>首先下载 CentOS 版本， <a href="https://github.com/Mashape/kong/releases/download/0.9.6/kong-0.9.6.el7.noarch.rpm" target="_blank" rel="external">安装包地址</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ wegt https://github.com/Mashape/kong/releases/download/0.9.6/kong-0.9.6.el7.noarch.rpm</div><div class="line">$ sudo yum update </div><div class="line">$ sudo yum install epel-release</div><div class="line">$ sudo yum install kong-0.9.6.*.noarch.rpm --nogpgcheck</div></pre></td></tr></table></figure>
+<h2 id="安装-PostgreSQL"><a href="#安装-PostgreSQL" class="headerlink" title="安装 PostgreSQL"></a>安装 PostgreSQL</h2><ul>
+<li>安装</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ sudo yum install http://yum.postgresql.org/9.5/redhat/rhel-7-x86_64/pgdg-redhat95-9.5-2.noarch.rpm</div><div class="line">$ sudo yum install postgresql95-server postgresql95-contrib</div></pre></td></tr></table></figure>
+<ul>
+<li><p>init</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ /usr/pgsql-9.5/bin/postgresql95-setup initdb</div></pre></td></tr></table></figure>
+</li>
+<li><p>启动</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ systemctl start postgresql-9.5.service</div><div class="line">$ systemctl restart postgresql-9.5.service</div></pre></td></tr></table></figure>
+</li>
+<li><p>查看是否启动成功</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">systemctl status postgresql-9.5.service</div></pre></td></tr></table></figure>
+</li>
+<li><p>配置文件位置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/var/lib/pgsql/9.5/data/pg_hba.conf</div></pre></td></tr></table></figure>
+</li>
+<li><p>进入PostgreSQL终端</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ su - postgres</div><div class="line">$ psql</div></pre></td></tr></table></figure>
+</li>
+<li><p>查看用户</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ \du</div></pre></td></tr></table></figure>
+</li>
+<li><p>创建数据库 kong 用户</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ CREATE USER kong;</div></pre></td></tr></table></figure>
+<ul>
+<li><p>为kong创建数据库 kong</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ CREATE DATABASE kong OWNER kong;</div></pre></td></tr></table></figure>
+</li>
+<li><p>为 kong 设置密码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ \password kong</div><div class="line">注意 `\` 是需要运行的，将密码设置为 kong</div></pre></td></tr></table></figure>
+</li>
+<li><p>修改 PostgreSQL 配置文件</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">$ vi /var/lib/pgsql/9.5/data/pg_hba.conf</div><div class="line"></div><div class="line">将配置项修改为如下:</div><div class="line"></div><div class="line"># TYPE  DATABASE        USER            ADDRESS                 METHOD</div><div class="line"></div><div class="line"># &quot;local&quot; is for Unix domain socket connections only</div><div class="line">local   all             all                                     md5</div><div class="line"># IPv4 local connections:</div><div class="line">host    all             all             127.0.0.1/32            md5</div><div class="line"># IPv6 local connections:</div><div class="line">host    all             all             ::1/128                 md5</div><div class="line"># Allow replication connections from localhost, by a user with the</div><div class="line"># replication privilege.</div><div class="line">local   replication     all                                     peer</div><div class="line">host    replication     all             127.0.0.1/32            ident</div><div class="line">host    replication     all             ::1/128                 ident</div></pre></td></tr></table></figure>
+<ul>
+<li>常用命令<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">删除用户： DROP ROLE kong</div><div class="line">创建用户： CREATE USER kong WITH PASSWORD &apos;kong&apos;;</div><div class="line">赋予权限： GRANT ALL PRIVILEGES ON DATABASE kong TO kong;</div><div class="line">删除数据库 ： DROP DATABASE kong;</div><div class="line">SELECT pg_terminate_backend(pg_stat_activity.pid)  FROM pg_stat_activity  WHERE datname=&apos;youdan&apos; AND pid&lt;&gt;pg_backend_pid();</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="修改-kong-配置文件"><a href="#修改-kong-配置文件" class="headerlink" title="修改 kong 配置文件"></a>修改 kong 配置文件</h2><p>可以查看<a href="https://getkong.org/docs/0.9.x/configuration/" target="_blank" rel="external">官网</a>进行配置。也可以参考下面的<br>简单配置，如需优化等配置，请移步官网。</p>
+<ul>
+<li>拷贝默认配置文件</li>
+</ul>
+<blockquote>
+<p>默认的配置文件在 /etc/kong/kong.conf.default ，我们需要拷贝一份作为自己的配置项。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ cp /etc/kong/kong.conf.default /etc/kong/kong.conf</div></pre></td></tr></table></figure>
+<ul>
+<li>修改 kong 配置文件</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ vi /etc/kong/kong.conf</div></pre></td></tr></table></figure>
+<ul>
+<li>开启PostgreSQL配置项</li>
+</ul>
+<p>下面的配置项注释干掉后的样子。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">#------------------------------------------------------------------------------</div><div class="line"># DATASTORE</div><div class="line">#------------------------------------------------------------------------------</div><div class="line"></div><div class="line"># Kong will store all of its data (such as APIs, consumers and plugins) in</div><div class="line"># either Cassandra or PostgreSQL.</div><div class="line">#</div><div class="line"># All Kong nodes belonging to the same cluster must connect themselves to the</div><div class="line"># same database.</div><div class="line"></div><div class="line">database = postgres             # Determines which of PostgreSQL or Cassandra</div><div class="line">                                 # this node will use as its datastore.</div><div class="line">                                 # Accepted values are `postgres` and</div><div class="line">                                 # `cassandra`.</div><div class="line"></div><div class="line">pg_host = 127.0.0.1             # The PostgreSQL host to connect to.</div><div class="line">pg_port = 5432                  # The port to connect to.</div><div class="line">pg_user = kong                  # The username to authenticate if required.</div><div class="line">pg_password = kong              # The password to authenticate if required.</div><div class="line">pg_database = kong              # The database name to connect to.</div></pre></td></tr></table></figure>
+<h2 id="启动kong"><a href="#启动kong" class="headerlink" title="启动kong"></a>启动kong</h2><ul>
+<li>启动</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ kong start --conf /etc/kong/kong.conf</div></pre></td></tr></table></figure>
+<p>如果没有报 PostgreSQL 的错误说明 PostgreSQL 配置成功。</p>
+<h2 id="在kong-注册API"><a href="#在kong-注册API" class="headerlink" title="在kong 注册API"></a>在kong 注册API</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> curl -i -X POST http://localhost:8001/apis/ -d "name=testapi" -d "request_path=/test" -d "upstream_url=http://baidu.com" -d "strip_request_path=true"</div></pre></td></tr></table></figure>
+<ul>
+<li>访问 <a href="http://localhost:8000/test" target="_blank" rel="external">http://localhost:8000/test</a></li>
+</ul>
+<blockquote>
+<p>百度首页  屌屌屌</p>
+</blockquote>
+<ul>
+<li>添加插件</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">curl -i -X POST \</div><div class="line">  --url http://localhost:8001/apis/testapi/plugins/ \</div><div class="line">  --data 'name=key-auth'</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">curl -X POST http://localhost:8001/plugins \</div><div class="line">    --data "name=basic-auth" \</div><div class="line">    --data "config.hide_credentials=true"</div></pre></td></tr></table></figure>
+<ul>
+<li>管理界面</li>
+</ul>
+<blockquote>
+<p><a href="https://github.com/PGBI/kong-dashboard" target="_blank" rel="external">kong-dashboard</a></p>
+</blockquote>
+<p>echo ‘{“service”: {“name”: “test”, “tags”: [“rails”], “port”: 8000}}’ \</p>
+<pre><code>&gt;/etc/consul.d/test.json
+</code></pre><h2 id="PostgreSQL-客户端"><a href="#PostgreSQL-客户端" class="headerlink" title="PostgreSQL 客户端"></a>PostgreSQL 客户端</h2><ul>
+<li><a href="https://www.postgresql.org/ftp/pgadmin3/" target="_blank" rel="external">官方推荐客户端</a></li>
+<li><p><a href="http://download.csdn.net/detail/a271083650/5294944" target="_blank" rel="external">pgadmin 教程</a></p>
+</li>
+<li><p>修改配置 pg_hba.conf 文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">文件路径： /var/lib/pgsql/9.5/data/pg_hba.conf</div><div class="line">添加如下内容，代表任何ip访问时需要密码:</div><div class="line"></div><div class="line">host    all             all             0.0.0.0/0               password</div></pre></td></tr></table></figure>
+</li>
+<li><p>修改配置 pg_hba.conf 文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">文件路径： vi /var/lib/pgsql/9.5/data/postgresql.conf</div><div class="line">找到 listen_addresses，修改为 listen_addresses = &apos;*&apos;，PostgreSQL 默认只允许本机连接，修改完后可以监听所有的连接请求。</div></pre></td></tr></table></figure>
+</li>
+<li><p>创建数据库连接</p>
+</li>
+</ul>
+<p><img src="../pic/pgadmin.png" style="width: 360px;height: 200px;margin-left: 100px;"></p>
+<ul>
+<li>目录结构如下</li>
+</ul>
+<p><img src="../pic/pgadmin_tree.png" style="width: 300px;height: 500px;margin-left: 100px;"></p>
+</div><div class="article-meta" style="max-width:600px"></div><div class="article-comment" style="max-width:600px"><div class="ds-thread" id="ds-thread" data-thread-key="cj70hsp9700019combia8ml13" data-title="kong 安装部署及使用" data-url="http://127.0.0.1:4000/kong/" site-name="ueibo"></div><script>var siteName = document.getElementById('ds-thread').getAttribute('site-name');
+var duoshuoQuery = {short_name: siteName};
+(function() {
+  var ds = document.createElement('script');
+  ds.type = 'text/javascript';ds.async = true;
+  ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+  ds.charset = 'UTF-8';
+  (document.getElementsByTagName('head')[0] 
+  || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();</script></div><ul class="navication"><li class="home"><a href="/"><i class="icon icon-home"></i></a></li><li><a href="/js/"><i class="icon icon-arror-left"></i></a></li><li><a href="/metoer/"><i class="icon icon-arror-right"></i></a></li></ul><div class="page-footer"><div class="top"><ul class="social"><li><a href="http://github.com/zhaoxingyue" title="GitHub" target="_blank"><i class="icon icon-github"></i></a></li></ul></div><div class="bottom"><p class="copyright">© 2017 赵兴越的博客<br><small>POWER BY <a href="https://hexo.io" target="_blank">HEXO</a></small><small>, THEME BY <a href="https://github.com/BoizZ/hexo-theme-laughing" target="_blank">LAUGHING</a></small></p></div></div></body></html>

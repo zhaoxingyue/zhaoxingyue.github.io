@@ -1,0 +1,340 @@
+<!DOCTYPE html><html lang="zh-cn"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"><meta name="format-detection" content="telephone=no"><meta name="format-detection" content="email=no"><meta name="description" content="赵兴越的博客"><meta name="keywords" content="Hexo, Gruntjs, Nodejs, Reactjs, Vuejs"><title>Node.js 基础杂记 - 赵兴越的博客</title><link rel="stylesheet" href="/css/main_style.min.css"><link rel="icon" href="https://avatars3.githubusercontent.com/u/15117664?v=3&amp;u=be65f65918502f9dc3f282b7cad9336ddf140cc0&amp;s=400"></head><body><div class="post-header"><img class="background" src="/default_images/post_background.jpg"><div class="post-title"><h1 class="title">Node.js 基础杂记</h1><ul class="meta"><li><i class="icon icon-author"></i>zxy</li><li><i class="icon icon-clock"></i>50 Minutes</li><li><i class="icon icon-calendar"></i>August 31, 2017</li></ul></div></div><div class="article-content" style="max-width:600px"><p>作为一个一年多的 Noder。编写本文意在描述部分 Node.js 基础知识，作为自己学习笔记并分享出来与读者共享和讨论。</p>
+<h2 id="js-基本类型"><a href="#js-基本类型" class="headerlink" title="js 基本类型"></a>js 基本类型</h2><h3 id="5-种基础的数据类型"><a href="#5-种基础的数据类型" class="headerlink" title="5 种基础的数据类型"></a>5 种基础的数据类型</h3><ul>
+<li><p>String </p>
+<ul>
+<li>String 组成<blockquote>
+<p>String 类型是由 0 或多个 16 位 unicode 组成的字符序列，即字符串。String 类型在 js 中<br>是不能被改变的，改变一个字符串的内容是需要先将之前变量销毁，然后再用新的字符串填充该变量。</p>
+</blockquote>
+</li>
+<li>转化方法 toString()<blockquote>
+<p>除了 Null 和 Udefined 以外，所有的变量都有 toString() 方法</p>
+</blockquote>
+</li>
+<li>转化方法 String<blockquote>
+<p>String() 方法适用于任何变量</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>Number</p>
+<ul>
+<li>值<blockquote>
+<p>Number 整数和浮点数，还有一种特殊的值 NaN 表示 (not a number)</p>
+</blockquote>
+</li>
+<li>NaN<blockquote>
+<p>console.log(NaN == NaN) 返回值为 false，即 NaN 不表示任何数字，且不与任何数值相等。</p>
+</blockquote>
+</li>
+<li>转化<blockquote>
+<p>可以使用 Number() 进行转化，当转化失败时，返回 NaN，可以使用 isNaN() 校验。</p>
+</blockquote>
+</li>
+<li>格式<blockquote>
+<p>支持 八进制、十进制、十六进制数字表达形式。</p>
+</blockquote>
+</li>
+<li>0.1 + 0.2 === 0.3 ?<blockquote>
+<p><a href="http://www.tuicool.com/articles/EryqIzy" target="_blank" rel="external">详细推演文章</a></p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>Null</p>
+<ul>
+<li>空对象引用<blockquote>
+<p>typeof null 实际上返回的 object，因为 null 被认为是一个空对象引用。</p>
+</blockquote>
+</li>
+<li>值<blockquote>
+<p>Null 类型也是只有一个值 null</p>
+</blockquote>
+</li>
+<li>定义<blockquote>
+<p>如果定义一个变量用以存储对象，那么初始化时最好使用 null</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>Undefined</p>
+<ul>
+<li>值<blockquote>
+<p>Undefined 类型只有一个值， undefined。</p>
+</blockquote>
+</li>
+<li>声明但没有初始化值<blockquote>
+<p>声明但未初始化的变量 var i; console.log(typeof i); console.log(i);，<br>其中i的变量类型和默认值都是 undefined</p>
+</blockquote>
+</li>
+<li>未声明<blockquote>
+<p>console.log(typeof i)，其中 i 没有被声明，所以当 typeof i 时，是一个未声明变量，变量<br>类型是 undefined，但实际上没有声明的变量是没有默认值的，所以当 console.log(i)时会打印undefined</p>
+</blockquote>
+</li>
+<li>与 Null 之间的关系<blockquote>
+<p>console.log(null == undefined) 返回的是true, 实际上 Undefined 是 Null 的子集，<br>派生自 Null。不严格的说，两个类型指的都是没有明确赋值的变量。但严格意义上，Undefined 表示未经初始化的类型。Null 指的是空对象指针。</p>
+</blockquote>
+</li>
+<li>总结   <blockquote>
+<p>js 的数据类型是根据声明等号后面的值去判定的，虽然上面两种情况在形式上是有区别的，一个是声明了，<br>另一个没有声明，但实际上都没进行初始化，所以两者的类型都是 Undefined。但是由于第一种情况声明<br>了，所以 i 的默认值是 undefined。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>Boolean</p>
+<ul>
+<li>值<blockquote>
+<p>Boolean 类型只有两个值，true || false</p>
+</blockquote>
+</li>
+<li>转化<blockquote>
+<p>可以使用 !! 操作符将其他类型转化为 Boolean 类型</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-种引用类型"><a href="#3-种引用类型" class="headerlink" title="3 种引用类型"></a>3 种引用类型</h3><h4 id="Function"><a href="#Function" class="headerlink" title="Function"></a>Function</h4><ul>
+<li>函数表达式(Function Expression  FE)<ul>
+<li>注：函数表达式是在函数执行时被创建的<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> fun = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<p>函数表达式也可以是下面的形式: </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> fun = <span class="function"><span class="keyword">function</span> <span class="title">_fun</span>(<span class="params"></span>) </span>&#123;&#125;</div></pre></td></tr></table></figure>
+<p>上面的函数表达式 fun 是可以在该 FE 外部和内部被访问到，而 _fun 只能在该 FE 内部被访问到（外部是无法访问的）。<br>下面的形式也只可能是函数表达式：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 在括号中的只可能是表达式</span></div><div class="line">(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;)</div><div class="line"></div><div class="line"><span class="comment">// 跟在逗号操作符后面也只能是表达式</span></div><div class="line"><span class="number">1</span>, <span class="function"><span class="keyword">function</span> <span class="title">baz</span> (<span class="params"></span>) </span>&#123;&#125;</div><div class="line"></div><div class="line"><span class="comment">// 在数组初始化中同样也只能是表达式</span></div><div class="line">[<span class="function"><span class="keyword">function</span> <span class="title">a</span> (<span class="params"></span>) </span>&#123;&#125;, <span class="function"><span class="keyword">function</span> <span class="title">b</span> (<span class="params"></span>) </span>&#123;&#125;]</div></pre></td></tr></table></figure>
+<ul>
+<li>函数声明(Function Declaration  FD)<ul>
+<li>注：函数声明是在函数定义时被创建的</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun</span> (<span class="params"></span>) </span>&#123;&#125;</div></pre></td></tr></table></figure>
+<p>js 解析器在解析时，对函数表达式和函数声明是区别对待的，函数声明会在执行环境预先加载，使其在执行任何<br>代码之前都能被访问到，单对于函数表达式则是执行到所在的代码行才会真正的被执行。</p>
+<h4 id="Object"><a href="#Object" class="headerlink" title="Object"></a>Object</h4><p>js Object 对象是所有对象的基类。</p>
+<ul>
+<li>组成<blockquote>
+<p>js 中的对象是一组可变化的键值组合（即一组数据和函数的集合），键可以是任意字符串，值可以设定为任何值</p>
+</blockquote>
+</li>
+<li>数据属性<blockquote>
+<p>数据属性是设定对象中属性值的特征，这些特征不能直接访问，只能通过 Object.defineProperty(object, key, {})<br>进行设置，其中包括四个描述对象数据属性的配置项：</p>
+<ol>
+<li>[[Configurable]]<br>表示能否使用 delete 删除，重定义属性值</li>
+<li>[[Enumerable]]<br>表示是否能通过 for … in … 进行遍历返回</li>
+<li>[[writable]]<br>表示是否能改写属性</li>
+<li>[[Value]]<br>对象属性的值，设置属性值的时候写到这个位置，读取的时候从这里读，默认值为 undefined</li>
+</ol>
+</blockquote>
+</li>
+<li><p>Object.defineProperty() 使用方式如下:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 如下创建时，name 实际上数据属性的默认值为: &#123; configurable: true, enumerable: true, writable: true, value: 'heheda'&#125;</span></div><div class="line"><span class="keyword">var</span> obj = &#123; <span class="attr">name</span>: <span class="string">'heheda'</span> &#125;</div><div class="line"></div><div class="line"><span class="built_in">Object</span>.defineProperty(obj, <span class="string">'say'</span>, &#123;  </div><div class="line">  configurable: <span class="literal">true</span>,  </div><div class="line">  enumerable: <span class="literal">true</span>,  </div><div class="line">  writable: <span class="literal">true</span>,  </div><div class="line">  value: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;  </div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name)  </div><div class="line">  &#125;  </div><div class="line">&#125;)</div><div class="line"></div><div class="line">obj.say() <span class="comment">// heheda</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>访问器属性</p>
+<blockquote>
+<p>访问器属性是 seter/getter 方法，设置方式同数据属性，其中包括四个特征: </p>
+<ol>
+<li>[[Configurable]]<br>表示能否使用 delete 删除，重定义属性值</li>
+<li>[[Enumerable]]<br>表示是否能通过 for … in … 进行遍历返回</li>
+<li>[[Get]]<br>读取属性时调用的函数，默认undefined</li>
+<li>[[Set]]<br>写入属性时调用的函数，默认undefined</li>
+</ol>
+</blockquote>
+</li>
+<li><p>与 Function 之间的关系<br>对象分为：普通对象和函数对象</p>
+<ul>
+<li>普通对象<blockquote>
+<p>javascript var obj = {}; var obj1 = new Object(); 我们称 obj 和 obj1 为普通对象</p>
+</blockquote>
+</li>
+<li>函数对象<blockquote>
+<p>javascript function fun () {}; var fun = function () {}; var fun = new Function(‘str’, ‘console.log(str)’)<br>其中 fun、fun1、fun2，凡是通过 new Function() 创建的都是函数对象，其他的都是普通对象。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="原型对象"><a href="#原型对象" class="headerlink" title="原型对象"></a>原型对象</h5><blockquote>
+<p>当创建 js 对象（函数）的时候，对象中会包含预定义的一些属性，其中原型对象 prototype 就是函数对象的预定义属性。<br>普通对象是没有原型对象属性的，但是普通对象有 __proto__ 属性。</p>
+</blockquote>
+<p>看一下下面的例子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> obj = &#123;<span class="attr">name</span>: <span class="string">'name'</span>&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun</span> (<span class="params"></span>) </span>&#123;&#125;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> fun.prototype) <span class="comment">// object</span></div><div class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> obj.prototype) <span class="comment">// undefined</span></div><div class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> obj.__proto__) <span class="comment">// object</span></div><div class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="built_in">Object</span>.prototype) <span class="comment">// object</span></div><div class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="built_in">Object</span>.prototype.__proto__) <span class="comment">// object</span></div><div class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="built_in">Object</span>) <span class="comment">// function</span></div><div class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="built_in">Function</span>.prototype) <span class="comment">// function</span></div><div class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="built_in">Function</span>.prototype.prototype) <span class="comment">// undefined</span></div><div class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="built_in">Function</span>.prototype.__proto__) <span class="comment">// undefined</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>继续上面的例子，当 console.log(fun.prototype) // fun {} 时打印的其实是 fun {},<br>实际上 fun.prototype 就是 fun 的一个实例对象。prototype 是对象在初始化时产生的，prototype 被初始化为空对象。  </p>
+</blockquote>
+<p>这也就解释了为什么所有函数对象的 prototype 都是普通对象，因为函数对象的 prototype 是函数对象的<br>一个实例（object）。  </p>
+<ul>
+<li>为什么 Function.prototype 是一个函数对象?</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 实例化 Function 对象</span></div><div class="line"><span class="keyword">var</span> fun = <span class="keyword">new</span> <span class="built_in">Function</span>()</div><div class="line"></div><div class="line"><span class="built_in">Function</span>.prototype = fun</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="built_in">Function</span>.prototype) <span class="comment">// function</span></div></pre></td></tr></table></figure>
+<h5 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h5><p>prototype 是原型对象，只有函数对象才有该属性，prototype 是普通对象，是通过实例化函数对象赋值到<br>该函数对象上。<br>所有的对象（函数对象和普通对象）在创建时都会产生一个 __proto__ ，__proto__ 指向创建它的对象的<br>原型对象 prototype。函数对象的 __proto__  是函数对象，普通对象的 __proto__  是普通对象。<br>看下面的例子:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Object 是函数对象，所有函数对象都是由 new Function() 产生的， 所以 Object.__proto__ </span></div><div class="line"><span class="comment">// 中指向的是创建该对象的原型对象，即 Function.prototype</span></div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.__proto__ === <span class="built_in">Function</span>.prototype) <span class="comment">// true</span></div><div class="line"></div><div class="line"><span class="comment">// 我们知道 Function.prototype 是函数对象，上面的例子中，函数对象都是由 new Function() 产生</span></div><div class="line"><span class="comment">// 但是为什么下面的等式不成立？</span></div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">Function</span>.prototype.__proto__ === <span class="built_in">Function</span>.prototype) <span class="comment">// false</span></div><div class="line"></div><div class="line"><span class="comment">// Function.prototype是个函数对象，理论上他的__proto__应该指向 Function.prototype，就是</span></div><div class="line"><span class="comment">// 他自己，自己指向自己，没有意义，就给他找了个祖宗 Object.prototype</span></div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">Function</span>.prototype.__proto__ === <span class="built_in">Object</span>.prototype) <span class="comment">// true</span></div></pre></td></tr></table></figure>
+<ul>
+<li>instanceof </li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 等同于 var fun = new Function("this.name = 'heheda'")</span></div><div class="line"><span class="comment">// 此处实例化了一个 Function</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">this</span>.name = <span class="string">'heheda'</span></div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(fun.__proto__ === <span class="built_in">Function</span>.prototype) <span class="comment">// true</span></div><div class="line"></div><div class="line"><span class="comment">// fun1 是 fun 的实例化对象</span></div><div class="line"><span class="keyword">var</span> fun1 = <span class="keyword">new</span> fun()</div><div class="line"><span class="built_in">console</span>.log(fun1.__proto__ === fun.prototype) <span class="comment">// true</span></div><div class="line"><span class="built_in">console</span>.log(fun1 <span class="keyword">instanceof</span> fun) <span class="comment">// true</span></div><div class="line"></div><div class="line"><span class="comment">// 模拟一下 instanceof 操作</span></div><div class="line"><span class="comment">// 实际上就是判断一下实例化的对象的 __proto__ 是否指向创建该对象的原型对象</span></div><div class="line"><span class="keyword">if</span> (fun1.__proto__ === fun.prototype) &#123;</div><div class="line">  <span class="keyword">return</span> <span class="literal">true</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li><p>原型链的实现是 __proto__ 实现的，不是 prototype</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 定义一个函数对象</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">b</span> (<span class="params"></span>) </span>&#123;&#125;</div><div class="line"><span class="comment">// 为函数对象设置原型属性</span></div><div class="line">b.prototype.age = <span class="number">10</span></div><div class="line"><span class="comment">// new 一个实例 _b</span></div><div class="line"><span class="keyword">var</span> _b = <span class="keyword">new</span> b()</div><div class="line"><span class="comment">// 此时 _b 是存在 age 属性</span></div><div class="line"><span class="built_in">console</span>.log(_b.age) <span class="comment">// 10</span></div><div class="line"><span class="built_in">console</span>.log(b.prototype.age) <span class="comment">// 10</span></div><div class="line"></div><div class="line"><span class="comment">// 设置 __proto__ 为null，不再指向 b.prototype</span></div><div class="line">_b.__proto__ = <span class="literal">null</span></div><div class="line"></div><div class="line"><span class="comment">// 先查找自身有没有 age 属性，没有的话通过 __proto__ 查找原型链，现在 __proto__ 不再等于b.prototype，故查找不到</span></div><div class="line"><span class="built_in">console</span>.log(_b.age) <span class="comment">// undefined</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>收藏的几篇文章</p>
+<ul>
+<li><a href="http://blog.csdn.net/chunqiuwei/article/details/22872325" target="_blank" rel="external">javascript 原型链</a></li>
+<li><a href="http://www.cnblogs.com/ljchow/archive/2010/06/08/1753526.html" target="_blank" rel="external">原型和继承</a></li>
+<li><a href="http://www.108js.com/article/article1/10201.html?id=1092" target="_blank" rel="external">JS原型与原型链终极详解</a></li>
+</ul>
+</li>
+<li><p>需要关注的点</p>
+<ul>
+<li>只有函数对象才能使用 new 关键字实例化</li>
+<li>Object 与 Function 都是 js 内置的 <strong> 函数对象 </strong>。</li>
+<li>普通对象没有 prototype 属性</li>
+<li>所有函数对象的原型对象 prototype 都是普通对象</li>
+<li>Function.prototype 是一个例外，它是一个函数对象，但是 Function.prototype.prototype 是 undefined</li>
+</ul>
+</li>
+</ul>
+<h4 id="Array"><a href="#Array" class="headerlink" title="Array"></a>Array</h4><h3 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h3><p>作用域分为全局作用域和块级作用域，js 中没有块级作用域这个概念。js 中叫做 <strong> 函数作用域 </strong> 。</p>
+<ul>
+<li>函数作用域<ul>
+<li>在函数中定义的变量，在当前函数中任何部分可见</li>
+<li>在函数中定义的参数和变量在函数外部不可见</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> s = <span class="string">'memeda'</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="comment">// s 变量在 函数 a 中 if 代码块中有定义，但在此时还没有赋值，所以当前 s 为 undefined</span></div><div class="line">  <span class="built_in">console</span>.log(s, <span class="number">2</span>); <span class="comment">// undefined 2  </span></div><div class="line"></div><div class="line">  <span class="comment">// 此处为一个闭包函数，在当前函数中定义 var s = 'inner closure' 此时 s 还没有初始化，所以为 undefined</span></div><div class="line">  (<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">// 此处不使用 var 显式声明变量，而是使用隐式声明的方法，隐式声明默认该变量为全局变量</span></div><div class="line">    c = <span class="string">'c'</span></div><div class="line">    <span class="built_in">console</span>.log(s, <span class="number">4</span>); <span class="comment">// undefined 4</span></div><div class="line">    <span class="keyword">var</span> s = <span class="string">'inner closure'</span>;</div><div class="line">  &#125;());</div><div class="line">  <span class="comment">// 由于 c 在闭包函数中的声明方式是隐性声明，故默认 c 为全局变量，所以在闭包函数外部也能进行访问</span></div><div class="line">  <span class="built_in">console</span>.log(c, <span class="number">7</span>) <span class="comment">// c 7</span></div><div class="line">  <span class="comment">// 此处为 if 代码块，由于 js 中没有代码块概念，所以在 if 中定义的变量视为函数 a 的函数变量，此处同 console.log(s, 2)</span></div><div class="line">  <span class="keyword">if</span> (<span class="literal">true</span>) &#123;</div><div class="line">    <span class="built_in">console</span>.log(s, <span class="number">6</span>) <span class="comment">// undefined 6 </span></div><div class="line">    <span class="keyword">var</span> s = <span class="string">'inner if'</span></div><div class="line">  &#125;</div><div class="line">  <span class="comment">// 由于 s 在 if 函数中定义且初始化值为 'inner if'， 所以此处打印的信息为 'inner if' 1</span></div><div class="line">  <span class="built_in">console</span>.log(s, <span class="number">5</span>); <span class="comment">// 'inner if' 5</span></div><div class="line">  <span class="comment">// 由于函数 b 在函数 a 内部，所以能访问当 a 的函数变量 s </span></div><div class="line">  <span class="keyword">var</span> b = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(s, <span class="number">1</span>); <span class="comment">// 'inner if' 1</span></div><div class="line">  &#125;;</div><div class="line">  b();</div><div class="line">&#125;</div><div class="line">a();</div><div class="line"><span class="built_in">console</span>.log(c, <span class="number">8</span>) <span class="comment">// c 8</span></div><div class="line"><span class="comment">// 此处尝试读取函数 a 中的变量 b，在函数外面是不能对函数内部变量和参数进行访问</span></div><div class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> b) <span class="comment">// undefined</span></div><div class="line"><span class="comment">// 虽然 s 在 a 函数内被重新定义且赋值为 'inner if'，但是此处访问不到 a 函数内部的变量 s，所以 s 值为 'memeda'</span></div><div class="line"><span class="built_in">console</span>.log(s, <span class="number">3</span>); <span class="comment">// memeda 3</span></div></pre></td></tr></table></figure>
+<h3 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h3><ul>
+<li><p>闭包函数是干什么的？</p>
+<blockquote>
+<p>闭包函数是为了访问其他函数内部属性和变量的函数。闭包简单说是一个函数引用另一个函数的变量，导致该<br>变量被引用着不会被回收。因此可以为此创建一个私有变量。这里推荐一个比较清晰的文章 <a href="http://www.jb51.net/article/83524.htm" target="_blank" rel="external">一分钟理解js闭包</a></p>
+</blockquote>
+</li>
+<li><p>为什么会有闭包？</p>
+<blockquote>
+<p>由于 js 变量的函数作用域问题，使得任何变量在函数的外部不能被访问到，但有时我们需要访问到函数内的变量。</p>
+</blockquote>
+</li>
+<li><p>什么是闭包函数？</p>
+<blockquote>
+<p>有权访问另一个函数内变量和属性的函数都是闭包函数。</p>
+</blockquote>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> i = <span class="number">0</span></div><div class="line">  <span class="comment">// b 实际上就是一个闭包函数，在 b 函数中访问 a 函数的属性 i，并将 i 进行再次赋值</span></div><div class="line">  <span class="function"><span class="keyword">function</span> <span class="title">b</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(i ++)</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> b</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> _a = a()</div><div class="line">_a() <span class="comment">// 0</span></div><div class="line">_a() <span class="comment">// 1</span></div><div class="line">_a() <span class="comment">// 2</span></div></pre></td></tr></table></figure>
+<p>再看一个例子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 先定义一个对象</span></div><div class="line"><span class="keyword">var</span> data = &#123;&#125;</div><div class="line"></div><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i ++) &#123;</div><div class="line">  <span class="comment">// 闭包函数，访问 for 中的变量 i</span></div><div class="line">  data[i] = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(i)</div><div class="line">  &#125;</div><div class="line">  <span class="comment">// 在此处调用该函数，打印出的结果没有什么意外是从 0 到 9</span></div><div class="line">  data[i]()</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>看一下这个例子和上面有什么区别：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 先定义一个对象</span></div><div class="line"><span class="keyword">var</span> data = &#123;&#125;</div><div class="line"></div><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i ++) &#123;</div><div class="line">  <span class="comment">// 闭包函数，访问 for 中的变量 i</span></div><div class="line">  data[i] = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(i)</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 在此处调用该函数</span></div><div class="line">data[<span class="number">0</span>]() <span class="comment">// 10</span></div><div class="line">data[<span class="number">1</span>]() <span class="comment">// 10</span></div><div class="line">data[<span class="number">2</span>]() <span class="comment">// 10</span></div><div class="line">data[<span class="number">3</span>]() <span class="comment">// 10</span></div><div class="line">data[<span class="number">4</span>]() <span class="comment">// 10</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>乍一看跟上面的例子没啥两样啊，为什么现在调用的时候会出现全部都是 10 的情况呢。下面引出一个概念<br><strong> 在相同作用域的闭包函数对变量和属性的修改会影响其他闭包函数的读取 </strong>。<br>在上一个例子中的函数激活时，data[i] 函数的 [[Scope]] 为：</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">data[i].Scope = [</div><div class="line">  &#123;</div><div class="line">    data: &#123;...&#125;,</div><div class="line">    i: i</div><div class="line">  &#125;</div><div class="line">]</div></pre></td></tr></table></figure>
+<blockquote>
+<p>在下面例子中，激活函数是在 for 循环外面进行的，也就是说，data[i] 的 [[Scope]] 变为：</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">data[i].Scope = [</div><div class="line">  &#123;</div><div class="line">    data: &#123;...&#125;,</div><div class="line">    i: <span class="number">10</span></div><div class="line">  &#125;</div><div class="line">]</div></pre></td></tr></table></figure>
+<blockquote>
+<p>改正上面的例子</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 先定义一个对象</span></div><div class="line"><span class="keyword">var</span> data = &#123;&#125;</div><div class="line"></div><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i ++) &#123;</div><div class="line">  <span class="comment">// 闭包函数，访问 for 中的变量 i</span></div><div class="line">  data[i] = (<span class="function"><span class="keyword">function</span> (<span class="params">z</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="built_in">console</span>.log(z)</div><div class="line">    &#125;</div><div class="line">  &#125;)(i)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 在此处调用该函数</span></div><div class="line">data[<span class="number">0</span>]() <span class="comment">// 0</span></div><div class="line">data[<span class="number">1</span>]() <span class="comment">// 1</span></div><div class="line">data[<span class="number">2</span>]() <span class="comment">// 2</span></div><div class="line">data[<span class="number">3</span>]() <span class="comment">// 3</span></div><div class="line">data[<span class="number">4</span>]() <span class="comment">// 4</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>现在达到了我们的预期效果，实际上只是多了一层闭包函数，机制是将 i 以 <strong>参数的形式</strong> 作为外层<br>闭包函数的内部变量。这样，每次进行循环的时候，闭包函数内部的 console.log 函数就相当于锁定了闭包<br>函数的参数 z，所以无论函数在什么时候调用，其 [[Scope]] 都是： </p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">data[<span class="number">0</span>].scope = [</div><div class="line">  &#123;</div><div class="line">    data: &#123;...&#125;,</div><div class="line">    i: <span class="number">10</span></div><div class="line">  &#125;,</div><div class="line">  &#123;</div><div class="line">    z: <span class="number">0</span></div><div class="line">  &#125;</div><div class="line">]</div></pre></td></tr></table></figure>
+<ul>
+<li>作用域链 [[Scope]]<blockquote>
+<p>首先明确一个观点，js 使用静态作用域链。静态作用域指的是：查找变量声明时依赖的是源代码中的静态<br>块之间的关系。也就说，查找的是距离当前作用域最近的外部作用域中的声明。而动态作用域依赖的是程序执<br>行时的函数调用顺序。看下面的例子：</p>
+</blockquote>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = <span class="number">1</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(a)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun1</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> a = <span class="number">10</span></div><div class="line">  fun()</div><div class="line">&#125;</div><div class="line"></div><div class="line">fun1() <span class="comment">// 1  如果是动态作用域的话输出的是 10</span></div></pre></td></tr></table></figure>
+<h3 id="变量提升"><a href="#变量提升" class="headerlink" title="变量提升"></a>变量提升</h3><blockquote>
+<p>变量提升是指在变量的作用域内将变量的定义提至函数的上部分，此过程只是声明，不包括初始化赋值。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 我们在fun 中定义的 a b c 变量</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> a = <span class="string">'a'</span></div><div class="line">  <span class="keyword">var</span> b = <span class="string">'b'</span></div><div class="line">  <span class="keyword">var</span> c = <span class="string">'c'</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 会转化为下面的形式，将声明提升到函数顶部，然后是按照顺序进行初始化赋值</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> a, b, c</div><div class="line">  a = <span class="string">'a'</span></div><div class="line">  b = <span class="string">'b'</span></div><div class="line">  c = <span class="string">'c'</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="和"><a href="#和" class="headerlink" title="== 和 ==="></a>== 和 ===</h3><p>首先两个都是运算符，用来比较两端变量是否相等。</p>
+<ul>
+<li>== <blockquote>
+<p>== 是先将两端变量进行类型转换，转化为同一类型后再进行比较</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 将 String 类型转化为数字 1 与右端做值的比较</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">'1'</span> == <span class="number">1</span>) <span class="comment">// true</span></div><div class="line"><span class="comment">// 将 数组 类型转化为字符串 1 与右端做值的比较</span></div><div class="line"><span class="built_in">console</span>.log([<span class="number">1</span>] == <span class="string">'1'</span>) <span class="comment">// true</span></div><div class="line"><span class="comment">// 将 数组 类型转化为数字 1 与右端做值的比较</span></div><div class="line"><span class="built_in">console</span>.log([<span class="number">1</span>] == <span class="number">1</span>) <span class="comment">// true</span></div><div class="line"><span class="comment">// 将 布尔类型转化为 1 与右端比较</span></div><div class="line"><span class="built_in">console</span>.log(<span class="literal">true</span> == <span class="number">1</span>) <span class="comment">// true</span></div></pre></td></tr></table></figure>
+</blockquote>
+</li>
+</ul>
+<p>上面的例子，将所有的 == 都换为 === 那么所有的都不成立</p>
+<ul>
+<li><p>===</p>
+<blockquote>
+<p>先判断类型是否相等，如果类型不相等，那么直接返回 false</p>
+</blockquote>
+</li>
+<li><p>两个对象之间的比等</p>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log([<span class="number">1</span>] == [<span class="number">1</span>]) <span class="comment">// false</span></div><div class="line"><span class="built_in">console</span>.log([<span class="number">1</span>] === [<span class="number">1</span>]) <span class="comment">// false</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>两个对象间的比等 == 与 === 差别不大，都是比较引用（指针）地址是否相等</p>
+</blockquote>
+<h3 id="值传递和引用传递"><a href="#值传递和引用传递" class="headerlink" title="值传递和引用传递"></a>值传递和引用传递</h3><p>首先明确两个概念：</p>
+<ul>
+<li><p>值传递（call by value）</p>
+<blockquote>
+<p>值传递是将实参的副本传递给形参，形参的改变不影响实参</p>
+</blockquote>
+</li>
+<li><p>引用传递（call by reference）</p>
+<blockquote>
+<p>引用传递是将实参的引用传递给形参，形参的改变将影响实参。两个参数指向的地址是一样的。</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="js-中参数以何种形式传递？"><a href="#js-中参数以何种形式传递？" class="headerlink" title="js 中参数以何种形式传递？"></a>js 中参数以何种形式传递？</h4><ul>
+<li>值传递</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = <span class="number">1</span></div><div class="line"><span class="keyword">var</span> b = a</div><div class="line"><span class="comment">// 修改 b 的值</span></div><div class="line">b += <span class="number">1</span></div><div class="line"></div><div class="line"><span class="comment">// 实际上只有 b 的值变化了，而 a 的值并没有任何变化，也就是说 b 的变化不影响 a </span></div><div class="line"><span class="built_in">console</span>.log(b, a) <span class="comment">// 2 1</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>上面的例子是不是验证了在 js 中普通类型的传值方式为 <strong> 值传递 </strong> 呢</p>
+</blockquote>
+<ul>
+<li>引用传递</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> obj = &#123; <span class="attr">name</span>: <span class="string">'heheda'</span> &#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> _obj = obj</div><div class="line"><span class="comment">// 为 _obj 添加属性 say </span></div><div class="line">_obj.say = <span class="string">'chinese'</span></div><div class="line"></div><div class="line"><span class="comment">// 为 obj 添加属性 fuckjs</span></div><div class="line">obj.fuckjs = <span class="string">'fuckjs'</span></div><div class="line"></div><div class="line"><span class="comment">// 在这里可以看到，无论我们对 _obj 和 obj 那个变量进行修改的时候，_obj 和 obj 的值都同时改变</span></div><div class="line"><span class="built_in">console</span>.log(_obj, obj) <span class="comment">// &#123; name: 'heheda', say: 'chinese', fuckjs: 'fuckjs' &#125; &#123; name: 'heheda', say: 'chinese', fuckjs: 'fuckjs' &#125;</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>上面的代码是不是可以验证 js 是使用引用传递，因为实参和形参的值都随着两者的变化而变化，指向的是同一个引用地址。</p>
+</blockquote>
+<ul>
+<li>传递引用</li>
+</ul>
+<p>在看下面的例子：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> obj = &#123; <span class="attr">name</span>: <span class="string">'heheda'</span> &#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> _obj = obj</div><div class="line"><span class="comment">// 为 _obj 添加属性 say </span></div><div class="line">_obj = <span class="literal">null</span></div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(_obj, obj) <span class="comment">// null &#123; name: 'heheda' &#125;</span></div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>what the <strong> FUCK </strong> !! 说好的一起变呢，为什么 obj 还是 { name: ‘heheda’ }，为什么不一起变成<br>null 呢？首先需要明确一个观点，在计算机科学求值策略(Evaluation Strategy)中，只有 <strong> 值传递 </strong><br>和 <strong> 引用传递 </strong> 两种方式。<strong><em> 在 js 中只有 值传递 一种方式 。</em></strong> </p>
+</blockquote>
+<p>首先，js 中普通数据类型在内存中都有独立的空间。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = <span class="number">1</span></div><div class="line"><span class="keyword">var</span> b = a</div></pre></td></tr></table></figure>
+<p>此处是先开辟一个空间用于存储 a，值为 1，然后 b 将使用另一块空间用来存储 a 的值 1。实际上 a 和 b<br>只是值相同，对 b 的任何操作，a 不会受到影响。  </p>
+<ul>
+<li>对象类型传值</li>
+</ul>
+<p>实际上对象类型传值是传递的引用。注意，这里说的传递引用不是引用传值。看下面的例子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> obj = &#123; <span class="attr">name</span>: <span class="string">'heheda'</span> &#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> _obj = obj</div><div class="line"><span class="comment">// 修改 _obj 的类型</span></div><div class="line">_obj = <span class="literal">null</span></div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(_obj, obj) <span class="comment">// null &#123; name: 'heheda' &#125;</span></div></pre></td></tr></table></figure>
+<p>另外一个例子：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> obj = &#123; <span class="attr">name</span>: <span class="string">'heheda'</span> &#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> _obj = obj</div><div class="line"><span class="comment">// 增加 _obj 的属性</span></div><div class="line">_obj.say = <span class="string">'fuckjs'</span></div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(_obj, obj) <span class="comment">// &#123; name: 'heheda', say: 'fuckjs' &#125; &#123; name: 'heheda', say: 'fuckjs' &#125;</span></div></pre></td></tr></table></figure></p>
+<p>上面的例子中，将 _obj 的值修改为 null，obj 并没有随之变化，这是因为 obj 和 _obj 引用的值是同一个，<br>指向同一个对象地址。当对这个对象进行属性变化时，两个还是共享关系，但是如果想改变其中一个的(类型)引用，<br>也就是 _obj = null，那么 _obj 将指向一个新的空对象 null。此时 _obj 与 obj 再无任何关系。所以，<br>在 js 中，使用的是 <strong>值传递</strong> ，在传递对象类型的时候，使用的是 <strong>传递引用</strong> 。</p>
+<p>【注】js 中基本类型<strong>传值</strong>，对象类型<strong>传址</strong>。</p>
+<h3 id="this-对象"><a href="#this-对象" class="headerlink" title="this 对象"></a>this 对象</h3><p>首先明确几个概念:</p>
+<ul>
+<li>this 并非是静态绑定到函数上的</li>
+<li>根据调用的</li>
+</ul>
+<h2 id="gc-垃圾回收机制"><a href="#gc-垃圾回收机制" class="headerlink" title="gc 垃圾回收机制"></a>gc 垃圾回收机制</h2><ul>
+<li><a href="https://github.com/bretcope/node-gc-profiler" target="_blank" rel="external">gc-profiler</a></li>
+</ul>
+</div><div class="article-meta" style="max-width:600px"></div><div class="article-comment" style="max-width:600px"><div class="ds-thread" id="ds-thread" data-thread-key="cj70hsp9300009comob7bt69j" data-title="Node.js 基础杂记" data-url="http://127.0.0.1:4000/js/" site-name="ueibo"></div><script>var siteName = document.getElementById('ds-thread').getAttribute('site-name');
+var duoshuoQuery = {short_name: siteName};
+(function() {
+  var ds = document.createElement('script');
+  ds.type = 'text/javascript';ds.async = true;
+  ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+  ds.charset = 'UTF-8';
+  (document.getElementsByTagName('head')[0] 
+  || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();</script></div><ul class="navication"><li class="home"><a href="/"><i class="icon icon-home"></i></a></li><li><a href="/open_source_js_cli/"><i class="icon icon-arror-left"></i></a></li><li><a href="/kong/"><i class="icon icon-arror-right"></i></a></li></ul><div class="page-footer"><div class="top"><ul class="social"><li><a href="http://github.com/zhaoxingyue" title="GitHub" target="_blank"><i class="icon icon-github"></i></a></li></ul></div><div class="bottom"><p class="copyright">© 2017 赵兴越的博客<br><small>POWER BY <a href="https://hexo.io" target="_blank">HEXO</a></small><small>, THEME BY <a href="https://github.com/BoizZ/hexo-theme-laughing" target="_blank">LAUGHING</a></small></p></div></div></body></html>

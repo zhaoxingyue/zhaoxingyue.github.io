@@ -1,0 +1,90 @@
+<!DOCTYPE html><html lang="zh-cn"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"><meta name="format-detection" content="telephone=no"><meta name="format-detection" content="email=no"><meta name="description" content="赵兴越的博客"><meta name="keywords" content="Hexo, Gruntjs, Nodejs, Reactjs, Vuejs"><title>使用 Node.js 编写开源的命令行工具 - 赵兴越的博客</title><link rel="stylesheet" href="/css/main_style.min.css"><link rel="icon" href="https://avatars3.githubusercontent.com/u/15117664?v=3&amp;u=be65f65918502f9dc3f282b7cad9336ddf140cc0&amp;s=400"></head><body><div class="post-header"><img class="background" src="/default_images/post_background.jpg"><div class="post-title"><h1 class="title">使用 Node.js 编写开源的命令行工具</h1><ul class="meta"><li><i class="icon icon-author"></i>zxy</li><li><i class="icon icon-clock"></i>13 Minutes</li><li><i class="icon icon-calendar"></i>August 31, 2017</li></ul></div></div><div class="article-content" style="max-width:600px"><p>Node.js 目前大量应用于大前端和 web 端程序。但 Node.js 不止于能编写这些。今天我们就使用 Node.js 来编写一个开源的命令行工具。</p>
+<h2 id="github-新建项目"><a href="#github-新建项目" class="headerlink" title="github 新建项目"></a>github 新建项目</h2><ul>
+<li>在 <a href="https://github.com/" target="_blank" rel="external">github</a> 新建一个 repository</li>
+<li>在本地 clone 下刚刚建好的项目</li>
+</ul>
+<h2 id="编码开始"><a href="#编码开始" class="headerlink" title="编码开始"></a>编码开始</h2><h3 id="commander-模块"><a href="#commander-模块" class="headerlink" title="commander 模块"></a>commander 模块</h3><p>先看一下 <a href="https://github.com/tj/commander.js" target="_blank" rel="external">tj 大神写的模块</a></p>
+<ul>
+<li>Init</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ cd your/repo</div><div class="line">$ npm init</div><div class="line">$ mkdir lib</div><div class="line">$ cd lib</div></pre></td></tr></table></figure>
+<ul>
+<li>Install</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install commander --save</div></pre></td></tr></table></figure>
+<h3 id="创建测试文件"><a href="#创建测试文件" class="headerlink" title="创建测试文件"></a>创建测试文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ vi index.js</div></pre></td></tr></table></figure>
+<p>将下面的代码添加到 lib/index.js<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="meta">#! /usr/bin/env node</span></div><div class="line"><span class="meta">'use strict'</span></div><div class="line"></div><div class="line"><span class="keyword">const</span> commander = <span class="built_in">require</span>(<span class="string">'commander'</span>)</div><div class="line"></div><div class="line">commander</div><div class="line">  .version(<span class="string">'0.0.1'</span>)</div><div class="line">  .option(<span class="string">'-f, --file &lt;file&gt;'</span>, <span class="string">'create HTML file'</span>)</div><div class="line">  .option(<span class="string">'-b, --browser &lt;file&gt;'</span>, <span class="string">'open markdown in browser'</span>)</div><div class="line">  .on(<span class="string">'--help'</span>, () =&gt; &#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'  Examples:'</span>)</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">''</span>)</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'    $ easymd -b index.md'</span>)</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'    $ easymd -f index.md /your/html/path/ '</span>)</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">''</span>)</div><div class="line">  &#125;)</div><div class="line"></div><div class="line">commander.parse(process.argv)</div></pre></td></tr></table></figure></p>
+<ul>
+<li>run</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">$ node index.js --help</div><div class="line"></div><div class="line">// 输出</div><div class="line">Usage: index [options]</div><div class="line"></div><div class="line">Options:</div><div class="line"></div><div class="line">  -h, --help            output usage information</div><div class="line">  -V, --version         output the version number</div><div class="line">  -f, --file &lt;file&gt;     create HTML file</div><div class="line">  -b, --browser &lt;file&gt;  open markdown in browser</div><div class="line"></div><div class="line">Examples:</div><div class="line"></div><div class="line">  $ easymd -b index.md</div><div class="line">  $ easymd -f index.md /your/html/path/</div></pre></td></tr></table></figure>
+<ul>
+<li>npm link</li>
+</ul>
+<p>将下面的 json 复制到 package.json 中，以建立一个可用的终端命令。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">"bin" : &#123;</div><div class="line">  "easymd": "lib/index.js"</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>现在在终端中就会产生一个可用的 easymd 命令。该命令链接到 lib/index.js。<strong>注：</strong> 注意文件头部<br>的 #! /usr/bin/env node</p>
+<ul>
+<li>test</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ easymd --help</div></pre></td></tr></table></figure>
+<h3 id="添加处理终端参数的函数"><a href="#添加处理终端参数的函数" class="headerlink" title="添加处理终端参数的函数"></a>添加处理终端参数的函数</h3><p>commander.option 可以接受一个函数来处理终端中输入的参数，看下面代码:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> commander = <span class="built_in">require</span>(<span class="string">'commander'</span>)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun</span> (<span class="params">size</span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(size)</div><div class="line">&#125;</div><div class="line"></div><div class="line">commander</div><div class="line">  .version(<span class="string">'0.0.1'</span>)</div><div class="line">  .option(<span class="string">'-s --size &lt;size&gt;'</span>, <span class="string">'heheda'</span>, fun) <span class="comment">// -s --size 都可作为终端选项</span></div><div class="line">  .parse(process.argv)</div></pre></td></tr></table></figure>
+<ul>
+<li>test</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ node index.js -s aaa</div><div class="line">$ node index.js --size aaa</div><div class="line"></div><div class="line">// console</div><div class="line">aaa</div></pre></td></tr></table></figure>
+<h2 id="项目附加功能"><a href="#项目附加功能" class="headerlink" title="项目附加功能"></a>项目附加功能</h2><p>看下面 github 中的徽章</p>
+<p><img src="../pic/badge.png"></p>
+<p>这些徽章分别是:</p>
+<h3 id="travis-ci（项目持续集成）"><a href="#travis-ci（项目持续集成）" class="headerlink" title="travis-ci（项目持续集成）"></a><a href="https://travis-ci.org/" target="_blank" rel="external">travis-ci</a>（项目持续集成）</h3><p>travis-ci 用于项目持续集成</p>
+<h4 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h4><ul>
+<li>注册并关联到 github 项目</li>
+<li>在项目根目录添加 .travis.yml 文件</li>
+</ul>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="attr">language:</span> <span class="string">node_js</span></div><div class="line"><span class="attr">node_js:</span></div><div class="line"><span class="bullet">  -</span> <span class="string">"4"</span></div><div class="line"><span class="attr">before_script:</span></div><div class="line"><span class="bullet">  -</span> <span class="string">npm</span> <span class="string">link</span></div><div class="line"><span class="attr">after_success:</span> <span class="string">npm</span> <span class="string">run</span> <span class="string">coverage</span></div></pre></td></tr></table></figure>
+<p>以上是示例配置，具体可参考<a href="https://docs.travis-ci.com/user/getting-started" target="_blank" rel="external">官方文档</a></p>
+<ul>
+<li>在 travis 该项目中复制链接(点击徽章，会弹出链接)</li>
+</ul>
+<p><img src="../pic/travis.png"></p>
+<h3 id="coveralls（-代码覆盖率）"><a href="#coveralls（-代码覆盖率）" class="headerlink" title="coveralls（ 代码覆盖率）"></a><a href="https://coveralls.io/" target="_blank" rel="external">coveralls</a>（ 代码覆盖率）</h3><p>coveralls 需要代码覆盖率测试工具生成的代码覆盖率信息</p>
+<h4 id="配置-1"><a href="#配置-1" class="headerlink" title="配置"></a>配置</h4><p>拿 ava 为例，在 easymd 项目中使用的是 ava 测试框架。覆盖率检验工具是 nyc。</p>
+<ul>
+<li>注册并关联到 github 项目</li>
+<li>关联到项目之后 会在该项目的 setting 中获取到 repo_token</li>
+<li><p>在项目根目录创建 .coveralls.yml 文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">service_name: travis-pro</div><div class="line">repo_token: your repo_token</div></pre></td></tr></table></figure>
+</li>
+<li><p>安装 coveralls </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install coveralls --save-dev</div></pre></td></tr></table></figure>
+</li>
+<li><p>在 package.json 中配置 test 运行脚本</p>
+</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">"scripts": &#123;</div><div class="line">  "test": "./node_modules/ava/cli.js test",</div><div class="line">  "coverage": "./node_modules/nyc/bin/nyc.js report --reporter=text-lcov ./node_modules/ava/cli.js test/ | ./node_modules/coveralls/bin/coveralls.js"</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这样每次代码提交都会运行该测试。得出覆盖率的徽章。</p>
+<h3 id="gitter"><a href="#gitter" class="headerlink" title="gitter"></a><a href="https://gitter.im/" target="_blank" rel="external">gitter</a></h3><p>一群基佬的在线聊天系统</p>
+<h4 id="配置-2"><a href="#配置-2" class="headerlink" title="配置"></a>配置</h4><ul>
+<li>注册并创建一个聊天室，关联到 github 项目</li>
+<li>这个链接在哪找不到了 妈的 两天前还配置了呢</li>
+</ul>
+<h3 id="dependencyci"><a href="#dependencyci" class="headerlink" title="dependencyci"></a><a href="https://dependencyci.com/" target="_blank" rel="external">dependencyci</a></h3><p>依赖是否可以成功安装</p>
+<h4 id="配置-3"><a href="#配置-3" class="headerlink" title="配置"></a>配置</h4><ul>
+<li>注册并关联 github 项目</li>
+<li>这个徽章够明显关联完就能看到</li>
+</ul>
+<h3 id="code-style"><a href="#code-style" class="headerlink" title="code style"></a><a href="https://standardjs.com/#is-there-a-readme-badge" target="_blank" rel="external">code style</a></h3><p>直接看链接就看的懂的</p>
+<h2 id="发布项目"><a href="#发布项目" class="headerlink" title="发布项目"></a>发布项目</h2><ul>
+<li>npm publish .</li>
+</ul>
+<h1 id="GG"><a href="#GG" class="headerlink" title="GG"></a>GG</h1></div><div class="article-meta" style="max-width:600px"></div><div class="article-comment" style="max-width:600px"><div class="ds-thread" id="ds-thread" data-thread-key="cj70hsp9900029comxi5xbjoj" data-title="使用 Node.js 编写开源的命令行工具" data-url="http://127.0.0.1:4000/open_source_js_cli/" site-name="ueibo"></div><script>var siteName = document.getElementById('ds-thread').getAttribute('site-name');
+var duoshuoQuery = {short_name: siteName};
+(function() {
+  var ds = document.createElement('script');
+  ds.type = 'text/javascript';ds.async = true;
+  ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+  ds.charset = 'UTF-8';
+  (document.getElementsByTagName('head')[0] 
+  || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();</script></div><ul class="navication"><li class="home"><a href="/"><i class="icon icon-home"></i></a></li><li><a href="/js/"><i class="icon icon-arror-right"></i></a></li></ul><div class="page-footer"><div class="top"><ul class="social"><li><a href="http://github.com/zhaoxingyue" title="GitHub" target="_blank"><i class="icon icon-github"></i></a></li></ul></div><div class="bottom"><p class="copyright">© 2017 赵兴越的博客<br><small>POWER BY <a href="https://hexo.io" target="_blank">HEXO</a></small><small>, THEME BY <a href="https://github.com/BoizZ/hexo-theme-laughing" target="_blank">LAUGHING</a></small></p></div></div></body></html>

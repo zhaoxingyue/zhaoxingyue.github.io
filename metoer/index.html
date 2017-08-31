@@ -1,0 +1,58 @@
+<!DOCTYPE html><html lang="zh-cn"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"><meta name="format-detection" content="telephone=no"><meta name="format-detection" content="email=no"><meta name="description" content="赵兴越的博客"><meta name="keywords" content="Hexo, Gruntjs, Nodejs, Reactjs, Vuejs"><title>基于Node.js的meteor框架 - 赵兴越的博客</title><link rel="stylesheet" href="/css/main_style.min.css"><link rel="icon" href="https://avatars3.githubusercontent.com/u/15117664?v=3&amp;u=be65f65918502f9dc3f282b7cad9336ddf140cc0&amp;s=400"></head><body><div class="post-header"><img class="background" src="/default_images/post_background.jpg"><div class="post-title"><h1 class="title">基于Node.js的meteor框架</h1><ul class="meta"><li><i class="icon icon-author"></i>zxy</li><li><i class="icon icon-clock"></i>3 Minutes</li><li><i class="icon icon-calendar"></i>August 31, 2017</li></ul></div></div><div class="article-content" style="max-width:600px"><blockquote>
+<p>metoer 框架是基于 Node.js 的适用于全栈的框架。该框架可以代码可以前后端通用，也可以构建 APP，但依赖包需要使用 meteor 进行安装，在开发中兼容 npm 第三方包会需要一些简单的操作，详见<a href="http://blog.csdn.net/a6383277/article/details/17131045" target="_blank" rel="external">Meteor 完整的npm集成</a>。目前找到的比较完善的<a href="http://zh.discovermeteor.com/chapters/getting-started/" target="_blank" rel="external">Meteor中文文档</a>。<a href="https://www.meteor.com/" target="_blank" rel="external">官网地址</a>。</p>
+</blockquote>
+<h2 id="安装并运行-Meteor"><a href="#安装并运行-Meteor" class="headerlink" title="安装并运行 Meteor"></a>安装并运行 Meteor</h2><ul>
+<li>macos &amp; linux<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ curl https://install.meteor.com | sh</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>安装完成后会得到一个 meteor 命令行工具</p>
+</blockquote>
+<ul>
+<li>生成一个简单的项目骨架<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ meteor create meteor_demo</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>类似于 express-generator。执行 <code>meteor create meteor_demo</code> 命令之后会生成一个简单的能够<br>运行的项目demo。</p>
+</blockquote>
+<ul>
+<li>生成后的项目目录结构<ul>
+<li>/server 文件夹中的代码只会在服务器端运行。  </li>
+<li>/client 文件夹中的代码只会在客户端运行。  </li>
+<li>/.meteor 文件夹中的文件是meteor来维护的，我们不必过多关注。</li>
+</ul>
+</li>
+</ul>
+<p><img src="../pic/meteor生成项目目录结构.png"></p>
+<blockquote>
+<p>实际上还生成了一个 package.json 文件，安装代码运行所需的 babel-runtime 和内置模块<br>meteor-node-stubs</p>
+</blockquote>
+<ul>
+<li>运行项目<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ cd meteor_demo</div><div class="line">$ npm install</div><div class="line">$ meteor</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>浏览器访问 <a href="http://localhost:3000/" target="_blank" rel="external">http://localhost:3000/</a></p>
+</blockquote>
+<p><img src="https://s3.amazonaws.com/discovermeteor/screenshots/2-1.png"></p>
+<h2 id="添加安装包"><a href="#添加安装包" class="headerlink" title="添加安装包"></a>添加安装包</h2><blockquote>
+<p>与其他基于 Node.js 的框架不同， meteor 本身管理着该框架内所需的依赖包。因为该框架的代码需要<br>运行在服务端和客户端。</p>
+</blockquote>
+<ul>
+<li>添加 bootstrap 包和 underscore 包</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ meteor add twbs:bootstrap</div><div class="line">$ meteor add underscore</div></pre></td></tr></table></figure>
+<blockquote>
+<p>twbs:bootstrap 是由 twbs 作者维护，全名为 twbs:bootstrap, underscore 是官方包。</p>
+</blockquote>
+<h1 id="解决-meteor-add-ian-accounts-ui-bootstrap-3-运行问题"><a href="#解决-meteor-add-ian-accounts-ui-bootstrap-3-运行问题" class="headerlink" title="解决 meteor add ian:accounts-ui-bootstrap-3 运行问题"></a>解决 meteor add ian:accounts-ui-bootstrap-3 运行问题</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ meteor remove ian:accounts-ui-bootstrap-3</div><div class="line">$ meteor add stylus</div><div class="line">$ meteor add ian:accounts-ui-bootstrap-3</div></pre></td></tr></table></figure>
+</div><div class="article-meta" style="max-width:600px"></div><div class="article-comment" style="max-width:600px"><div class="ds-thread" id="ds-thread" data-thread-key="cj70hj42g000066omtgow6o4h" data-title="基于Node.js的meteor框架" data-url="http://127.0.0.1:4000/metoer/" site-name="ueibo"></div><script>var siteName = document.getElementById('ds-thread').getAttribute('site-name');
+var duoshuoQuery = {short_name: siteName};
+(function() {
+  var ds = document.createElement('script');
+  ds.type = 'text/javascript';ds.async = true;
+  ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+  ds.charset = 'UTF-8';
+  (document.getElementsByTagName('head')[0] 
+  || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();</script></div><ul class="navication"><li class="home"><a href="/"><i class="icon icon-home"></i></a></li><li><a href="/kong/"><i class="icon icon-arror-left"></i></a></li><li><a href="/tdd/"><i class="icon icon-arror-right"></i></a></li></ul><div class="page-footer"><div class="top"><ul class="social"><li><a href="http://github.com/zhaoxingyue" title="GitHub" target="_blank"><i class="icon icon-github"></i></a></li></ul></div><div class="bottom"><p class="copyright">© 2017 赵兴越的博客<br><small>POWER BY <a href="https://hexo.io" target="_blank">HEXO</a></small><small>, THEME BY <a href="https://github.com/BoizZ/hexo-theme-laughing" target="_blank">LAUGHING</a></small></p></div></div></body></html>
